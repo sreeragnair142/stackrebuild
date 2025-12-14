@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBA</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="app/dist/aos.css">
+    <link rel="stylesheet" href="app/dist/app.css">
+    <!-- end Styles -->
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/logofav - Copy.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.png">
+
+    <style>
+        /* Mobile menu dropdown icon styles */
+        .mobile-menu-dropdown {
+            position: relative;
+        }
+
+        .mobile-menu-dropdown .dropdown-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-dropdown.active .dropdown-icon {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        /* Mobile dropdown submenu styles */
+        .mobile-submenu {
+            display: none;
+            padding-left: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-submenu.active {
+            display: block;
+            max-height: 500px;
+            /* Adjust as needed */
+        }
+
+        .mobile-submenu li {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-submenu li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body class="home-main header-fixed">
+
+    <div class="wrapper page-details">
+
+        <div class="preloader">
+            <div class="clear-loading loading-effect-2">
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header id="header_main" class="header">
+            <div class="container big">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header__body">
+                            <div class="header__logo">
+                                <a href="index.html">
+                                    <img id="site-logo" src="assets/images/logo/logosb.png" alt="Peson" width="120"
+                                        height="45" data-retina="assets/images/logo/logo@2x.png" data-width="120"
+                                        data-height="38">
+                                </a>
+                            </div>
+
+
+                            <div class="header__right">
+                                <nav id="main-nav" class="main-nav">
+                                    <ul id="menu-primary-menu" class="menu">
+
+                                        <li class="">
+                                            <a href="index.html">Home</a>
+                                        </li>
+
+                                        <li class="menu-item">
+                                            <a href="about.html">About</a>
+                                        </li>
+
+
+                                        <li class="menu-item menu-item-has-children">
+                                            <a href="#">Solutions</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="stack-bi.html">Stack BI</a></li>
+                                                <li class="menu-item"><a href="cloud_monitoring.html">Cloud Service
+                                                        Monitoring</a></li>
+                                                <li class="menu-item"><a href="visitor_management.html">Visitor
+                                                        Management</a></li>
+                                                <li class="menu-item"><a href="e_invoicing.html">E Invoicing</a></li>
+                                                <li class="menu-item"><a href="monitoring.html">Server Monitoring</a>
+                                                </li>
+                                                <li class="menu-item"><a href="business-process.html">Business Process
+                                                        Automation</a></li>
+                                                <li class="menu-item"><a href="devops.html">Devops Automation</a></li>
+                                                <li class="menu-item"><a href="erp.html">ERP Implimentation</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="">
+                                            <a href="vision-mission.html">Clients</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="contact.html">Contact</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-button"><span></span></div>
+                            </div>
+
+                            <div class="header__action">
+                                <a href="contact.html" class=""><span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end Header -->
+        <!-- Pagetitle -->
+        <section class="page-title">
+            <div class="page-title__overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title__container">
+                            <h1 class="page-title__heading">E Invoicing</h1>
+                            <nav class="page-title__breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb__item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb__item"><a href="solutions.html">Solutions</a></li>
+                                    <li class="breadcrumb__item breadcrumb__item--active">E Invoicing</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Pagetitle -->
+
+
+
+          <!-- Floating Contact Icons -->
+        <div class="floating-contact-icons">
+            <a href="https://wa.me/966543387680" target="_blank" class="contact-icon whatsapp-icon" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+966543387680" class="contact-icon phone-icon" title="Call Us">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+        <!-- BLog -->
+        <section class="bloglist">
+            <div class="container">
+                <div class="row">
+                    <div class="bloglist__main">
+                        <div class="list details">
+                            <h4 class="title" style="font-size: 38px;">ENINVOICE KSA: Robust and Reliable e-Invoicing
+                                for Saudi Arabia</h4>
+
+                            <div class="line"></div>
+
+                            <section class="branding-section">
+                                <!-- Style 3: Overlapping Content -->
+                                <div class="overlapping-content">
+                                    <div class="overlap-box">
+                                        <h3 style="font-size: 37px;">A Unified, Compliant, and Scalable Solution for
+                                            Your ZATCA e-Invoice Requirements</h3>
+                                        <div class="divider"></div>
+                                        <p>
+                                            ENINVOICE KSA by Taxilla is a powerful, centralized platform designed to
+                                            meet all your electronic invoicing needs in line with the regulations set by
+                                            ZATCA (formerly GAZT). From integration to validation, document management
+                                            to collaborative workflows—this solution simplifies e-invoicing for
+                                            businesses of every scale.
+                                        </p>
+                                        <p>
+                                            The STACK Business Intelligence (BI) Platform is a powerful, all-in-one
+                                            solution designed to integrate multiple applications, streamlining your
+                                            business processes and enabling smart decision-making.
+                                        </p>
+                                        <p>
+                                            By consolidating your data and systems into a single platform, STACK offers
+                                            intelligent notifications and real-time insights that transform how your
+                                            business operates.
+                                        </p>
+                                    </div>
+                                    <img src="assets/images/layouts/einvoicing2.png" alt="Data Center"
+                                        class="overlap-image">
+                                </div>
+                            </section>
+
+
+
+
+
+                            <section class="roadmap">
+                                <img src="assets/images/background/line.png" alt="" class="img-line">
+                                <div class="shape"></div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="block-text center">
+                                                <h6 class="sub-heading"><span>E INVOICING SOLUTION</span></h6>
+                                                <br>
+                                                <h3 class="heading wow" data-splitting>Features of <br>ZATCA E
+                                                    Invoicicing Phase II Implementation</h3>
+                                            </div>
+
+                                            <div class="roadmap__main" data-aos="fade-up" data-aos-duration="2000">
+
+                                                <div class="roadmap-box">
+                                                    <div class="content">
+                                                        <h5 class="title">Built for Compliance with ZATCA/GAZT Mandates
+                                                        </h5>
+
+                                                        <ul class="feature-bullets">
+                                                            <li> Fully tamper-proof, with automatic tamper detection
+                                                                mechanisms.</li>
+                                                            <li> Enables generation, storage, and archiving of invoices,
+                                                                credit notes, and debit notes in electronic formats.
+                                                            </li>
+                                                            <li>Sequential invoicing with complete entry logs for audit
+                                                                readiness</li>
+                                                            <li> Uses UUIDs, cryptographic stamps, and invoice hash
+                                                                printing to ensure authenticity and traceability.</li>
+                                                            <li> Conforms to all prohibited function requirements as
+                                                                outlined by ZATCA.</li>
+                                                        </ul>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="roadmap-box right">
+                                                    <div class="content">
+                                                        <h5 class="title"> Unified e-Invoicing Platform</h5>
+                                                        <p class="text">ENINVOICE KSA offers an end-to-end automation
+                                                            ecosystem, integrating:</p>
+                                                        <ul class="feature-bullets">
+                                                            <li> Integration Management </li>
+                                                            <li> Data Transformation Management</li>
+                                                            <li> Reconciliation and Validation Management</li>
+                                                            <li> Computation Rules Engine</li>
+                                                            <li> Dynamic UI for Collaborative Data Qualification</li>
+                                                            <li> Optional Reporting Format Management</li>
+                                                            <li> Advanced Dashboard with Search and Analytics</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="roadmap-box">
+                                                    <div class="content">
+                                                        <h5 class="title">Automated Outcomes with Maximum Efficiency
+                                                        </h5>
+
+                                                        <ul class="feature-bullets">
+                                                            <li> Generate eInvoice-KSA XML or PDF/A3 formats embedded
+                                                                with XML, QR code, and VAT registration number.</li>
+                                                            <li> Seamless data transfer to enReport-KSA-VAT for
+                                                                automated VAT reporting.</li>
+                                                            <li> Built-in sales ledger feeds into your ERP or financial
+                                                                systems.</li>
+                                                            <li> Supports custom print formats and secure e-delivery of
+                                                                documents.
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="roadmap-box right">
+                                                    <div class="content">
+                                                        <h5 class="title">Collaborative Accounts Receivable Processing
+                                                        </h5>
+
+                                                        <ul class="feature-bullets">
+                                                            <li> Create a B2B partner network to share, approve, reject,
+                                                                or comment on documents.
+                                                            </li>
+                                                            <li> Deliver e-documents directly to your partner network.
+                                                            </li>
+                                                            <li> Automated reconciliation of invoice data for financial
+                                                                accuracy.</li>
+                                                            <li> Supports inter- and intra-company collaboration using
+                                                                configurable document workflows.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="icon"></div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+
+
+                            <div class="container">
+                                <header>
+                                    <div class="logo">Taxilla's ENINVOICE KSA</div>
+                                    <h1>KSA e-Invoicing Rollout Timeline</h1>
+                                    <p class="subtitle">FATOORAH Initiative Implementation Schedule</p>
+                                </header>
+
+                                <div class="info-box">
+                                    <p style=" font-size: 16px; margin-bottom: 20px;">Taxilla's ENINVOICE KSA is fully
+                                        compliant with all phases of the FATOORAH initiative.</p>
+                                    <div class="highlight">
+                                        <p style=" font-size: 14px;">All taxpayers with annual revenue exceeding 30
+                                            million SAR must be fully integrated by their respective wave deadlines.</p>
+                                    </div>
+                                </div> <br><br><br>
+
+                                <div class="timeline">
+                                    <div class="wave-container" style="animation-delay: 0.1s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 9-1</h3>
+                                                <p class="deadline">Deadline: 31-Dec-2024</p>
+                                                <span class="status">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 0.2s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 10</h3>
+                                                <p class="deadline">Deadline: 31-Dec-2024</p>
+                                                <span class="status">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 0.3s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 11</h3>
+                                                <p class="deadline">Deadline: 31-Jan-2025</p>
+                                                <span class="status">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 0.4s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 12</h3>
+                                                <p class="deadline">Deadline: 28-Feb-2025</p>
+                                                <span class="status">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 0.5s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 13</h3>
+                                                <p class="deadline">Deadline: 31-Mar-2025</p>
+                                                <span class="status">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 0.6s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 14</h3>
+                                                <p class="deadline">Deadline: 30-Apr-2025</p>
+                                                <span class="status">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 0.7s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 15</h3>
+                                                <p class="deadline">Deadline: 31-May-2025</p>
+                                                <span class="status">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 0.8s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 16</h3>
+                                                <p class="deadline">Deadline: 30-Jun-2025</p>
+                                                <span class="status ">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 0.9s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 17</h3>
+                                                <p class="deadline">Deadline: 31-Jul-2025</p>
+                                                <span class="status ">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 1s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 18</h3>
+                                                <p class="deadline">Deadline: 31-Aug-2025</p>
+                                                <span class="status ">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 1.1s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 19</h3>
+                                                <p class="deadline">Deadline: 30-Sep-2025</p>
+                                                <span class="status ">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 1.2s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 20</h3>
+                                                <p class="deadline">Deadline: 31-Oct-2025</p>
+                                                <span class="status ">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 1.3s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 21</h3>
+                                                <p class="deadline">Deadline: 30-Nov-2025</p>
+                                                <span class="status ">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="wave-container" style="animation-delay: 1.4s;">
+                                        <div class="circle"></div>
+                                        <div class="wave-card">
+                                            <div class="wave-content">
+                                                <h3 class="wave-number">Wave 22</h3>
+                                                <p class="deadline">Deadline: 31-Dec-2025</p>
+                                                <span class="status ">Passed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="container">
+                                    <section class="hero-section">
+                                        <h1>How Taxilla Works for KSA e-Invoicing</h1>
+                                        <p>A comprehensive solution to streamline your ZATCA compliance with advanced
+                                            integration, secure transmission, and cutting-edge technology</p>
+                                    </section>
+
+                                    <div class="features-container">
+                                        <div class="feature-card">
+                                            <div class="feature-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    fill="#ffffff" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.87 0 6 1.5 6 2s-2.13 2-6 2-6-1.5-6-2 2.13-2 6-2z" />
+                                                </svg>
+                                            </div>
+                                            <h2>Comprehensive Data Integration & Validation</h2>
+                                            <ul class="feature-list">
+                                                <li>Supports both single-source and multi-source data input</li>
+                                                <li>Aggregates and segregates departmental data</li>
+                                                <li>Validates eInvoice data and converts purchase orders to invoices
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="feature-card">
+                                            <div class="feature-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    fill="#ffffff" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 16H7v-2h10v2z" />
+                                                </svg>
+                                            </div>
+                                            <h2>Secure Invoice Transmission</h2>
+                                            <ul class="feature-list">
+                                                <li>Easy onboarding of EGS units</li>
+                                                <li>Real-time submission of standard tax invoices</li>
+                                                <li>Scheduled submission for simplified tax invoices</li>
+                                                <li>Instant updates to source systems based on ZATCA responses</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="feature-card">
+                                            <div class="feature-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    fill="#ffffff" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M19.8 10.7L4.2 5l-.7 1.9L17.6 12H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6c0-.8-.5-1.5-1.2-1.3z" />
+                                                </svg>
+                                            </div>
+                                            <h2>Advanced Technology Capabilities</h2>
+                                            <ul class="feature-list">
+                                                <li>QR code and cryptographic hash generation</li>
+                                                <li>UUID and sequential invoice numbering</li>
+                                                <li>Long-term invoice archiving and retrieval support</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <section class="roadmap">
+                                    <img src="assets/images/background/line.png" alt="" class="img-line">
+                                    <div class="shape"></div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="block-text center">
+                                                    <h6 class="sub-heading"><span>E Invoicing: </span></h6>
+                                                    <br>
+                                                    <h3 class="heading wow" data-splitting>Key Advantages of
+                                                        <br>ENINVOICE KSA
+                                                    </h3>
+                                                </div>
+
+                                                <div class="roadmap__main" data-aos="fade-up" data-aos-duration="2000">
+
+                                                    <div class="roadmap-box">
+                                                        <div class="content">
+                                                            <h5 class="title">Seamless Integrations
+                                                            </h5>
+
+                                                            <ul class="feature-bullets">
+                                                                <li> Ready ERP connectors and REST APIs</li>
+                                                                <li> Supports S-FTP, file upload, and source-specific
+                                                                    templates
+                                                                </li>
+
+                                                            </ul>
+
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="roadmap-box right">
+                                                        <div class="content">
+                                                            <h5 class="title"> Configurable Processing</h5>
+
+                                                            <ul class="feature-bullets">
+                                                                <li> Upload and manage data by location or business unit
+                                                                </li>
+                                                                <li> Flexibility to consolidate or segregate processing
+                                                                    levels</li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="roadmap-box">
+                                                        <div class="content">
+                                                            <h5 class="title">Precision Documents
+                                                            </h5>
+
+                                                            <ul class="feature-bullets">
+                                                                <li> Built-in tax ID, HSN, and chapter code validations
+                                                                </li>
+                                                                <li> Automated tax determination processes.</li>
+
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="roadmap-box right">
+                                                        <div class="content">
+                                                            <h5 class="title">Empowering Your Tax & Compliance Teams
+                                                            </h5>
+
+                                                            <ul class="feature-bullets">
+                                                                <li> End-to-end compliance with full audit trail and
+                                                                    document versioning
+                                                                </li>
+                                                                <li> Automatic VAT data transfer and report generation
+                                                                </li>
+                                                                <li> Validated and compliant invoice documentation
+                                                                    across systems and entities</li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="roadmap-box">
+                                                        <div class="content">
+                                                            <h5 class="title">Built for Performance and Scale
+                                                            </h5>
+
+                                                            <ul class="feature-bullets">
+                                                                <li> Designed for high data volumes and large
+                                                                    enterprises</li>
+                                                                <li> Fast response architecture for real-time invoicing
+                                                                    demands.</li>
+                                                                <li> Scalable, cloud-native with automated disaster
+                                                                    recovery features</li>
+
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                    <div class="roadmap-box right">
+                                                        <div class="content">
+                                                            <h5 class="title">Global-Standard Security and Compliance
+                                                            </h5>
+
+                                                            <ul class="feature-bullets">
+                                                                <li> ISO 9001 / ISO 27001 certified for quality and data
+                                                                    security
+                                                                </li>
+                                                                <li> SOC-2 compliant with enterprise-grade SaaS controls
+                                                                </li>
+                                                                <li> Regularly tested by third-party VASP and VAPT
+                                                                    audits</li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                    <div class="icon"></div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+
+
+
+                                <section class="taxilla-main-hero">
+                                    <div class="taxilla-hero-wrapper">
+                                        <div class="taxilla-hero-grid">
+                                            <div class="taxilla-hero-text">
+                                                <h1>Why Choose Taxilla for e-Invoicing in KSA?</h1>
+                                                <p>Taxilla is more than a software provider—we are a certified and
+                                                    trusted
+                                                    <strong>partner</strong> in your digital transformation journey. Our
+                                                    solutions are built to integrate effortlessly with all major ERPs
+                                                    and
+                                                    business systems, offering a future-ready platform for electronic
+                                                    invoicing in Saudi Arabia.
+                                                </p>
+                                                <a href="contact.html" class="taxilla-primary-btn">Get Started</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+
+
+                                <section class="enterprise-section">
+                                    <div>
+                                        <p class="enterprise-text">
+                                            For businesses ready to go beyond the basics.<br />
+                                            <strong>business@sbarabia.com /054 338 7680</strong>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <a href="contact.html" class="enterprise-button">Get Connected with Us!&nbsp;
+                                            ›</a>
+                                    </div>
+                                </section>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- end BLog -->
+
+
+        <footer class="footer">
+            <div class="shape"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- Company Info Column -->
+                    <div class="footer-column">
+
+                        <h6 class="powered-text" style="display: flex; align-items: center; gap: 5px;">
+                            Powered by
+                            <img src="assets/images/logo/stackfooternew.png" alt="STACK Logo" style="height: 50px;">
+                        </h6> <br>
+
+                        <p style="font-size: 15px;">SBA Business Analytics provides cutting-edge cloud services,
+                            monitoring solutions,
+                            and business intelligence tools to help your business thrive in today's digital
+                            landscape.</p> <br>
+                        <div class="contact-info">
+                            <p style="font-size: 15px;"><i class="fa-solid fa-location-dot"></i> #2, Al Yassmen
+                                Building, Zaid Ibn Thabit Street, Riyadh, Saudi Arabia
+                            </p>
+                            <p style="font-size: 15px;"><i class="fa-solid fa-phone"></i> 054 338 7680</p>
+                            <p style="font-size: 15px;"><i class="fa-solid fa-envelope"></i> business@sbarabia.com</p>
+                        </div>
+                    </div>
+
+                    <!-- Services Column -->
+                    <div class="footer-column">
+                        <h4>Our Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="stack-bi.html">Stack BI</a></li>
+                            <li><a href="cloud_monitoring.html">Cloud Service Monitoring</a></li>
+                            <li><a href="visitor_management.html">Visitor Management</a></li>
+                            <li><a href="e_invoicing.html">E Invoicing</a></li>
+                            <li><a href="monitoring.html">Server Monitoring</a></li>
+                            <li><a href="business-process.html">Business Process Automation</a></li>
+                            <li><a href="devops.html">Devops Automation</a></li>
+                            <li><a href="erp.html">ERP Implimentation</a></li>
+
+
+
+                        </ul>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="about.html">Solutions</a></li>
+                            <li><a href="#">Client</a></li>
+                            <!-- <li><a href="career.html">Careers</a></li> -->
+                            <li><a href="contact.html">Contact </a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter Column -->
+                    <div class="footer-column">
+                        <h4>Newsletter</h4>
+                        <p>Subscribe to our newsletter to receive latest updates, industry insights, and exclusive
+                            offers.</p>
+
+                        <form action="#" class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                            </div>
+                            <button type="submit" class="action-btn">
+                                <span>Subscribe</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Footer Bottom Section -->
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        Copyright © 2025, Bloombiz Creatives | SBA Business Analytics. All rights reserved.
+                    </div>
+
+                    <ul class="footer-quick-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="security.html">Security</a></li>
+                    </ul>
+
+                    <ul class="social-icons">
+                        <li>
+                            <a href="https://x.com/home" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" fill="white" width="20"
+                                    height="20">
+                                    <path
+                                        d="M714.963 545.162L1177.28 0H1070.98L672.133 484.184L350.866 0H0L490.089 714.848L0 1227H106.295L535.063 706.747L875.072 1227H1200L714.963 545.162ZM583.349 633.397L544.436 577.205L140.977 89.3447H305.738L615.445 546.991L654.358 603.183L1069.15 1136.41H905.388L583.349 633.397Z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/sb_arabia">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="white">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="https://www.linkedin.com/in/sb-arabia-661547367/" target="_blank"
+                                rel="noopener noreferrer">
+                                <!-- LinkedIn SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="20" height="20"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8.5H5V24H.02V8.5zM7.98 8.5H13v2.58h.09c.73-1.38 2.52-2.84 5.19-2.84 5.55 0 6.57 3.65 6.57 8.39V24H19v-7.61c0-1.82-.03-4.16-2.54-4.16-2.55 0-2.94 1.99-2.94 4.04V24H7.98V8.5z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+    </footer>
+
+
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+        <span class="arrow-up"></span>
+    </button>
+
+
+
+    <style>
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 21px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Icon styles */
+        .arrow-up {
+            width: 12px;
+            height: 12px;
+            border-top: 3px solid white;
+            border-left: 3px solid white;
+            transform: rotate(45deg);
+            margin-top: 5px;
+        }
+    </style>
+    </div>
+
+
+    <script>
+        // Get the button
+        const scrollButton = document.getElementById('scrollTopBtn');
+
+        // Show button when user scrolls down 300px from the top
+        window.addEventListener('scroll', function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        scrollButton.addEventListener('click', function () {
+            // For smooth scrolling:
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // Alternative method without smooth scrolling:
+            // document.body.scrollTop = 0; // For Safari
+            // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        });
+    </script>
+    </div>
+
+ <script>
+        $(document).ready(function () {
+            // Show or hide the scroll top button
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $('#scroll-top').addClass('show');
+                } else {
+                    $('#scroll-top').removeClass('show');
+                }
+            });
+
+            // Scroll to top when button is clicked
+            $('#scroll-top').click(function () {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
+            });
+        });
+    </script>
+
+
+
+
+    <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/jquery.easing.js"></script>
+    <script src="app/js/plugins.js"></script>
+    <script src="app/js/countto.js"></script>
+
+    <script src="app/js/app.js"></script>
+    <script src="app/js/count-down.js"></script>
+
+    <script src="app/js/aos.js"></script>
+
+
+    <script src="app/js/swiper-bundle.min.js"></script>
+    <script src="app/js/swiper.js"></script>
+
+    <!-- Initialize Swiper -->
+
+
+</body>
+
+</html>

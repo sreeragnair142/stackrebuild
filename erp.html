@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBA</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="app/dist/aos.css">
+    <link rel="stylesheet" href="app/dist/app.css">
+    <!-- end Styles -->
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/logofav - Copy.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.png">
+
+    <style>
+        .hero {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .connection-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .line {
+            position: absolute;
+            height: 2px;
+            background-color: rgba(0, 128, 0, 0.1);
+            transform-origin: left center;
+            width: 100%;
+        }
+
+        .line-1 {
+            top: 20%;
+            transform: rotate(var(--rotation));
+        }
+
+        .line-2 {
+            top: 50%;
+            transform: rotate(var(--rotation));
+        }
+
+        .line-3 {
+            top: 80%;
+            transform: rotate(var(--rotation));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #08063f;
+            font-weight: 300;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .tagline {
+            color: #008000;
+            font-weight: 300;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #333;
+            margin-bottom: 30px;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .puzzle-pieces {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .puzzle-piece {
+            background-color: rgba(0, 128, 0, 0.05);
+            padding: 20px;
+            border-left: 3px solid #05094d;
+            max-width: 600px;
+        }
+
+        .puzzle-piece h3 {
+            color: #2684f7;
+            font-weight: 300;
+            margin-top: 0;
+        }
+
+        .puzzle-piece p {
+            margin-bottom: 0;
+        }
+
+        strong {
+            font-weight: 400;
+        }
+
+        /* Mobile menu dropdown icon styles */
+        .mobile-menu-dropdown {
+            position: relative;
+        }
+
+        .mobile-menu-dropdown .dropdown-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-dropdown.active .dropdown-icon {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        /* Mobile dropdown submenu styles */
+        .mobile-submenu {
+            display: none;
+            padding-left: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-submenu.active {
+            display: block;
+            max-height: 500px;
+            /* Adjust as needed */
+        }
+
+        .mobile-submenu li {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-submenu li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body class="home-main header-fixed">
+
+    <div class="wrapper page-details">
+
+        <div class="preloader">
+            <div class="clear-loading loading-effect-2">
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header id="header_main" class="header">
+            <div class="container big">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header__body">
+                            <div class="header__logo">
+                                <a href="index.html">
+                                    <img id="site-logo" src="assets/images/logo/logosb.png" alt="Peson" width="120"
+                                        height="45" data-retina="assets/images/logo/logo@2x.png" data-width="120"
+                                        data-height="38">
+                                </a>
+                            </div>
+
+
+                            <div class="header__right">
+                                <nav id="main-nav" class="main-nav">
+                                    <ul id="menu-primary-menu" class="menu">
+
+                                        <li class="">
+                                            <a href="index.html">Home</a>
+                                        </li>
+
+                                        <li class="menu-item">
+                                            <a href="about.html">About</a>
+                                        </li>
+
+
+                                        <li class="menu-item menu-item-has-children">
+                                            <a href="#">Solutions</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="stack-bi.html">Stack BI</a></li>
+                                                <li class="menu-item"><a href="cloud_monitoring.html">Cloud Service
+                                                        Monitoring</a></li>
+                                                <li class="menu-item"><a href="visitor_management.html">Visitor
+                                                        Management</a></li>
+                                                <li class="menu-item"><a href="e_invoicing.html">E Invoicing</a></li>
+                                                <li class="menu-item"><a href="monitoring.html">Server Monitoring</a>
+                                                </li>
+                                                <li class="menu-item"><a href="business-process.html">Business Process
+                                                        Automation</a></li>
+                                                <li class="menu-item"><a href="devops.html">Devops Automation</a></li>
+                                                <li class="menu-item"><a href="erp.html">ERP Implimentation</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="">
+                                            <a href="vision-mission.html">Clients</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="contact.html">Contact</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-button"><span></span></div>
+                            </div>
+
+                            <div class="header__action">
+                                <a href="contact.html" class=""><span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end Header -->
+        <!-- Pagetitle -->
+        <section class="page-title">
+            <div class="page-title__overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title__container">
+                            <h1 class="page-title__heading">ERP</h1>
+                            <nav class="page-title__breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb__item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb__item"><a href="solutions.html">Solutions</a></li>
+                                    <li class="breadcrumb__item breadcrumb__item--active">ERP</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pagetitle -->
+
+          <!-- Floating Contact Icons -->
+        <div class="floating-contact-icons">
+            <a href="https://wa.me/966543387680" target="_blank" class="contact-icon whatsapp-icon" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+966543387680" class="contact-icon phone-icon" title="Call Us">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+        <!-- BLog -->
+        <section class="bloglist">
+            <div class="container">
+                <div class="row">
+                    <div class="bloglist__main">
+                        <div class="list details">
+                            <h4 class="title" style="font-size: 38px;">ERP – Complete Business Suite for Growing
+                                Enterprises.</h4>
+
+                            <div class="line"></div>
+
+                            <section class="branding-section">
+                                <!-- Style 3: Overlapping Content -->
+                                <div class="overlapping-content">
+                                    <div class="overlap-box">
+                                        <h3 style="font-size: 37px;">Transform the Way You Run Your Business.</h3>
+                                        <div class="divider"></div>
+                                        <p>
+                                            Our ERP system is a fully integrated, customizable, and open-source business
+                                            management software that empowers SMEs to manage every department from a
+                                            single platform. Whether you're in sales, finance, HR, operations, or
+                                            customer service — this solution brings simplicity, automation, and
+                                            intelligence to your business processes.
+                                        </p>
+                                        <p>
+                                            With over 40+ modules and thousands of third-party apps, this ERP platform
+                                            allows you to scale efficiently and reduce your reliance on disjointed tools
+                                            and spreadsheets.
+                                        </p>
+
+                                    </div>
+                                    <img src="assets/images/layouts/erp.png" alt="Data Center" class="overlap-image">
+                                </div>
+                            </section>
+
+
+
+                            <section class="roadmap">
+                                <img src="assets/images/background/line.png" alt="" class="img-line">
+                                <div class="shape"></div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="block-text center">
+                                                <h6 class="sub-heading"><span> ERP – Complete Business Suite for Growing
+                                                        Enterprises </span></h6>
+                                                <br>
+                                                <h3 class="heading wow" data-splitting>Key ERP Modules <br>We Implement
+                                                    & Customize</h3>
+                                            </div>
+
+                                            <div class="roadmap__main" data-aos="fade-up" data-aos-duration="2000">
+
+                                                <div class="roadmap-box">
+                                                    <div class="content">
+                                                        <h5 class="title">Sales Management</h5>
+                                                        <p class="text">Boost your sales team’s productivity and shorten
+                                                            your sales cycle with a streamlined quotation-to-invoice
+                                                            process.</p>
+                                                        <ul class="feature-bullets">
+                                                            <li> Create and manage quotations, orders, and invoices with
+                                                                a few clicks.</li>
+                                                            <li> Automate workflows and follow-ups using sales
+                                                                pipelines.</li>
+                                                            <li> Integration with Inventory, CRM, and Accounting for
+                                                                end-to-end visibility.</li>
+                                                            <li> Upsell and cross-sell suggestions built-in.</li>
+                                                            <li> Electronic signatures and quotation templates for
+                                                                faster closing.</li>
+                                                        </ul>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="roadmap-box right">
+                                                    <div class="content">
+                                                        <h5 class="title"> Purchase Management</h5>
+                                                        <p class="text">Manage your procurement process efficiently with
+                                                            automated purchase workflows and supplier management.</p>
+                                                        <ul class="feature-bullets">
+                                                            <li> Create RFQs, track supplier performance, and manage
+                                                                contracts.</li>
+                                                            <li> Automate reorder rules based on stock levels and
+                                                                forecasted demand.</li>
+                                                            <li> Supplier price lists, lead times, and purchase
+                                                                analytics.</li>
+                                                            <li> Three-way matching (PO, receipt, and invoice) to avoid
+                                                                discrepancies.</li>
+                                                            <li> Integration with Inventory and Accounting modules.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="roadmap-box">
+                                                    <div class="content">
+                                                        <h5 class="title">CRM (Customer Relationship Management)</h5>
+                                                        <p class="text">Convert leads into opportunities, and
+                                                            opportunities into loyal customers with an intelligent,
+                                                            intuitive CRM.</p>
+                                                        <ul class="feature-bullets">
+                                                            <li> Visual sales pipeline with drag-and-drop functionality.
+                                                            </li>
+                                                            <li> Lead scoring, assignment rules, and automated
+                                                                activities.</li>
+                                                            <li> Integrated email, VoIP, and live chat to stay
+                                                                connected.</li>
+                                                            <li> Track customer interactions and maintain a 360° view of
+                                                                every contact.</li>
+                                                            <li> Analytics dashboard for conversion rates and team
+                                                                performance.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="roadmap-box right">
+                                                    <div class="content">
+                                                        <h5 class="title">HR Management</h5>
+                                                        <p class="text">Manage your workforce efficiently from hiring to
+                                                            retirement with a unified HR system. </p>
+                                                        <ul class="feature-bullets">
+                                                            <li> Employee records, contract management, and digital
+                                                                document storage.</li>
+                                                            <li> Leave, attendance, and timesheet tracking.</li>
+                                                            <li> Payroll integration and automated salary computation.
+                                                            </li>
+                                                            <li> Recruitment module to manage job openings,
+                                                                applications, and interviews.</li>
+                                                            <li> Appraisal and performance tracking with feedback
+                                                                cycles.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="roadmap-box">
+                                                    <div class="content">
+                                                        <h5 class="title">Project Management</h5>
+                                                        <p class="text">Deliver projects on time and within budget with
+                                                            real-time collaboration tools. </p>
+                                                        <ul class="feature-bullets">
+                                                            <li> Kanban, Gantt, and calendar views to manage tasks and
+                                                                milestones.</li>
+                                                            <li> Timesheet integration for accurate project costing.
+                                                            </li>
+                                                            <li> Resource planning and allocation tools.</li>
+                                                            <li> Budget tracking, profitability analysis, and invoice
+                                                                generation</li>
+                                                            <li> Collaborate through customer portals and chat
+                                                                integrations.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="roadmap-box right">
+                                                    <div class="content">
+                                                        <h5 class="title">Accounting & Finance</h5>
+                                                        <p class="text">This robust accounting module helps you automate
+                                                            financial operations and ensure regulatory compliance. </p>
+                                                        <ul class="feature-bullets">
+                                                            <li> Chart of accounts, journals, bank reconciliation, and
+                                                                tax reporting.</li>
+                                                            <li> Multi-currency, multi-company, and multi-user support
+                                                            </li>
+                                                            <li> Real-time financial reports (P&L, balance sheet, aged
+                                                                receivables/payables).</li>
+                                                            <li> Integration with sales, purchases, payroll, and expense
+                                                                tracking.</li>
+                                                            <li> Automated invoice matching and payment reminders</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="roadmap-box">
+                                                    <div class="content">
+                                                        <h5 class="title">Budgeting & Cost Control</h5>
+                                                        <p class="text">Gain full visibility and control over your
+                                                            organization’s financial planning with integrated budgeting
+                                                            tools.</p>
+                                                        <ul class="feature-bullets">
+                                                            <li> Define budgets by department, project, or fiscal
+                                                                period.</li>
+                                                            <li> Compare actuals vs. budgeted costs in real-time.</li>
+                                                            <li> Create multiple budget scenarios and forecast financial
+                                                                performance.</li>
+                                                            <li> Cost center allocation and internal audit support.</li>
+                                                            <li> Cost center allocation and internal audit support.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="icon"></div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+
+                            <div class="container">
+                                <div class="hero">
+                                    <div class="connection-lines">
+                                        <div class="line line-1" style="--rotation: 30deg"></div>
+                                        <div class="line line-2" style="--rotation: -20deg"></div>
+                                        <div class="line line-3" style="--rotation: 15deg"></div>
+                                    </div>
+                                    <div class="hero-content">
+                                        <h1>Enterprise Resource Planning</h1>
+                                        <p class="tagline" style="text-align: left;">🧩 <strong>Modular. Scalable.
+                                                Seamlessly Integrated.</strong>
+                                        </p>
+                                        <p class="description">Each ERP module is fully integrated — meaning data flows
+                                            effortlessly across departments without manual intervention. Whether you
+                                            choose one module or ten, the system grows with your business needs.</p>
+
+                                        <div class="puzzle-pieces">
+                                            <div class="puzzle-piece">
+                                                <h3>Modular</h3>
+                                                <p>Choose only the modules your business needs right now</p>
+                                            </div>
+                                            <div class="puzzle-piece">
+                                                <h3>Scalable</h3>
+                                                <p>Expand your system as your business grows</p>
+                                            </div>
+                                            <div class="puzzle-piece">
+                                                <h3>Integrated</h3>
+                                                <p>Data flows seamlessly between all components</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="erp-main-container">
+                                <section class="erp-business-section">
+                                    <div class="erp-main-header">
+                                        <h2>Enterprise Resource Planning for SMEs</h2>
+                                        <p>Streamline operations, boost productivity, and drive growth with our powerful
+                                            and affordable ERP solution</p>
+                                    </div>
+
+                                    <div class="erp-main-content">
+                                        <div class="erp-benefits-grid">
+                                            <div class="erp-section-heading">
+                                                <i class="fas fa-bullseye"></i>
+                                                <h3>Why Choose Our ERP for Your SME?</h3>
+                                            </div>
+
+                                            <div class="erp-benefits-container">
+                                                <div class="erp-benefit-card">
+                                                    <div class="erp-icon-container">
+                                                        <i class="fas fa-th-large"></i>
+                                                    </div>
+                                                    <div class="erp-benefit-content">
+                                                        <h4>All-in-One System</h4>
+                                                        <p>Replace fragmented tools with a single, unified platform that
+                                                            integrates all your business processes.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="erp-benefit-card">
+                                                    <div class="erp-icon-container">
+                                                        <i class="fas fa-cogs"></i>
+                                                    </div>
+                                                    <div class="erp-benefit-content">
+                                                        <h4>Highly Customizable</h4>
+                                                        <p>Tailored workflows and fields for every department, adapting
+                                                            to your unique business needs.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="erp-benefit-card">
+                                                    <div class="erp-icon-container">
+                                                        <i class="fas fa-user-friends"></i>
+                                                    </div>
+                                                    <div class="erp-benefit-content">
+                                                        <h4>User-Friendly Interface</h4>
+                                                        <p>Modern, responsive UI that requires minimal training and
+                                                            promotes rapid adoption.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="erp-benefit-card">
+                                                    <div class="erp-icon-container">
+                                                        <i class="fas fa-dollar-sign"></i>
+                                                    </div>
+                                                    <div class="erp-benefit-content">
+                                                        <h4>Cost-Effective</h4>
+                                                        <p>Open-source and license-friendly options designed for SMEs
+                                                            operating on a budget.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="erp-benefit-card">
+                                                    <div class="erp-icon-container">
+                                                        <i class="fas fa-cloud"></i>
+                                                    </div>
+                                                    <div class="erp-benefit-content">
+                                                        <h4>Cloud or On-Premise</h4>
+                                                        <p>Flexible deployment options to suit your existing IT
+                                                            infrastructure and security requirements.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="erp-services-grid">
+                                            <div class="erp-section-heading">
+                                                <i class="fas fa-handshake"></i>
+                                                <h3>Our ERP Implementation Services</h3>
+                                            </div>
+
+                                            <div class="erp-services-container">
+                                                <div class="erp-service-card">
+                                                    <div class="erp-service-icon">
+                                                        <i class="fas fa-chart-line"></i>
+                                                    </div>
+                                                    <div class="erp-service-content">
+                                                        <h4>Business Process Analysis & ERP Consulting</h4>
+                                                        <p>We analyze your current workflows and recommend optimal ERP
+                                                            configurations tailored to your needs.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="erp-service-card">
+                                                    <div class="erp-service-icon">
+                                                        <i class="fas fa-code"></i>
+                                                    </div>
+                                                    <div class="erp-service-content">
+                                                        <h4>Custom Module Development & Integration</h4>
+                                                        <p>Extend the base system with custom modules and integrate with
+                                                            your existing business software.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="erp-service-card">
+                                                    <div class="erp-service-icon">
+                                                        <i class="fas fa-database"></i>
+                                                    </div>
+                                                    <div class="erp-service-content">
+                                                        <h4>Data Migration from Legacy Systems</h4>
+                                                        <p>Seamlessly transfer your crucial business data from existing
+                                                            systems to your new ERP platform.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="erp-service-card">
+                                                    <div class="erp-service-icon">
+                                                        <i class="fas fa-chalkboard-teacher"></i>
+                                                    </div>
+                                                    <div class="erp-service-content">
+                                                        <h4>User Training & Documentation</h4>
+                                                        <p>Comprehensive training and documentation to ensure your team
+                                                            can maximize ERP benefits.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="erp-service-card">
+                                                    <div class="erp-service-icon">
+                                                        <i class="fas fa-headset"></i>
+                                                    </div>
+                                                    <div class="erp-service-content">
+                                                        <h4>Ongoing Support & Maintenance</h4>
+                                                        <p>Dedicated support team ensuring your ERP system runs smoothly
+                                                            with timely updates and issue resolution.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="erp-service-card">
+                                                    <div class="erp-service-icon">
+                                                        <i class="fas fa-shield-alt"></i>
+                                                    </div>
+                                                    <div class="erp-service-content">
+                                                        <h4>Hosting, Security & Performance Monitoring</h4>
+                                                        <p>Robust hosting solutions with enterprise-grade security and
+                                                            continuous performance optimization.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="erp-cta-wrapper">
+                                        <h3>Ready to transform your business operations?</h3>
+                                        <p>Contact us today for a free consultation and discover how our ERP solution
+                                            can help your SME thrive.</p>
+                                        <a href="contact.html" class="erp-cta-btn">
+                                            <i class="fas fa-rocket"></i>
+                                            Get Started
+                                        </a>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <style>
+                                .erp-main-container {
+                                    max-width: 1200px;
+                                    margin: 0 auto;
+                                    padding: 20px;
+                                }
+
+                                .erp-business-section {
+                                    background: rgba(17, 5, 40, 0.605);
+                                    backdrop-filter: blur(10px);
+                                    border-radius: 20px;
+                                    /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); */
+                                    overflow: hidden;
+                                    animation: slideInUp 0.8s ease-out;
+                                }
+
+                                @keyframes slideInUp {
+                                    from {
+                                        opacity: 0;
+                                        transform: translateY(30px);
+                                    }
+
+                                    to {
+                                        opacity: 1;
+                                        transform: translateY(0);
+                                    }
+                                }
+
+                                .erp-main-header {
+                                    text-align: center;
+                                    padding: 60px 30px 40px;
+                                    background: linear-gradient(135deg, #06051c 0%, #1b063e 100%);
+                                    color: rgb(255, 255, 255);
+                                    position: relative;
+                                    overflow: hidden;
+                                }
+
+                                .erp-main-header::before {
+                                    content: '';
+                                    position: absolute;
+                                    top: -50%;
+                                    left: -50%;
+                                    width: 200%;
+                                    height: 200%;
+                                    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+                                    animation: rotate 20s linear infinite;
+                                }
+
+                                @keyframes rotate {
+                                    from {
+                                        transform: rotate(0deg);
+                                    }
+
+                                    to {
+                                        transform: rotate(360deg);
+                                    }
+                                }
+
+                                .erp-main-header h2 {
+                                    font-size: clamp(1.8rem, 4vw, 3rem);
+                                    /* font-weight: 700; */
+                                    margin-bottom: 15px;
+                                    position: relative;
+                                    z-index: 1;
+                                }
+
+                                .erp-main-header p {
+                                    font-size: clamp(1rem, 2.5vw, 1.2rem);
+                                    opacity: 0.9;
+                                    max-width: 600px;
+                                    margin: 0 auto;
+                                    position: relative;
+                                    z-index: 1;
+                                }
+
+                                .erp-main-content {
+                                    padding: 50px 30px;
+                                }
+
+                                .erp-benefits-grid {
+                                    margin-bottom: 60px;
+                                }
+
+                                .erp-section-heading {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    gap: 15px;
+                                    margin-bottom: 40px;
+                                    text-align: center;
+                                }
+
+                                .erp-section-heading i {
+                                    font-size: 2rem;
+                                    color: #1f189a;
+                                    animation: pulse 2s ease-in-out infinite;
+                                }
+
+                                @keyframes pulse {
+
+                                    0%,
+                                    100% {
+                                        transform: scale(1);
+                                    }
+
+                                    50% {
+                                        transform: scale(1.1);
+                                    }
+                                }
+
+                                .erp-section-heading h3 {
+                                    font-size: clamp(1.5rem, 3vw, 2.2rem);
+                                    color: #c2c4c7;
+                                    /* font-weight: 600; */
+                                }
+
+                                .erp-benefits-container {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                                    gap: 25px;
+                                    margin-bottom: 40px;
+                                }
+
+                                .erp-benefit-card {
+                                    background: linear-gradient(135deg, #070527 0%, #030833 100%);
+                                    border-radius: 15px;
+                                    padding: 30px;
+                                    display: flex;
+                                    align-items: flex-start;
+                                    gap: 20px;
+                                    transition: all 0.3s ease;
+                                    border: 1px solid rgba(79, 70, 229, 0.1);
+                                    position: relative;
+                                    overflow: hidden;
+                                }
+
+                                .erp-benefit-card::before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    left: -100%;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.1), transparent);
+                                    transition: left 0.5s ease;
+                                }
+
+                                .erp-benefit-card:hover::before {
+                                    left: 100%;
+                                }
+
+                                .erp-benefit-card:hover {
+                                    transform: translateY(-5px);
+                                    box-shadow: 0 15px 30px rgba(79, 70, 229, 0.2);
+                                    border-color: #4f46e5;
+                                }
+
+                                .erp-icon-container {
+                                    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+                                    color: white;
+                                    width: 60px;
+                                    height: 60px;
+                                    border-radius: 12px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 1.5rem;
+                                    flex-shrink: 0;
+                                    position: relative;
+                                    z-index: 1;
+                                }
+
+                                .erp-benefit-content h4 {
+                                    font-size: 1.3rem;
+                                    color: #e1e2e4;
+                                    margin-bottom: 10px;
+                                    font-weight: 600;
+                                }
+
+                                .erp-benefit-content p {
+                                    color: #c7c9cc;
+                                    line-height: 1.6;
+                                    font-size: 0.95rem;
+                                }
+
+                                .erp-services-grid {
+                                    margin-bottom: 50px;
+                                }
+
+                                .erp-services-container {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                                    gap: 25px;
+                                }
+
+                                .erp-service-card {
+                                    background: rgb(28, 4, 49);
+                                    border-radius: 15px;
+                                    padding: 30px;
+                                    display: flex;
+                                    align-items: flex-start;
+                                    gap: 20px;
+                                    transition: all 0.3s ease;
+                                    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); */
+                                    /* border: 1px solid #e5e7eb; */
+                                    position: relative;
+                                    overflow: hidden;
+                                }
+
+                                .erp-service-card::after {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 0;
+                                    height: 3px;
+                                    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+                                    transition: width 0.3s ease;
+                                }
+
+                                .erp-service-card:hover::after {
+                                    width: 100%;
+                                }
+
+                                .erp-service-card:hover {
+                                    transform: translateY(-3px);
+                                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                                    border-color: #4f46e5;
+                                }
+
+                                .erp-service-icon {
+                                    background: linear-gradient(135deg, #10b981, #059669);
+                                    color: white;
+                                    width: 55px;
+                                    height: 55px;
+                                    border-radius: 10px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 1.3rem;
+                                    flex-shrink: 0;
+                                }
+
+                                .erp-service-content h4 {
+                                    font-size: 1.2rem;
+                                    color: #e1e2e4;
+                                    margin-bottom: 10px;
+                                    font-weight: 600;
+                                }
+
+                                .erp-service-content p {
+                                    color: #c7c9cc;
+                                    line-height: 1.6;
+                                    font-size: 0.9rem;
+                                }
+
+                                .erp-cta-wrapper {
+                                    text-align: center;
+                                    padding: 50px 30px;
+                                    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+                                    margin: 0 -30px -50px;
+                                    color: white;
+                                    position: relative;
+                                }
+
+                                .erp-cta-wrapper::before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    height: 1px;
+                                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                                }
+
+                                .erp-cta-wrapper h3 {
+                                    font-size: clamp(1.5rem, 3vw, 2rem);
+                                    margin-bottom: 15px;
+                                    /* font-weight: 600; */
+                                }
+
+                                .erp-cta-wrapper p {
+                                    font-size: clamp(1rem, 2vw, 1.1rem);
+                                    margin-bottom: 30px;
+                                    opacity: 0.9;
+                                    max-width: 500px;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                }
+
+                                .erp-cta-btn {
+                                    display: inline-flex;
+                                    align-items: center;
+                                    gap: 10px;
+                                    background: linear-gradient(135deg, #0b083b, #19033e);
+                                    color: white;
+                                    padding: 15px 35px;
+                                    border-radius: 50px;
+                                    text-decoration: none;
+                                    font-weight: 200;
+                                    font-size: 1.1rem;
+                                    transition: all 0.3s ease;
+                                    border: 2px solid transparent;
+                                    position: relative;
+                                    overflow: hidden;
+                                }
+
+                                .erp-cta-btn::before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    left: -100%;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                                    transition: left 0.5s ease;
+                                }
+
+                                .erp-cta-btn:hover::before {
+                                    left: 100%;
+                                }
+
+                                .erp-cta-btn:hover {
+                                    transform: translateY(-2px);
+                                    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+                                    border-color: rgba(255, 255, 255, 0.2);
+                                }
+
+                                /* Mobile Responsive Adjustments */
+                                @media (max-width: 768px) {
+                                    .erp-main-container {
+                                        padding: 10px;
+                                    }
+
+                                    .erp-main-content {
+                                        padding: 30px 20px;
+                                    }
+
+                                    .erp-main-header {
+                                        padding: 40px 20px 30px;
+                                    }
+
+                                    .erp-benefits-container,
+                                    .erp-services-container {
+                                        grid-template-columns: 1fr;
+                                        gap: 20px;
+                                    }
+
+                                    .erp-benefit-card,
+                                    .erp-service-card {
+                                        padding: 25px;
+                                        flex-direction: column;
+                                        text-align: center;
+                                        gap: 15px;
+                                    }
+
+                                    .erp-section-heading {
+                                        flex-direction: column;
+                                        gap: 10px;
+                                    }
+
+                                    .erp-cta-wrapper {
+                                        padding: 40px 20px;
+                                        margin: 0 -20px -30px;
+                                    }
+
+                                    .erp-cta-btn {
+                                        padding: 12px 30px;
+                                        font-size: 1rem;
+                                    }
+                                }
+
+                                @media (max-width: 480px) {
+
+                                    .erp-benefits-container,
+                                    .erp-services-container {
+                                        grid-template-columns: 1fr;
+                                    }
+
+                                    .erp-benefit-card,
+                                    .erp-service-card {
+                                        padding: 20px;
+                                    }
+
+                                    .erp-icon-container,
+                                    .erp-service-icon {
+                                        width: 50px;
+                                        height: 50px;
+                                        font-size: 1.2rem;
+                                    }
+
+                                    .erp-benefit-content h4,
+                                    .erp-service-content h4 {
+                                        font-size: 1.1rem;
+                                    }
+                                }
+
+                                /* Animation delays for staggered effect */
+                                .erp-benefit-card:nth-child(1) {
+                                    animation-delay: 0.1s;
+                                }
+
+                                .erp-benefit-card:nth-child(2) {
+                                    animation-delay: 0.2s;
+                                }
+
+                                .erp-benefit-card:nth-child(3) {
+                                    animation-delay: 0.3s;
+                                }
+
+                                .erp-benefit-card:nth-child(4) {
+                                    animation-delay: 0.4s;
+                                }
+
+                                .erp-benefit-card:nth-child(5) {
+                                    animation-delay: 0.5s;
+                                }
+
+                                .erp-service-card:nth-child(1) {
+                                    animation-delay: 0.1s;
+                                }
+
+                                .erp-service-card:nth-child(2) {
+                                    animation-delay: 0.2s;
+                                }
+
+                                .erp-service-card:nth-child(3) {
+                                    animation-delay: 0.3s;
+                                }
+
+                                .erp-service-card:nth-child(4) {
+                                    animation-delay: 0.4s;
+                                }
+
+                                .erp-service-card:nth-child(5) {
+                                    animation-delay: 0.5s;
+                                }
+
+                                .erp-service-card:nth-child(6) {
+                                    animation-delay: 0.6s;
+                                }
+
+                                .erp-benefit-card,
+                                .erp-service-card {
+                                    animation: fadeInUp 0.6s ease-out both;
+                                }
+
+                                @keyframes fadeInUp {
+                                    from {
+                                        opacity: 0;
+                                        transform: translateY(20px);
+                                    }
+
+                                    to {
+                                        opacity: 1;
+                                        transform: translateY(0);
+                                    }
+                                }
+                            </style>
+
+
+                            <section class="enterprise-section">
+                                <div>
+                                    <p class="enterprise-text">
+                                        For businesses ready to go beyond the basics.<br />
+                                        <strong>business@sbarabia.com /054 338 7680</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <a href="contact.html" class="enterprise-button">Get Connected with Us!&nbsp;
+                                        ›</a>
+                                </div>
+                            </section>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end BLog -->
+
+
+        <footer class="footer">
+            <div class="shape"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- Company Info Column -->
+                    <div class="footer-column">
+
+                        <h6 class="powered-text" style="display: flex; align-items: center; gap: 5px;">
+                            Powered by
+                            <img src="assets/images/logo/stackfooternew.png" alt="STACK Logo" style="height: 50px;">
+                        </h6> <br>
+
+                        <p style="font-size: 15px;">SBA Business Analytics provides cutting-edge cloud services,
+                            monitoring solutions,
+                            and business intelligence tools to help your business thrive in today's digital
+                            landscape.</p> <br>
+                        <div class="contact-info">
+                            <p style="font-size: 15px;"><i class="fa-solid fa-location-dot"></i> #2, Al Yassmen
+                                Building, Zaid Ibn Thabit Street, Riyadh, Saudi Arabia
+                            </p>
+                            <p style="font-size: 15px;"><i class="fa-solid fa-phone"></i> 054 338 7680</p>
+                            <p style="font-size: 15px;"><i class="fa-solid fa-envelope"></i> business@sbarabia.com</p>
+                        </div>
+                    </div>
+
+                    <!-- Services Column -->
+                    <div class="footer-column">
+                        <h4>Our Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="stack-bi.html">Stack BI</a></li>
+                            <li><a href="cloud_monitoring.html">Cloud Service Monitoring</a></li>
+                            <li><a href="visitor_management.html">Visitor Management</a></li>
+                            <li><a href="e_invoicing.html">E Invoicing</a></li>
+                            <li><a href="monitoring.html">Server Monitoring</a></li>
+                            <li><a href="business-process.html">Business Process Automation</a></li>
+                            <li><a href="devops.html">Devops Automation</a></li>
+                            <li><a href="erp.html">ERP Implimentation</a></li>
+
+
+
+                        </ul>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="about.html">Solutions</a></li>
+                            <li><a href="#">Client</a></li>
+                            <!-- <li><a href="career.html">Careers</a></li> -->
+                            <li><a href="contact.html">Contact </a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter Column -->
+                    <div class="footer-column">
+                        <h4>Newsletter</h4>
+                        <p>Subscribe to our newsletter to receive latest updates, industry insights, and exclusive
+                            offers.</p>
+
+                        <form action="#" class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                            </div>
+                            <button type="submit" class="action-btn">
+                                <span>Subscribe</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Footer Bottom Section -->
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        Copyright © 2025, Bloombiz Creatives | SBA Business Analytics. All rights reserved.
+                    </div>
+
+                    <ul class="footer-quick-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="security.html">Security</a></li>
+                    </ul>
+
+                   <ul class="social-icons">
+                        <li>
+                            <a href="https://x.com/home" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" fill="white" width="20"
+                                    height="20">
+                                    <path
+                                        d="M714.963 545.162L1177.28 0H1070.98L672.133 484.184L350.866 0H0L490.089 714.848L0 1227H106.295L535.063 706.747L875.072 1227H1200L714.963 545.162ZM583.349 633.397L544.436 577.205L140.977 89.3447H305.738L615.445 546.991L654.358 603.183L1069.15 1136.41H905.388L583.349 633.397Z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/sb_arabia">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="white">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="https://www.linkedin.com/in/sb-arabia-661547367/" target="_blank"
+                                rel="noopener noreferrer">
+                                <!-- LinkedIn SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="20" height="20"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8.5H5V24H.02V8.5zM7.98 8.5H13v2.58h.09c.73-1.38 2.52-2.84 5.19-2.84 5.55 0 6.57 3.65 6.57 8.39V24H19v-7.61c0-1.82-.03-4.16-2.54-4.16-2.55 0-2.94 1.99-2.94 4.04V24H7.98V8.5z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+    </footer>
+
+
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+        <span class="arrow-up"></span>
+    </button>
+
+
+
+    <style>
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 21px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Icon styles */
+        .arrow-up {
+            width: 12px;
+            height: 12px;
+            border-top: 3px solid white;
+            border-left: 3px solid white;
+            transform: rotate(45deg);
+            margin-top: 5px;
+        }
+    </style>
+    </div>
+
+
+    <script>
+        // Get the button
+        const scrollButton = document.getElementById('scrollTopBtn');
+
+        // Show button when user scrolls down 300px from the top
+        window.addEventListener('scroll', function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        scrollButton.addEventListener('click', function () {
+            // For smooth scrolling:
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // Alternative method without smooth scrolling:
+            // document.body.scrollTop = 0; // For Safari
+            // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        });
+    </script>
+    </div>
+
+
+ <script>
+        $(document).ready(function () {
+            // Show or hide the scroll top button
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $('#scroll-top').addClass('show');
+                } else {
+                    $('#scroll-top').removeClass('show');
+                }
+            });
+
+            // Scroll to top when button is clicked
+            $('#scroll-top').click(function () {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
+            });
+        });
+    </script>
+
+
+
+    <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/jquery.easing.js"></script>
+    <script src="app/js/plugins.js"></script>
+    <script src="app/js/countto.js"></script>
+
+    <script src="app/js/app.js"></script>
+    <script src="app/js/count-down.js"></script>
+
+    <script src="app/js/aos.js"></script>
+
+
+    <script src="app/js/swiper-bundle.min.js"></script>
+    <script src="app/js/swiper.js"></script>
+
+    <!-- Initialize Swiper -->
+
+
+</body>
+
+</html>

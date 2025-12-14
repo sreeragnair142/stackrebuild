@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACK - Contact Us</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.5/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="app/dist/aos.css">
+    <link rel="stylesheet" href="app/dist/app.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="shortcut icon" href="assets/images/logo/logofav - Copy.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.png">
+
+    <!-- AIED Notification Box and Scroll-to-Top Styles -->
+    <style>
+        /* Hide by default */
+        .hidden {
+            display: none !important;
+        }
+
+        .notification-container {
+            position: fixed;
+            bottom: 80px; /* Above scroll-top */
+            right: 0px;
+            z-index: 999;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .notification-box {
+            width: 70px;
+            height: 50px;
+            background: linear-gradient(90deg, #0d0f3f, #4b248c);
+            border-radius: 25px 0 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: width 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .notification-box:hover {
+            width: 300px;
+        }
+
+        .notification-short-text {
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+            margin-left: 10px;
+            white-space: nowrap;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .notification-box:hover .notification-short-text {
+            opacity: 0;
+        }
+
+        .notification-text {
+            position: absolute;
+            left: 70px;
+            color: #fff;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            white-space: nowrap;
+            text-decoration: none !important;
+        }
+
+        .notification-box:hover .notification-text {
+            opacity: 1;
+        }
+
+      
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #060b28;
+            color: #fff;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #060b28;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 40px;
+        }
+
+        /* Shape for visual interest */
+        .footer .shape {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100px;
+            background-color: rgba(106, 90, 205, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        /* Footer sections */
+        .footer-column {
+            flex: 1;
+            padding: 0 15px;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #8065e0, #6366f1);
+        }
+
+        /* Logo styling */
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+        }
+
+        /* Footer link lists */
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b4b7c9;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        /* Contact info */
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #b4b7c9;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #6366f1;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* Newsletter form */
+        .newsletter-form {
+            margin-top: 15px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            height: 46px;
+            padding: 0 20px;
+            width: 100%;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .action-btn {
+            background: linear-gradient(90deg, #8065e0, #6366f1);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            height: 46px;
+            padding: 0 30px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(90deg, #6366f1, #8065e0);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Footer bottom */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .copyright {
+            color: #b4b7c9;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        /* Social media links */
+        .social-icons {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .social-icons li {
+            margin-left: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: rgba(99, 102, 241, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .social-icons svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+        }
+
+        /* Quick nav for bottom */
+        .footer-quick-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .footer-quick-links li {
+            margin-right: 20px;
+        }
+
+        .footer-quick-links a {
+            color: #b4b7c9;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-quick-links a:hover {
+            color: #fff;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .footer-column {
+                flex: 0 0 50%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-icons,
+            .footer-quick-links {
+                justify-content: center;
+            }
+
+            .social-icons li:first-child {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-column {
+                flex: 0 0 100%;
+            }
+        }
+
+        /* Floating Contact Icons */
+        .floating-contact-icons {
+            position: fixed;
+            bottom: 140px; /* Adjusted to ensure visibility above notification and scroll-top */
+            right: 20px;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(90deg, #8065e0, #6366f1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-icon:hover {
+            background: linear-gradient(90deg, #6366f1, #8065e0);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</head>
+
+<body class="home-main header-fixed">
+    <div class="wrapper page-contact">
+        <div class="preloader">
+            <div class="clear-loading loading-effect-2">
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header id="header_main" class="header">
+            <div class="container big">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header__body">
+                            <div class="header__logo">
+                                <a href="index.html">
+                                    <img id="site-logo" src="assets/images/logo/stackfooternew.png" alt="Peson" width="120"
+                                        height="45" data-retina="assets/images/logo/logo@2x.png" data-width="120"
+                                        data-height="38">
+                                </a>
+                            </div>
+                            <div class="header__right">
+                                <nav id="main-nav" class="main-nav">
+                                    <ul id="menu-primary-menu" class="menu">
+                                        <li class="">
+                                            <a href="index.html">Home</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="about.html">About</a>
+                                        </li>
+                                        <!-- <li class="menu-item menu-item-has-children">
+                                            <a href="#">Solutions</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="stack-bi.html">Stack BI</a></li>
+                                                <li class="menu-item"><a href="cloud_monitoring.html">Cloud Service
+                                                        Monitoring</a></li>
+                                                <li class="menu-item"><a href="visitor_management.html">Visitor
+                                                        Management</a></li>
+                                                <li class="menu-item"><a href="monitoring.html">Server Monitoring</a></li>
+                                            </ul>
+                                        </li> -->
+                                        <li class="">
+                                            <a href="vision-mission.html">Case Studies</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="contact.html">Contact</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-button"><span></span></div>
+                            </div>
+                            <div class="header__action">
+                                <a href="contact.html" class=""><span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end Header -->
+
+        <!-- Pagetitle -->
+        <section class="page-title" style="font-family: 'Roboto', sans-serif;" id="page-title">
+            <div class="shape"></div>
+            <div class="shape right s3"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title__body">
+                            <div class="page-title__main">
+                                <h4 class="title" style="font-weight:200;">Contact us</h4>
+                                <ul class="breacrumb">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><p>Contact us</p></li>
+                                </ul>
+                                <div class="bottom">
+                                    <ul class="list-social"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AIED Notification Box -->
+        <div id="sticky-container" class="notification-container hidden">
+            <div class="notification-box">
+                <span class="notification-short-text">AIED</span>
+                <a href="https://aied-sa.com/" class="notification-text" target="_self">Back to AIED</a>
+            </div>
+        </div>
+
+        <!-- Scroll-to-Top Button -->
+        <a id="scroll-top"><i class="fas fa-arrow-up"></i></a>
+
+        <!-- Floating Contact Icons -->
+        <!-- <div class="floating-contact-icons">
+            <a href="https://wa.me/966543387680" target="_blank" class="contact-icon whatsapp-icon" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+966543387680" class="contact-icon phone-icon" title="Call Us">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div> -->
+
+        <!-- Contact Section -->
+        <section class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="block-text center">
+                            <h6 class="sub-heading"><span>Get in Touch!</span></h6><br>
+                            <h3 class="heading">Let's Start Working <br>
+                                Together
+                            </h3>
+                        </div>
+                        <div class="touch__main">
+                            <div class="info">
+                                <h5>Contact information</h5>
+                                <ul class="list">
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10 7C10 7.53043 9.78929 8.03914 9.41421 8.41421C9.03914 8.78929 8.53043 9 8 9C7.46957 9 6.96086 8.78929 6.58579 8.41421C6.21071 8.03914 6 7.53043 6 7C6 6.46957 6.21071 5.96086 6.58579 5.58579C6.96086 5.21071 7.46957 5 8 5C8.53043 5 9.03914 5.21071 9.41421 5.58579C9.78929 5.96086 10 6.46957 10 7V7Z"
+                                                stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M13 7C13 11.7613 8 14.5 8 14.5C8 14.5 3 11.7613 3 7C3 5.67392 3.52678 4.40215 4.46447 3.46447C5.40215 2.52678 6.67392 2 8 2C9.32608 2 10.5979 2.52678 11.5355 3.46447C12.4732 4.40215 13 5.67392 13 7V7Z"
+                                                stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                        <p>#2, Al Yassmen Building, Zaid Ibn Thabit Street, Riyadh, Saudi Arabia</p>
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_794_6441)">
+                                                <path
+                                                    d="M1.5 4.5C1.5 10.0227 5.97733 14.5 11.5 14.5H13C13.3978 14.5 13.7794 14.342 14.0607 14.0607C14.342 13.7794 14.5 13.3978 14.5 13V12.0853C14.5 11.7413 14.266 11.4413 13.932 11.358L10.9833 10.6207C10.69 10.5473 10.382 10.6573 10.2013 10.8987L9.55467 11.7607C9.36667 12.0113 9.042 12.122 8.748 12.014C7.65659 11.6128 6.66544 10.9791 5.84319 10.1568C5.02094 9.33456 4.38725 8.34341 3.986 7.252C3.878 6.958 3.98867 6.63333 4.23933 6.44533L5.10133 5.79867C5.34333 5.618 5.45267 5.30933 5.37933 5.01667L4.642 2.068C4.60143 1.9058 4.50781 1.7618 4.37604 1.65889C4.24426 1.55598 4.08187 1.50006 3.91467 1.5H3C2.60218 1.5 2.22064 1.65804 1.93934 1.93934C1.65804 2.22064 1.5 2.60218 1.5 3V4.5Z"
+                                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_794_6441">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>054 338 7680</p>
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M14.5 4.5V11.5C14.5 11.8978 14.342 12.2794 14.0607 12.5607C13.7794 12.842 13.3978 13 13 13H3C2.60218 13 2.22064 12.842 1.93934 12.5607C1.65804 12.2794 1.5 11.8978 1.5 11.5V4.5M14.5 4.5C14.5 4.10218 14.342 3.72064 14.0607 3.43934C13.7794 3.15804 13.3978 3 13 3H3C2.60218 3 2.22064 3.15804 1.93934 3.43934C1.65804 3.72064 1.5 4.10218 1.5 4.5M14.5 4.5V4.662C14.5 4.9181 14.4345 5.16994 14.3096 5.39353C14.1848 5.61712 14.0047 5.80502 13.7867 5.93933L8.78667 9.016C8.55014 9.16169 8.2778 9.23883 8 9.23883C7.7222 9.23883 7.44986 9.16169 7.21333 9.016L2.21333 5.94C1.99528 5.80569 1.81525 5.61779 1.69038 5.3942C1.56551 5.1706 1.49997 4.91876 1.5 4.66267V4.5"
+                                                stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                        <p>business@sbarabia.com</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <form id="contactForm" action="#" class="form-box">
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Your name</label>
+                                        <input type="text" id="name" class="form-control" required>
+                                    </div>
+                                    <div class="col">
+                                        <label>Your email</label>
+                                        <input type="email" id="email" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Your phone</label>
+                                        <input type="text" id="phone" class="form-control" required>
+                                    </div>
+                                    <div class="col">
+                                        <label>Subject</label>
+                                        <input type="text" id="subject" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Message</label>
+                                        <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="row mb-0">
+                                    <div class="col">
+                                        <button type="button" id="sendNowBtn" class="action-btn"><span>Send
+                                                Now</span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq s3">
+                <div class="shape"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="block-text text-center">
+                                <h6 class="sub-heading"><span>FAQs</span></h6><br>
+                                <h3 class="heading">Frequently Asked Questions</h3>
+                                <p>Browse through our comprehensive FAQ section to find answers to your questions on
+                                    various topics.</p>
+                            </div>
+                            <div class="faq__main flat-tabs">
+                                <ul class="menu-tab">
+                                    <li class="active">
+                                        <h6 class="fs-14">Strategy</h6>
+                                    </li>
+                                    <li>
+                                        <h6 class="fs-14">Marketing</h6>
+                                    </li>
+                                    <li>
+                                        <h6 class="fs-14">Finance</h6>
+                                    </li>
+                                    <li>
+                                        <h6 class="fs-14">Operations</h6>
+                                    </li>
+                                </ul>
+                                <div class="content-tab">
+                                    <div class="content-inner">
+                                        <div class="flat-accordion">
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>01.</span> What is strategic planning and
+                                                    why is it important? <span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        Strategic planning is the process of defining an organization's
+                                                        direction and making decisions on allocating resources to pursue
+                                                        this strategy. It's important because it provides a sense of
+                                                        direction and outlines measurable goals, helping organizations
+                                                        navigate through uncertain environments while efficiently
+                                                        allocating resources, aligning stakeholders around common
+                                                        objectives, and establishing evaluation mechanisms to track
+                                                        progress.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>02.</span> How often should a business
+                                                    review its strategy?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        Businesses should conduct comprehensive strategic reviews
+                                                        annually, with quarterly check-ins to assess progress and make
+                                                        adjustments. However, in rapidly changing industries or during
+                                                        periods of significant market disruption, more frequent reviews
+                                                        may be necessary. The key is to balance strategic consistency
+                                                        with the flexibility to respond to changing conditions, ensuring
+                                                        the strategy remains relevant and effective.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>03.</span> What's the difference between
+                                                    vision and mission statements?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        A vision statement describes the desired future position of the
+                                                        company, providing a clear direction for long-term aspirations.
+                                                        It answers "where do we want to be?" A mission statement, on the
+                                                        other hand, defines the company's purpose and primary objectives,
+                                                        focusing on the present and explaining "what we do, who we serve,
+                                                        and how we do it." Together, they guide strategic
+                                                        decision-making at all levels of the organization.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>04.</span> How do you perform a SWOT
+                                                    analysis effectively?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        To perform an effective SWOT analysis, start by gathering diverse
+                                                        perspectives from across your organization. Clearly identify
+                                                        internal strengths and weaknesses by examining resources,
+                                                        capabilities, and processes. Then assess external opportunities
+                                                        and threats by analyzing market trends, competitor actions, and
+                                                        regulatory environments. Be honest and specific with each element,
+                                                        prioritize findings based on impact, and develop actionable
+                                                        strategies that leverage strengths to capitalize on opportunities
+                                                        while addressing weaknesses and mitigating threats.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content-inner">
+                                        <div class="flat-accordion">
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>01.</span> What is digital marketing ROI
+                                                    and how do you calculate it? <span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        Digital marketing ROI (Return on Investment) measures the
+                                                        profitability of your marketing efforts by comparing the revenue
+                                                        generated to the costs invested. To calculate it, use the
+                                                        formula: ROI = (Net Profit / Total Investment) × 100. For digital
+                                                        campaigns, track conversions, assign proper attribution models,
+                                                        account for all costs (including staff time), and consider
+                                                        lifetime customer value. Different channels may require different
+                                                        ROI benchmarks, with email marketing typically showing higher ROI
+                                                        than paid advertising.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>02.</span> How can I improve my website's
+                                                    SEO?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        To improve your website's SEO, focus on both on-page and off-page
+                                                        factors. Conduct keyword research and optimize content naturally
+                                                        around relevant terms. Ensure technical elements like site speed,
+                                                        mobile-friendliness, and secure connections are optimized. Create
+                                                        high-quality, valuable content that addresses user needs. Build a
+                                                        strong internal linking structure while earning quality backlinks
+                                                        from reputable sites. Improve user experience metrics like dwell
+                                                        time and bounce rate. Finally, use structured data markup and
+                                                        maintain local SEO if applicable through Google Business Profile
+                                                        optimization.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>03.</span> What's the best social media
+                                                    platform for my business?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        The best social media platform for your business depends on your
+                                                        target audience, industry, content type, and business goals.
+                                                        LinkedIn works well for B2B companies and professional services.
+                                                        Instagram and Pinterest are ideal for visually-oriented businesses
+                                                        like fashion or food. Facebook has broad demographic reach while
+                                                        TikTok attracts younger audiences. Research where your specific
+                                                        audience spends time, analyze competitor presence, consider your
+                                                        content capabilities, and start with 1-2 platforms to manage
+                                                        effectively rather than spreading resources too thin across many
+                                                        channels.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>04.</span> How do I create an effective
+                                                    content marketing strategy?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        An effective content marketing strategy starts with clear
+                                                        objectives and understanding your target audience through
+                                                        detailed personas. Conduct content audits and competitor analysis
+                                                        to identify gaps and opportunities. Develop a unique value
+                                                        proposition and brand voice that differentiates your content.
+                                                        Create a content calendar with diverse formats addressing
+                                                        different stages of the buyer's journey. Establish distribution
+                                                        channels and promotion tactics for each piece. Implement
+                                                        measurement frameworks with relevant KPIs, and continuously
+                                                        optimize based on performance data and audience feedback.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content-inner">
+                                        <div class="flat-accordion">
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>01.</span> What's the difference between
+                                                    cash flow and profit? <span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        Cash flow measures the actual movement of money in and out of a
+                                                        business during a specific period, representing liquidity and
+                                                        operational sustainability. Profit (or net income) is the
+                                                        financial gain calculated by subtracting all expenses from
+                                                        revenue, representing business performance. A business can be
+                                                        profitable on paper but face cash flow problems if revenue is tied
+                                                        up in unpaid invoices or inventory. Conversely, a business might
+                                                        have positive cash flow from loans or asset sales even while
+                                                        operating at a loss. Both metrics are crucial: profit indicates
+                                                        long-term viability while cash flow determines short-term
+                                                        survival.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>02.</span> How do I create a financial
+                                                    forecast for my business?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        To create a financial forecast, start by gathering historical
+                                                        data and identifying key financial drivers. Project revenue using
+                                                        realistic growth rates based on market analysis, capacity
+                                                        constraints, and sales pipeline. Estimate expenses considering
+                                                        fixed costs, variable costs tied to revenue, and planned
+                                                        investments. Develop integrated financial statements (income
+                                                        statement, cash flow, and balance sheet) for at least 3 years,
+                                                        with monthly detail for the first year. Use different scenarios
+                                                        (best-case, expected, worst-case) to understand potential
+                                                        outcomes. Review and adjust regularly based on actual performance
+                                                        and changing conditions.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>03.</span> What metrics should I use to
+                                                    evaluate my business's financial health?<span
+                                                        class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        To evaluate your business's financial health, track profitability
+                                                        metrics (gross margin, operating margin, net profit margin),
+                                                        liquidity metrics (current ratio, quick ratio, operating cash
+                                                        flow), efficiency metrics (inventory turnover, accounts
+                                                        receivable turnover, asset turnover), solvency metrics
+                                                        (debt-to-equity ratio, interest coverage ratio), and growth
+                                                        metrics (revenue growth rate, profit growth rate).
+                                                        Additionally, industry-specific KPIs provide context for your
+                                                        performance. Monitor trends over time rather than focusing on
+                                                        single-period results, and compare against both your historical
+                                                        performance and industry benchmarks.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>04.</span> How can I improve my business's
+                                                    cash flow?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        To improve cash flow, accelerate incoming cash by tightening
+                                                        credit policies, offering early payment discounts, implementing
+                                                        efficient invoicing practices, and requiring deposits for large
+                                                        orders. Slow outgoing cash by negotiating extended payment terms
+                                                        with suppliers, prioritizing payments strategically, and leasing
+                                                        equipment instead of purchasing. Optimize inventory management to
+                                                        reduce tied-up cash. Consider alternative funding sources like
+                                                        lines of credit, invoice factoring, or inventory financing.
+                                                        Create detailed cash flow forecasts to anticipate and prepare for
+                                                        potential shortfalls. Remember that sustainable cash flow
+                                                        improvement comes from addressing operational inefficiencies
+                                                        rather than just financial management techniques.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content-inner">
+                                        <div class="flat-accordion">
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>01.</span> What is operational efficiency
+                                                    and how do I measure it? <span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        Operational efficiency is the ratio between outputs produced and
+                                                        inputs used, measuring how effectively a business converts
+                                                        resources (labor, materials, capital) into products or services
+                                                        while minimizing waste. Key metrics include productivity ratios
+                                                        (output per labor hour), throughput time, capacity utilization,
+                                                        defect rates, inventory turnover, and operating expense ratio.
+                                                        Industry-specific KPIs should supplement these general measures.
+                                                        Benchmark against historical performance, industry standards, and
+                                                        theoretical optimum levels. Advanced approaches include Overall
+                                                        Equipment Effectiveness (OEE) for manufacturing or resource
+                                                        utilization metrics for service businesses.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>02.</span> How can I implement continuous
+                                                    improvement in my organization?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        To implement continuous improvement, start by establishing a
+                                                        supportive culture where feedback and ideas are valued. Train
+                                                        employees in methodologies like Lean, Six Sigma, or Kaizen.
+                                                        Create structured processes for identifying problems, collecting
+                                                        data, analyzing root causes, implementing solutions, and
+                                                        measuring results. Form cross-functional teams to tackle specific
+                                                        issues. Develop visual management systems to make performance
+                                                        transparent. Recognize and reward improvement contributions.
+                                                        Begin with pilot projects to demonstrate value before expanding.
+                                                        Remember that successful continuous improvement is a long-term
+                                                        commitment requiring consistent leadership support, not a
+                                                        one-time initiative.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>03.</span> What's the best way to manage
+                                                    supply chain risks?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        Effective supply chain risk management involves systematically
+                                                        identifying, assessing, and mitigating potential disruptions.
+                                                        Start by mapping your entire supply chain, including tier 2 and 3
+                                                        suppliers. Conduct risk assessments considering factors like
+                                                        supplier concentration, geopolitical issues, and natural disaster
+                                                        vulnerability. Develop mitigation strategies such as dual
+                                                        sourcing critical components, maintaining strategic inventory
+                                                        buffers, and creating contingency plans for disruptions.
+                                                        Implement monitoring systems for early warning signs. Foster
+                                                        collaborative relationships with key suppliers through regular
+                                                        communication and shared risk management practices. Review and
+                                                        update your risk management approach regularly as supply chain
+                                                        conditions evolve.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flat-toggle">
+                                                <h6 class="toggle-title"><span>04.</span> How do I balance quality and
+                                                    efficiency in operations?<span class="icon-plus"></span></h6>
+                                                <div class="toggle-content">
+                                                    <p>
+                                                        Balancing quality and efficiency requires integrating quality into
+                                                        operational processes rather than treating them as competing
+                                                        priorities. Implement design for manufacturability principles to
+                                                        simplify production while maintaining quality standards. Adopt
+                                                        quality methodologies like Total Quality Management that emphasize
+                                                        prevention rather than inspection. Leverage technology for
+                                                        automated quality control that doesn't slow production. Train
+                                                        employees on both quality standards and efficient work methods.
+                                                        Establish metrics that track both dimensions simultaneously, like
+                                                        First Pass Yield. Use root cause analysis on defects to improve
+                                                        processes proactively. Remember that poor quality ultimately
+                                                        creates inefficiency through rework, returns, and reputation
+                                                        damage.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="shape"></div>
+                <div class="container">
+                    <div class="row">
+                        <!-- Company Info Column -->
+                        <div class="footer-column">
+                       <h6 class="powered-text" style="
+    font-family: 'Anton', 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 100;
+    letter-spacing: 3px;
+    color: #ff001b;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+">
+    Your Data. Your Move.
+</h6> <br>
+                            <p>SBA Business Analytics provides cutting-edge cloud services, monitoring solutions,
+                                and business intelligence tools to help your business thrive in today's digital
+                                landscape.</p> <br>
+                            <div class="contact-info">
+                                <p><i class="fa-solid fa-location-dot"></i> #2, Al Yassmen Building, Zaid Ibn Thabit
+                                    Street, Riyadh, Saudi Arabia</p>
+                                <p><i class="fa-solid fa-phone"></i>+966 54 338 7670</p>
+                                <p><i class="fa-solid fa-envelope"></i> business@sbarabia.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Services Column -->
+                        <div class="footer-column">
+                            <h4>Our Solutions</h4>
+                            <ul class="footer-links">
+                                <li><a href="stack-bi.html">Stack BI</a></li>
+                                <li><a href="cloud_monitoring.html">Cloud Service Monitoring</a></li>
+                                <li><a href="visitor_management.html">Visitor Management</a></li>
+                                <li><a href="monitoring.html">Server Monitoring</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Quick Links Column -->
+                        <div class="footer-column">
+                            <h4>Quick Links</h4>
+                            <ul class="footer-links">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="about.html">Solutions</a></li>
+                                <li><a href="vision-mission.html">Clients</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Newsletter Column -->
+                        <div class="footer-column">
+                            <h4>Newsletter</h4>
+                            <p>Subscribe to our newsletter to receive latest updates, industry insights, and exclusive
+                                offers.</p>
+                            <form action="#" class="newsletter-form">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your email address">
+                                </div>
+                                <button type="submit" class="action-btn">
+                                    <span>Subscribe</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Footer Bottom Section -->
+                    <div class="footer-bottom">
+                        <div class="copyright">
+                            Copyright © 2025, Bloombiz Creatives | STACK Business Analytics. All rights reserved.
+                        </div>
+                        <ul class="footer-quick-links">
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                            <li><a href="security.html">Security</a></li>
+                        </ul>
+                        <ul class="social-icons">
+                            <li>
+                                <a href="https://x.com/home" target="_blank" rel="noopener noreferrer">
+                                    <svg viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" fill="white" width="20"
+                                        height="20">
+                                        <path
+                                            d="M714.963 545.162L1177.28 0H1070.98L672.133 484.184L350.866 0H0L490.089 714.848L0 1227H106.295L535.063 706.747L875.072 1227H1200L714.963 545.162ZM583.349 633.397L544.436 577.205L140.977 89.3447H305.738L615.445 546.991L654.358 603.183L1069.15 1136.41H905.388L583.349 633.397Z" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/sb_arabia">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="white">
+                                        <path
+                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/sb-arabia-661547367/" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="20" height="20"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8.5H5V24H.02V8.5zM7.98 8.5H13v2.58h.09c.73-1.38 2.52-2.84 5.19-2.84 5.55 0 6.57 3.65 6.57 8.39V24H19v-7.61c0-1.82-.03-4.16-2.54-4.16-2.55 0-2.94 1.99-2.94 4.04V24H7.98V8.5z" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        <script src="app/js/jquery.min.js"></script>
+        <script src="app/js/jquery.easing.js"></script>
+        <script src="app/js/plugins.js"></script>
+        <script src="app/js/countto.js"></script>
+        <script src="app/js/app.js"></script>
+        <script src="app/js/count-down.js"></script>
+        <script src="app/js/aos.js"></script>
+        <script src="app/js/swiper-bundle.min.js"></script>
+        <script src="app/js/swiper.js"></script>
+
+        <!-- Contact Form and AIED Notification Box Script -->
+        <script>
+            // Contact Form Submission
+            document.getElementById('sendNowBtn').addEventListener('click', function () {
+                const nameInput = document.getElementById('name').value;
+                const emailInput = document.getElementById('email').value;
+                const phoneInput = document.getElementById('phone').value;
+                const subjectInput = document.getElementById('subject').value;
+                const messageInput = document.getElementById('message').value;
+
+                // Check if required fields are filled
+                if (nameInput && emailInput && phoneInput && subjectInput && messageInput) {
+                    // Format email body with form details
+                    const emailBody = encodeURIComponent(
+                        "Name: " + nameInput + "\n" +
+                        "Phone: " + phoneInput + "\n\n" +
+                        messageInput
+                    );
+
+                    // Open default email client with pre-filled details
+                    window.location.href = `mailto:business@sbarabia.com?subject=${encodeURIComponent(subjectInput)}&body=${emailBody}`;
+                } else {
+                    alert("Please fill in all required fields before sending.");
+                }
+            });
+
+            // AIED Notification Box and Scroll-to-Top
+            $(document).ready(function () {
+                // Show or hide the scroll top button
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 300) {
+                        $('#scroll-top').addClass('show');
+                    } else {
+                        $('#scroll-top').removeClass('show');
+                    }
+                });
+
+                // Scroll to top when button is clicked
+                $('#scroll-top').click(function () {
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+
+                // Show or hide AIED notification box
+                window.addEventListener("scroll", function () {
+                    const container = document.getElementById("sticky-container");
+                    const pageTitle = document.getElementById("page-title");
+
+                    const pageTitleBottom = pageTitle.getBoundingClientRect().bottom;
+
+                    if (pageTitleBottom < 0) {
+                        container.classList.remove("hidden");
+                    } else {
+                        container.classList.add("hidden");
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+
+</html>

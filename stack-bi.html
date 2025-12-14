@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACK - Stack BI</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.5/swiper-bundle.min.css">
+    <link rel="stylesheet" href="app/dist/aos.css">
+    <link rel="stylesheet" href="app/dist/app.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="shortcut icon" href="assets/images/logo/stackfooternew.png">
+    <!-- <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.png"> -->
+
+    <style>
+        /* Mobile menu dropdown icon styles */
+        .mobile-menu-dropdown {
+            position: relative;
+        }
+
+        .mobile-menu-dropdown .dropdown-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-dropdown.active .dropdown-icon {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        /* Mobile dropdown submenu styles */
+        .mobile-submenu {
+            display: none;
+            padding-left: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-submenu.active {
+            display: block;
+            max-height: 500px;
+        }
+
+        .mobile-submenu li {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-submenu li:last-child {
+            border-bottom: none;
+        }
+
+        /* AIED Notification Box and Scroll-to-Top Styles */
+        .hidden {
+            display: none !important;
+        }
+
+        .notification-container {
+            position: fixed;
+            bottom: 80px; /* Above scroll-top */
+            right: 0px;
+            z-index: 999;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .notification-box {
+            width: 70px;
+            height: 50px;
+            background: linear-gradient(90deg, #0d0f3f, #4b248c);
+            border-radius: 25px 0 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: width 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .notification-box:hover {
+            width: 300px;
+        }
+
+        .notification-short-text {
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+            margin-left: 10px;
+            white-space: nowrap;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .notification-box:hover .notification-short-text {
+            opacity: 0;
+        }
+
+        .notification-text {
+            position: absolute;
+            left: 70px;
+            color: #fff;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            white-space: nowrap;
+            text-decoration: none !important;
+        }
+
+        .notification-box:hover .notification-text {
+            opacity: 1;
+        }
+
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .arrow-up {
+            width: 12px;
+            height: 12px;
+            border-top: 3px solid white;
+            border-left: 3px solid white;
+            transform: rotate(45deg);
+            margin-top: 5px;
+        }
+
+        /* Floating Contact Icons */
+        .floating-contact-icons {
+            position: fixed;
+            bottom: 140px; /* Adjusted to ensure visibility above notification and scroll-top */
+            right: 20px;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(90deg, #8065e0, #6366f1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-icon:hover {
+            background: linear-gradient(90deg, #6366f1, #8065e0);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #060b28;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 40px;
+        }
+
+        .footer .shape {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100px;
+            background-color: rgba(106, 90, 205, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .footer-column {
+            flex: 1;
+            padding: 0 15px;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #8065e0, #6366f1);
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b4b7c9;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #b4b7c9;
+            font-size: 15px;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #6366f1;
+            width: 16px;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            margin-top: 15px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            height: 46px;
+            padding: 0 20px;
+            width: 100%;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .action-btn {
+            background: linear-gradient(90deg, #8065e0, #6366f1);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            height: 46px;
+            padding: 0 30px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(90deg, #6366f1, #8065e0);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .copyright {
+            color: #b4b7c9;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .social-icons li {
+            margin-left: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: rgba(99, 102, 241, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .social-icons svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+        }
+
+        .footer-quick-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .footer-quick-links li {
+            margin-right: 20px;
+        }
+
+        .footer-quick-links a {
+            color: #b4b7c9;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-quick-links a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .footer-column {
+                flex: 0 0 50%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-icons,
+            .footer-quick-links {
+                justify-content: center;
+            }
+
+            .social-icons li:first-child {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-column {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="home-main header-fixed">
+    <div class="wrapper page-details">
+        <div class="preloader">
+            <div class="clear-loading loading-effect-2">
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header id="header_main" class="header">
+            <div class="container big">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header__body">
+                            <div class="header__logo">
+                                <a href="index.html">
+                                    <img id="site-logo" src="assets/images/logo/stackfooternew.png" alt="Peson" width="120"
+                                        height="45" data-retina="assets/images/logo/logo@2x.png" data-width="120"
+                                        data-height="38">
+                                </a>
+                            </div>
+                            <div class="header__right">
+                                <nav id="main-nav" class="main-nav">
+                                    <ul id="menu-primary-menu" class="menu">
+                                        <li class="">
+                                            <a href="index.html">Home</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="about.html">About</a>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children">
+                                            <a href="#">Solutions</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="stack-bi.html">Stack BI</a></li>
+                                                <li class="menu-item"><a href="cloud_monitoring.html">Cloud Service
+                                                        Monitoring</a></li>
+                                                <li class="menu-item"><a href="visitor_management.html">Visitor
+                                                        Management</a></li>
+                                                <li class="menu-item"><a href="monitoring.html">Server Monitoring</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="">
+                                            <a href="vision-mission.html">Clients</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="contact.html">Contact</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-button"><span></span></div>
+                            </div>
+                            <div class="header__action">
+                                <a href="contact.html" class=""><span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end Header -->
+
+        <!-- Pagetitle -->
+        <section class="page-title" id="page-title">
+            <div class="page-title__overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title__container">
+                            <h1 class="page-title__heading">STACK BI</h1>
+                            <nav class="page-title__breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb__item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb__item"><a href="solutions.html">Solutions</a></li>
+                                    <li class="breadcrumb__item breadcrumb__item--active">STACK BI</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end Pagetitle -->
+
+        <!-- Floating Contact Icons -->
+        <!-- <div class="floating-contact-icons">
+            <a href="https://wa.me/966543387680" target="_blank" class="contact-icon whatsapp-icon" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+966543387680" class="contact-icon phone-icon" title="Call Us">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div> -->
+
+        <!-- AIED Notification Box -->
+        <div id="sticky-container" class="notification-container hidden">
+            <div class="notification-box">
+                <span class="notification-short-text">AIED</span>
+                <a href="https://aied-sa.com/" class="notification-text" target="_self">Back to AIED</a>
+            </div>
+        </div>
+
+        <!-- Scroll-to-Top Button -->
+        <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+            <span class="arrow-up"></span>
+        </button>
+
+        <!-- Blog -->
+        <section class="bloglist">
+            <div class="container">
+                <div class="row">
+                    <div class="bloglist__main">
+                        <div class="list details">
+                            <h4 class="title" style="font-size: 45px;">STACK Business Intelligence Platform.</h4>
+                            <div class="line"></div>
+                            <section class="branding-section">
+                                <div class="overlapping-content">
+                                    <div class="overlap-box">
+                                        <h3 style="font-size: 37px;">Empowering Your Business with Integrated Intelligence</h3>
+                                        <div class="divider"></div>
+                                        <p>In today’s rapidly evolving business environment, staying ahead requires more than just data—it demands actionable insights delivered at the right time.</p>
+                                        <p>The STACK Business Intelligence (BI) Platform is a powerful, all-in-one solution designed to integrate multiple applications, streamlining your business processes and enabling smart decision-making.</p>
+                                        <p>By consolidating your data and systems into a single platform, STACK offers intelligent notifications and real-time insights that transform how your business operates.</p>
+                                    </div>
+                                    <img src="assets/images/layouts/dashboard.JPG" alt="Data Center" class="overlap-image">
+                                </div>
+                            </section>
+                            <section class="roadmap">
+                                <img src="assets/images/background/line.png" alt="" class="img-line">
+                                <div class="shape"></div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="block-text center">
+                                                <h6 class="sub-heading"><span>STACK BI</span></h6><br>
+                                                <h3 class="heading wow" data-splitting>Key Features of STACK<br>Business Intelligence Platform</h3>
+                                            </div>
+                                            <div class="roadmap__main" data-aos="fade-up" data-aos-duration="2000">
+                                                <div class="roadmap-box">
+                                                    <div class="content">
+                                                        <h5 class="title">Seamless Application Integration</h5>
+                                                        <p class="text">One of the standout features of the STACK BI Platform is its ability to seamlessly integrate with a wide range of third-party applications and systems.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="roadmap-box right">
+                                                    <div class="content">
+                                                        <h5 class="title">Intelligent Notifications</h5>
+                                                        <p class="text">STACK doesn't just provide data; it ensures you're notified when something requires your attention. The platform uses advanced algorithms to identify patterns and triggers that matter most to your business.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="roadmap-box">
+                                                    <div class="content">
+                                                        <h5 class="title">Advanced Analytics & Reporting</h5>
+                                                        <p class="text">Leverage STACK’s advanced analytics capabilities to generate detailed reports and dashboards that reflect your business's performance in real-time. Using artificial intelligence (AI) and machine learning (ML), the platform analyzes data trends, patterns, and anomalies, empowering you with actionable insights that would otherwise go unnoticed.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="roadmap-box right">
+                                                    <div class="content">
+                                                        <h5 class="title">Decision Support</h5>
+                                                        <p class="text">STACK acts as a powerful decision-support tool, offering data-driven recommendations based on historical and real-time data. By analyzing key performance indicators (KPIs) and business trends, it provides you with insights on how to optimize operations, reduce costs, and increase revenue.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="roadmap-box">
+                                                    <div class="content">
+                                                        <h5 class="title">Collaborative Tools</h5>
+                                                        <p class="text">STACK not only provides individual insights but also facilitates team collaboration. With its built-in communication tools, it allows teams to share data, discuss findings, and make decisions together.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="roadmap-box right">
+                                                    <div class="content">
+                                                        <h5 class="title">Customizable User Interface</h5>
+                                                        <p class="text">STACK’s user interface (UI) is fully customizable, allowing users to tailor the platform to their preferences and needs. Whether you're a CEO requiring high-level performance metrics or an operations manager focused on specific KPIs, STACK ensures that everyone can easily navigate and interact with the data that matters most to them.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="roadmap-box">
+                                                    <div class="content">
+                                                        <h5 class="title">Empowered by AI</h5>
+                                                        <p class="text">At the heart of STACK is artificial intelligence (AI), which powers the platform's ability to process vast amounts of data and provide intelligent insights. By applying machine learning models and predictive analytics, STACK anticipates trends, identifies inefficiencies, and recommends actions that align with your business goals.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="icon"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="branding-services">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="block-text center">
+                                                <h6 class="sub-heading"><span>Our Approach</span></h6><br>
+                                                <h3 class="heading wow" data-splitting>Why Choose the STACK<br>Business Intelligence Platform?</h3>
+                                            </div>
+                                            <div class="branding-grid" data-aos="fade-up" data-aos-duration="2000">
+                                                <div class="branding-card">
+                                                    <div class="card-icon">
+                                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M21 18H2V20H21V18M19 10V14H4V10H19M20 8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H20C20.55 16 21 15.55 21 15V9C21 8.45 20.55 8 20 8M21 4H2V6H21V4Z" fill="#4fc3f7" />
+                                                        </svg>
+                                                    </div>
+                                                    <h4>All-in-One Solution</h4>
+                                                    <p>Rather than managing multiple tools for reporting, analytics, and communication, STACK consolidates everything into a single platform. This integration ensures consistency across all data, eliminates data duplication, and minimizes the complexity of handling different systems.</p>
+                                                </div>
+                                                <div class="branding-card">
+                                                    <div class="card-icon">
+                                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12 2C6.47 2 2 6.5 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2M12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20M16.5 11.5C16.5 10.12 15.38 9 14 9C12.62 9 11.5 10.12 11.5 11.5V12H10V11.5C10 9.29 11.79 7.5 14 7.5C16.21 7.5 18 9.29 18 11.5V12H16.5V11.5M15 13V17H13V13H15M11 13V17H9V13H11Z" fill="#4fc3f7" />
+                                                        </svg>
+                                                    </div>
+                                                    <h4>Increased Efficiency</h4>
+                                                    <p>With real-time notifications and smart alerts, your team is always kept in the loop. The platform proactively identifies areas of concern, reducing the time spent manually tracking performance metrics.</p>
+                                                </div>
+                                                <div class="branding-card">
+                                                    <div class="card-icon">
+                                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M19 3H14V5H19V10H21V5C21 3.9 20.1 3 19 3M19 19H14V21H19C20.1 21 21 20.1 21 19V14H19M5 14H3V19C3 20.1 3.9 21 5 21H10V19H5M3 5V10H5V5H10V3H5C3.9 3 3 3.9 3 5Z" fill="#4fc3f7" />
+                                                        </svg>
+                                                    </div>
+                                                    <h4>Scalability</h4>
+                                                    <p>Whether you're a startup looking to grow or an enterprise managing complex workflows, STACK is built to scale with your business. Its flexibility allows it to adapt to your organization's changing needs, so you can rely on it as your business evolves.</p>
+                                                </div>
+                                                <div class="branding-card">
+                                                    <div class="card-icon">
+                                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 5C13.66 5 15 6.34 15 8C15 9.66 13.66 11 12 11C10.34 11 9 9.66 9 8C9 6.34 10.34 5 12 5M12 22C9.43 22 7 19.58 7 17C7 14.42 9.43 12 12 12C14.57 12 17 14.42 17 17C17 19.58 14.57 22 12 22M12 14C10.55 14 9 15.13 9 17C9 18.87 10.55 20 12 20C13.45 20 15 18.87 15 17C15 15.13 13.45 14 12 14Z" fill="#4fc3f7" />
+                                                        </svg>
+                                                    </div>
+                                                    <h4>Data Security and Compliance</h4>
+                                                    <p>STACK takes data security seriously. With enterprise-grade security features, including encryption, user role management, and audit logs, the platform ensures that your business data is always protected.</p>
+                                                </div>
+                                                <div class="branding-card">
+                                                    <div class="card-icon">
+                                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M6 16.5L3 19.5V11H6V16.5M11 14.5L8 17.5V11H11V14.5M16 13L13 16V11H16V13M18.5 3H4.5C3.67 3 3 3.67 3 4.5V9H6V7H18V17H15V20H18.5C19.33 20 20 19.33 20 18.5V4.5C20 3.67 19.33 3 18.5 3Z" fill="#4fc3f7" />
+                                                        </svg>
+                                                    </div>
+                                                    <h4>Actionable Insights for All Users</h4>
+                                                    <p>Unlike traditional BI tools that require specialized knowledge, STACK is designed to be accessible for all users. Whether you're a non-technical business user or a data scientist, STACK provides the insights you need, in the format you prefer, enabling everyone in your organization to make data-driven decisions.</p>
+                                                </div>
+                                                <div class="branding-card">
+                                                    <div class="card-icon">
+                                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M13.13 22.19L11.5 18.36C13.07 17.78 14.54 17 15.9 16.09L13.13 22.19M5.64 12.5L1.81 10.87L7.91 8.1C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39C21.61 2.39 16.66 .269 11 5.93C8.81 8.12 7.5 10.53 6.65 12.64C6.37 13.39 6.56 14.21 7.11 14.77L9.24 16.89C9.79 17.45 10.61 17.63 11.36 17.35C13.5 16.53 15.88 15.19 18.07 13C23.73 7.34 21.61 2.39 21.61 2.39M14.54 9.46C13.76 8.68 13.76 7.41 14.54 6.63S16.59 5.85 17.37 6.63C18.14 7.41 18.15 8.68 17.37 9.46C16.59 10.24 15.32 10.24 14.54 9.46Z" fill="#4fc3f7" />
+                                                        </svg>
+                                                    </div>
+                                                    <h4>Start Harnessing the Power of STACK Today</h4>
+                                                    <p>With the STACK Business Intelligence Platform, you no longer have to rely on disparate systems and outdated data to make crucial business decisions. By integrating your applications and providing real-time, intelligent notifications, STACK helps businesses thrive in a data-driven world.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="enterprise-section">
+                                <div>
+                                    <p class="enterprise-text">
+                                        For businesses ready to go beyond the basics.<br />
+                                        <strong>business@sbarabia.com / +966 54 338 7680</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <a href="contact.html" class="enterprise-button">Get Connected with Us! ›</a>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end Blog -->
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="shape"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="footer-column">
+  <h6 class="powered-text" style="
+    font-family: 'Anton', 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 100;
+    letter-spacing: 3px;
+    color: #ff001b;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+">
+    Your Data. Your Move.
+</h6>
+
+ <br>
+                        <p style="font-size: 15px;">STACK Business Analytics provides cutting-edge cloud services, monitoring solutions, and business intelligence tools to help your business thrive in today's digital landscape.</p> <br>
+                        <div class="contact-info">
+                            <p style="font-size: 15px;"><i class="fa-solid fa-location-dot"></i> #2, Al Yassmen Building, Zaid Ibn Thabit Street, Riyadh, Saudi Arabia</p>
+                            <p style="font-size: 15px;"><i class="fa-solid fa-phone"></i> +966 54 338 7680</p>
+                            <p style="font-size: 15px;"><i class="fa-solid fa-envelope"></i> business@sbarabia.com</p>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Our Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="stack-bi.html">Stack BI</a></li>
+                            <li><a href="cloud_monitoring.html">Cloud Service Monitoring</a></li>
+                            <li><a href="visitor_management.html">Visitor Management</a></li>
+                            <li><a href="monitoring.html">Server Monitoring</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="about.html">Solutions</a></li>
+                            <li><a href="vision-mission.html">Clients</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Newsletter</h4>
+                        <p>Subscribe to our newsletter to receive latest updates, industry insights, and exclusive offers.</p>
+                        <form action="#" class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                            </div>
+                            <button type="submit" class="action-btn">
+                                <span>Subscribe</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        Copyright © 2025, Bloombiz Creatives | STACK Business Analytics. All rights reserved.
+                    </div>
+                    <ul class="footer-quick-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="security.html">Security</a></li>
+                    </ul>
+                    <ul class="social-icons">
+                        <li>
+                            <a href="https://x.com/home" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" fill="white" width="20" height="20">
+                                    <path d="M714.963 545.162L1177.28 0H1070.98L672.133 484.184L350.866 0H0L490.089 714.848L0 1227H106.295L535.063 706.747L875.072 1227H1200L714.963 545.162ZM583.349 633.397L544.436 577.205L140.977 89.3447H305.738L615.445 546.991L654.358 603.183L1069.15 1136.41H905.388L583.349 633.397Z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/sb_arabia">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/sb-arabia-661547367/" target="_blank" rel="noopener noreferrer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="20" height="20" viewBox="0 0 24 24">
+                                    <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8.5H5V24H.02V8.5zM7.98 8.5H13v2.58h.09c.73-1.38 2.52-2.84 5.19-2.84 5.55 0 6.57 3.65 6.57 8.39V24H19v-7.61c0-1.82-.03-4.16-2.54-4.16-2.55 0-2.94 1.99-2.94 4.04V24H7.98V8.5z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/jquery.easing.js"></script>
+    <script src="app/js/plugins.js"></script>
+    <script src="app/js/countto.js"></script>
+    <script src="app/js/app.js"></script>
+    <script src="app/js/count-down.js"></script>
+    <script src="app/js/aos.js"></script>
+    <script src="app/js/swiper-bundle.min.js"></script>
+    <script src="app/js/swiper.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Show or hide the scroll top button
+            window.addEventListener('scroll', function () {
+                const scrollButton = document.getElementById('scrollTopBtn');
+                const container = document.getElementById('sticky-container');
+                const pageTitleSection = document.getElementById('page-title');
+
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    scrollButton.classList.add('visible');
+                } else {
+                    scrollButton.classList.remove('visible');
+                }
+
+                // Show or hide AIED notification box
+                const pageTitleBottom = pageTitleSection.getBoundingClientRect().bottom;
+                if (pageTitleBottom < 0) {
+                    container.classList.remove('hidden');
+                } else {
+                    container.classList.add('hidden');
+                }
+            });
+
+            // Scroll to top when button is clicked
+            $('#scrollTopBtn').click(function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Preserve existing scroll-top jQuery logic for backward compatibility
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $('#scroll-top').addClass('show');
+                } else {
+                    $('#scroll-top').removeClass('show');
+                }
+            });
+
+            $('#scroll-top').click(function () {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
+            });
+        });
+    </script>
+</body>
+
+</html>

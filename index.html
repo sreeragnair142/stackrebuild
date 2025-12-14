@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACK</title>
+
+    <!-- Styles -->
+    <link rel="preconnect" href="h  ttps://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="app/dist/aos.css">
+    <link rel="stylesheet" href="app/dist/animate.css">
+    <link rel="stylesheet" href="app/dist/app.css">
+
+    <!-- end Styles -->
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/stackfooternew.png">
+
+
+</head>
+<style>
+    .trends {
+        padding: 2rem 0;
+    }
+
+    .trends h2 {
+        font-weight: 100;
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: slideInDown 0.8s ease-out 0.2s forwards;
+    }
+
+    .trends__card {
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideInUp 0.6s ease-out forwards;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .trends__card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.5), transparent);
+        animation: shimmer 2s infinite;
+    }
+
+    .trends__card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        /* border-color: #007bff; */
+    }
+
+    .trends__card:hover::before {
+        animation-duration: 0.8s;
+    }
+
+    .trends__card h3 {
+        font-weight: bold;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        color: #2c3e50;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .trends__card h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #007bff, #28a745);
+        transition: width 0.6s ease-out;
+    }
+
+    .trends__card:hover h3::after {
+        width: 100%;
+    }
+
+    .trends__card p:first-of-type {
+        color: #6c757d;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .trends__card p:last-of-type {
+        margin-bottom: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        position: relative;
+        opacity: 0;
+        animation: fadeIn 0.6s ease-out 0.8s forwards;
+    }
+
+    .text-success {
+        color: #28a745 !important;
+    }
+
+    .text-danger {
+        color: #dc3545 !important;
+    }
+
+    /* Staggered animation delays */
+    .col-md-4:nth-child(1) .trends__card {
+        animation-delay: 0.1s;
+    }
+
+    .col-md-4:nth-child(2) .trends__card {
+        animation-delay: 0.2s;
+    }
+
+    .col-md-4:nth-child(3) .trends__card {
+        animation-delay: 0.3s;
+    }
+
+    .col-md-4:nth-child(4) .trends__card {
+        animation-delay: 0.4s;
+    }
+
+    .col-md-4:nth-child(5) .trends__card {
+        animation-delay: 0.5s;
+    }
+
+    .col-md-4:nth-child(6) .trends__card {
+        animation-delay: 0.6s;
+    }
+
+    /* Number counter animation */
+    .trends__card h3 {
+        animation: countUp 1.5s ease-out 0.5s forwards;
+    }
+
+    /* Keyframes */
+    @keyframes slideInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes shimmer {
+        0% {
+            left: -100%;
+        }
+
+        100% {
+            left: 100%;
+        }
+    }
+
+    @keyframes countUp {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Pulse animation for percentage changes */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* .trends__card p:last-of-type {
+        animation: fadeIn 0.6s ease-out 0.8s forwards, pulse 2s ease-in-out 1.5s infinite;
+    } */
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .trends__card {
+            margin-bottom: 1rem;
+        }
+
+        .trends__card h3 {
+            font-size: 2rem;
+        }
+    }
+
+    /* Loading state */
+    .loading {
+        position: relative;
+    }
+
+    .loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -10px 0 0 -10px;
+        border: 2px solid #f3f3f3;
+        border-top: 2px solid #007bff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Glow effect on hover */
+    .trends__card:hover {
+        box-shadow: 0 20px 40px rgba(0, 123, 255, 0.15);
+    }
+
+    /* Smooth transitions for all interactive elements */
+    * {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+</style>
+
+<body class="home-main header-fixed">
+
+    <div class="wrapper">
+
+        <div class="preloader">
+            <div class="clear-loading loading-effect-2">
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <!-- Header -->
+        <header id="header_main" class="header">
+            <div class="container big">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header__body">
+                            <div class="header__logo">
+                                <a href="index.html">
+                                    <img id="site-logo" src="assets/images/logo/stackfooternew.png" alt="Peson"
+                                        width="120" height="45" data-retina="assets/images/logo/logo@2x.png"
+                                        data-width="120" data-height="38">
+                                </a>
+                            </div>
+                            <div class="header__right">
+                                <nav id="main-nav" class="main-nav">
+                                    <ul id="menu-primary-menu" class="menu">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li class="menu-item"><a href="about.html">About</a></li>
+                                        <!-- <li class="menu-item menu-item-has-children">
+                                            <a href="#">Solutions</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="stack-bi.html">Stack BI</a></li>
+                                                <li class="menu-item"><a href="cloud_monitoring.html">Cloud Service
+                                                        Monitoring</a></li>
+                                                <li class="menu-item"><a href="visitor_management.html">Visitor
+                                                        Management</a></li>
+                                                <li class="menu-item"><a href="monitoring.html">Server Monitoring</a>
+                                                </li>
+                                               
+                                            </ul>
+                                        </li> -->
+                                        <li><a href="vision-mission.html">Case Studies</a></li>
+                                        <li class="menu-item"><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-button"><span></span></div>
+                            </div>
+                            <div class="header__action">
+                                <a href="contact.html"><span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end Header -->
+
+        <!-- Floating Contact Icons -->
+        <!-- <div class="floating-contact-icons">
+            <a href="https://wa.me/966543387680" target="_blank" class="contact-icon whatsapp-icon" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+966543387680" class="contact-icon phone-icon" title="Call Us">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div> -->
+
+        <!-- Banner with Background Video -->
+        <section class="banner s4 position-relative overflow-hidden" id="banner">
+            <!-- Background Video -->
+            <video autoplay muted loop playsinline class="background-video">
+                <source src="videos/Apple Watch Series 9 Reveal (4K) NEW - Apple Spectrum (1080p, h264).mp4"
+                    type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="shape right"></div>
+            <div class="container big">
+                <div class="row">
+                    <div class="col-xl-6 col-md-12">
+                        <div class="banner__left">
+                            <div class="block-text">
+                                <h2 class="heading" style="font-size: 45px;">
+                                    <!-- Empowering IT Divisions with AI-Driven -->
+                                    A Unified Platform Built for Intelligent,RealTime
+                                    <span class="rainbow-text"></span>
+                                    <span class="arlo_tm_animation_text_word"></span>
+                                </h2>
+                                <p class="desc">We empower your business with a robust platform that seamlessly
+                                    integrates inputs from diverse systems, third-party platforms, and AI tools,
+                                    intelligently STACKing this information to unlock maximum value for every
+                                    stakeholder. By transforming this enriched data into real-time alerts delivered
+                                    straight to mobile apps and smartwatches, we bridge the gap between complex
+                                    analytics and instant action—giving you the immediate insight needed to make
+                                    smarter, faster decisions the moment it matters.</p>
+                                <a href="contact.html" class="action-btn"><span>Get Connected</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-12">
+                        <div class="">
+                            <div class="swiper cardSwiper2">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="card-box s2">
+                                            <div class="image">
+                                                <img src="assets/images/layouts/dashqty.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card-box s2">
+                                            <div class="image">
+                                                <img src="assets/images/layouts/Group2.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card-box s2">
+                                            <div class="image">
+                                                <img src="assets/images/layouts/Group1.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!-- <div class="swiper-button-next s1">
+                                    <svg width="10" height="15" viewBox="0 0 10 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.8788 7.46543L2.43654 13.8092C2.1795 14.0662 1.76387 14.0662 1.50683 13.8092L1.11856 13.4209C0.861521 13.1639 0.861521 12.7482 1.11856 12.4912L6.7131 7.00059L1.12402 1.50997C0.866998 1.25293 0.866998 0.837303 1.12402 0.580281L1.51231 0.191991C1.76933 -0.0650311 2.18496 -0.0650311 2.442 0.191991L8.88422 6.53574C9.1357 6.79278 9.1357 7.20841 8.8788 7.46543Z"
+                                            fill="white" fill-opacity="0.5" />
+                                    </svg>
+                                </div>
+                                <div class="swiper-button-prev s1">
+                                    <svg width="10" height="15" viewBox="0 0 10 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1.1212 7.46543L7.56346 13.8092C7.8205 14.0662 8.23613 14.0662 8.49317 13.8092L8.88144 13.4209C9.13848 13.1639 9.13848 12.7482 8.88144 12.4912L3.2869 7.00059L8.87598 1.50997C9.133 1.25293 9.133 0.837303 8.87598 0.580281L8.48769 0.191991C8.23067 -0.0650311 7.81504 -0.0650311 7.558 0.191991L1.11578 6.53574C0.864303 6.79278 0.864302 7.20841 1.1212 7.46543Z"
+                                            fill="white" />
+                                    </svg>
+                                </div> -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add this CSS -->
+        <style>
+            .background-video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: -1;
+                opacity: 0.4;
+                /* Adjust to make text more readable */
+            }
+
+            .banner.s4 {
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+
+        <!-- End Banner -->
+
+        <!-- About -->
+        <section class="about">
+            <div class="shape"></div>
+            <div class="container">
+                <div class="row rev">
+                    <div class="col-xl-6 col-md-12">
+                        <div class="about__right">
+                            <div class="images">
+                                <img class="img1" src="assets/images/layouts/scuba.jpg" alt="">
+                                <!-- <img class="img2" src="assets/images/layouts/aboutt2.jpg" alt=""> -->
+                                <img class="img3" src="assets/images/layouts/mountain2.jpg" alt="">
+                                <img class="img4" src="assets/images/layouts/desert2.jpg" alt="">
+                                <img class="img5" src="assets/images/layouts/astronut.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-12">
+                        <div class="block-text">
+                            <h6 class="sub-heading"><span>Who Are We?</span></h6>
+                            <h3 class="heading">Unifying Data. Delivering Transformation.</h3>
+                            <p class="mb-17">We are a passionate team dedicated to enhancing value and exploring new
+                                possibilities through genuine digital transformation. Empowered by cutting-edge
+                                technology—including seamless integration, automation, and AI—our mission is to create
+                                revolutionary change.</p>
+                            <p class="mb-26">We deliver analytics and information via an easily accessible platform,
+                                making decisive action simpler than ever before. What truly sets us apart is our
+                                unwavering commitment: We are driven by passion, and we deliver on our promise to make
+                                revolutionary transformation a reality. Digital Futures, Together!</p>
+                            <br>
+                            <!-- <p>Let's make something remarkable</p><br>
+                            <p>Let's <b>create the future, together.</b></p><br> -->
+                            <a href="contact.html" class="action-btn"><span>Get Connected With Us</span></a>
+                        </div>
+
+                        <script>
+                            // This script ensures the animation plays when the page loads
+                            document.addEventListener('DOMContentLoaded', function () {
+                                const heading = document.querySelector('.heading');
+                                heading.style.animation = 'none';
+
+                                // Force a reflow to ensure the animation resets properly
+                                void heading.offsetWidth;
+
+                                heading.style.animation = 'slideInFromLeft 1.2s forwards';
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section> <br><br><br><br><br><br>
+        <!-- End About -->
+
+
+
+
+
+
+        <!-- ================= Analytics / Trends Section ================= -->
+
+        <style>
+            body {
+                background: #0b0f2a;
+                color: #ffffff;
+                font-family: "Inter", "Segoe UI", sans-serif;
+            }
+
+            .trends {
+                padding: 70px 40px;
+            }
+
+            .trends h2 {
+                font-size: 2.4rem;
+                font-weight: 400;
+                margin-bottom: 45px;
+                letter-spacing: 0.5px;
+                color: #7fb3ff;
+            }
+
+            /* Grid spacing */
+            .trends .row {
+                row-gap: 28px;
+            }
+
+            /* Standard dashboard card */
+            .trends__card {
+                background: #14183f;
+                border-radius: 12px;
+                padding: 26px;
+                height: 100%;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.25s ease;
+            }
+
+            .trends__card:hover {
+                transform: translateY(-4px);
+                border-color: rgba(127, 179, 255, 0.35);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+            }
+
+            /* Title */
+            .trends__card h3 {
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-bottom: 6px;
+                color: #ffffff;
+            }
+
+            /* ALL p text red (as requested) */
+            .trends__card p {
+                margin: 6px 0;
+                font-size: 0.95rem;
+                color: #ff4d4d;
+                line-height: 1.5;
+            }
+
+            /* Location text slightly muted red */
+            .trends__card .location {
+                color: #ff8080;
+                font-size: 0.9rem;
+            }
+
+            /* Alert message */
+            .trends__alert {
+                margin-top: 14px;
+                font-size: 0.95rem;
+                font-weight: 500;
+                color: #ff4d4d;
+            }
+
+            /* Left alert bar */
+            .trends__card::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 4px;
+                background: #ff4d4d;
+                border-radius: 12px 0 0 12px;
+            }
+
+            .trends__card {
+                position: relative;
+            }
+
+            @media (max-width: 768px) {
+                .trends {
+                    padding: 50px 20px;
+                }
+            }
+        </style>
+
+        <section class="trends container">
+            <h2>Analytics</h2>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="trends__card">
+                        <h3>Business</h3>
+                        <p class="location">23R / Riyadh</p>
+                        <p class="trends__alert">
+                            Showroom 23AB Riyadh — three customers have been unattended.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="trends__card">
+                        <h3>Server</h3>
+                        <p class="location">Olaya Data Center</p>
+                        <p class="trends__alert">
+                            CPU / Memory utilization has exceeded safe limits.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="trends__card">
+                        <h3>Access</h3>
+                        <p class="location">IT Room</p>
+                        <p class="trends__alert">
+                            Unauthorized access attempt detected in Data Center zone.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="trends__card">
+                        <h3>Attendance</h3>
+                        <p class="location">Finance – Dammam</p>
+                        <p class="trends__alert">
+                            Productivity dropped by 15% compared to the previous day.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="trends__card">
+                        <h3>Visitor Management</h3>
+                        <p class="location">Meeting Room 3 – HO</p>
+                        <p class="trends__alert">
+                            Double booking identified for meeting room reservation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="trends__card">
+                        <h3>Surveillance</h3>
+                        <p class="location">Warehouse Sulai – Zone 2</p>
+                        <p class="trends__alert">
+                            Possible tampering detected — camera appears obstructed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chart.js -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+        <!-- <script>
+                const chartHeight = 300;
+                
+                const barCanvas = document.getElementById('barChart');
+                const barCtx = barCanvas.getContext('2d');
+            
+                const barGradient = barCtx.createLinearGradient(0, 0, 0, chartHeight);
+                barGradient.addColorStop(0, '#1e3c72');  // top
+                barGradient.addColorStop(1, '#2a5298');  // bottom
+            
+                new Chart(barCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                        datasets: [{
+                            label: 'Present',
+                            data: [1800, 1900, 1750, 1950, 1850],
+                            backgroundColor: barGradient,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: { color: "#fff" },
+                                grid: { color: "#333" }
+                            },
+                            x: {
+                                ticks: { color: "#fff" },
+                                grid: { color: "#333" }
+                            }
+                        },
+                        plugins: {
+                            legend: { labels: { color: "#fff" } }
+                        }
+                    }
+                });
+            
+                const pieCanvas = document.getElementById('pieChart');
+                const pieCtx = pieCanvas.getContext('2d');
+            
+                new Chart(pieCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['On Time', 'Late', 'Absent'],
+                        datasets: [{
+                            data: [1477, 626, 655],
+                            backgroundColor: [
+                                '#1e3c72',  
+                                '#27496d',  
+                                '#0f2027'   
+                            ],
+                            borderColor: "#1b1c3b",
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: { color: "#fff" }
+                            }
+                        }
+                    }
+                });
+            </script>       -->
+
+
+
+
+
+        <section class="speciality">
+            <div class="shape right"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="block-text center">
+                            <h6 class="sub-heading"><span>Solutions</span></h6><br>
+                            <h3 class="heading wow" data-splitting>Innovation in Motion <br>
+                            </h3>
+                            <!-- <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, </p> -->
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="speciality-box animate-left" data-aos="fade-right" data-aos-duration="1000"
+                            data-aos-delay="100">
+                            <div class="icon">
+                                <!-- Stack BI Icon (fixed) -->
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M8 6C6.89543 6 6 6.89543 6 8V18H18V6H8ZM20 6V18H32V6H20ZM34 6V18H42C43.1046 18 44 17.1046 44 16V8C44 6.89543 43.1046 6 42 6H34ZM44 20H6V28H44V20ZM44 30H34V42H42C43.1046 42 44 41.1046 44 40V30ZM32 30H20V42H32V30ZM18 30H6V40C6 41.1046 6.89543 42 8 42H18V30Z"
+                                        fill="url(#paint0_linear_bi)" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear_bi" x1="25" y1="6" x2="25" y2="42"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="1" stop-color="white" />
+                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <h5 class="title">Stack BI</h5>
+                            <p>Visualize data in real time for smarter decisions.</p>
+                            <h3 class="number">01</h3>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="speciality-box animate-left" data-aos="fade-right" data-aos-duration="1000"
+                            data-aos-delay="500">
+                            <div class="icon">
+                                <!-- Cloud Service Monitoring Icon (fixed) -->
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M24 10C18.477 10 14 14.477 14 20C14 20.171 14.004 20.341 14.012 20.51C14.004 20.573 14 20.636 14 20.7C14 24.866 17.134 28 21.3 28H37C40.314 28 43 25.314 43 22C43 18.686 40.314 16 37 16C36.447 16 35.91 16.071 35.398 16.203C33.926 12.561 30.304 10 26 10H24ZM12 29C9.23858 29 7 31.2386 7 34C7 36.7614 9.23858 39 12 39H36C38.7614 39 41 36.7614 41 34C41 31.2386 38.7614 29 36 29H12Z"
+                                        fill="url(#paint0_linear_cloud)" />
+                                    <path d="M23 32H25M29 32H31M17 32H19" stroke="url(#paint1_linear_cloud)"
+                                        stroke-width="2.5" stroke-linecap="round" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear_cloud" x1="25" y1="10" x2="25" y2="39"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="1" stop-color="white" />
+                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
+                                        </linearGradient>
+                                        <linearGradient id="paint1_linear_cloud" x1="24" y1="32" x2="24" y2="33"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="1" stop-color="white" />
+                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <h5 class="title">Cloud Service Monitoring</h5>
+                            <p>Protect cloud environments with continuous threat detection.</p>
+                            <h3 class="number">02</h3>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="speciality-box animate-left" data-aos="fade-right" data-aos-duration="1000"
+                            data-aos-delay="700">
+                            <div class="icon">
+                                <!-- Visitor Management Icon (fixed) -->
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M24 12C20.6863 12 18 14.6863 18 18C18 21.3137 20.6863 24 24 24C27.3137 24 30 21.3137 30 18C30 14.6863 27.3137 12 24 12ZM14 18C14 12.4772 18.4772 8 24 8C29.5228 8 34 12.4772 34 18C34 23.5228 29.5228 28 24 28C18.4772 28 14 23.5228 14 18Z"
+                                        fill="url(#paint0_linear_visitor)" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M10.7759 30.936C13.1161 29.2473 16.1899 28 20 28H28C31.8101 28 34.8839 29.2473 37.2241 30.936C39.5741 32.6321 41 34.9057 41 37.5V42H7V37.5C7 34.9057 8.42589 32.6321 10.7759 30.936ZM27.8406 32H20.1594C17.0006 32 14.507 32.9902 12.7493 34.2737C11.8616 34.9174 11.196 35.634 10.7804 36.3391C10.3733 37.0288 10.1667 37.6774 10.1667 38.1667V38.8333H37.8333V38.1667C37.8333 37.6774 37.6267 37.0288 37.2196 36.3391C36.804 35.634 36.1384 34.9174 35.2507 34.2737C33.493 32.9902 30.9994 32 27.8406 32Z"
+                                        fill="url(#paint1_linear_visitor)" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear_visitor" x1="24" y1="8" x2="24" y2="28"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="1" stop-color="white" />
+                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
+                                        </linearGradient>
+                                        <linearGradient id="paint1_linear_visitor" x1="24" y1="28" x2="24" y2="42"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="1" stop-color="white" />
+                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <h5 class="title">Visitor Management</h5>
+                            <p>Digitize visitor flow with smart integration features.</p>
+                            <h3 class="number">03</h3>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="speciality-box animate-left" data-aos="fade-right" data-aos-duration="1000"
+                            data-aos-delay="800">
+                            <div class="icon">
+                                <!-- E-Invoicing Icon (fixed) -->
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M10 6C7.79086 6 6 7.79086 6 10V38C6 40.2091 7.79086 42 10 42H38C40.2091 42 42 40.2091 42 38V10C42 7.79086 40.2091 6 38 6H10ZM14 16C14 15.4477 14.4477 15 15 15H33C33.5523 15 34 15.4477 34 16C34 16.5523 33.5523 17 33 17H15C14.4477 17 14 16.5523 14 16ZM14 22C14 21.4477 14.4477 21 15 21H33C33.5523 21 34 21.4477 34 22C34 22.5523 33.5523 23 33 23H15C14.4477 23 14 22.5523 14 22ZM15 27C14.4477 27 14 27.4477 14 28C14 28.5523 14.4477 29 15 29H25C25.5523 29 26 28.5523 26 28C26 27.4477 25.5523 27 25 27H15ZM29 33C29 32.4477 29.4477 32 30 32H33C33.5523 32 34 32.4477 34 33C34 33.5523 33.5523 34 33 34H30C29.4477 34 29 33.5523 29 33Z"
+                                        fill="url(#paint0_linear_invoice)" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear_invoice" x1="24" y1="6" x2="24" y2="42"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="1" stop-color="white" />
+                                            <stop offset="1" stop-color="white" stop-opacity="0.5" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <h5 class="title">Server Monitoring</h5>
+                            <p>Automate invoices to fully comply with ZATCA rules.</p>
+                            <h3 class="number">04</h3>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </section>
+        <style>
+            /* Left to Right Animation Styles */
+            .animate-left {
+                position: relative;
+                opacity: 0;
+                transform: translateX(-50px);
+                transition: all 0.8s ease;
+            }
+
+            .animate-left.aos-animate {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            /* Optional: Add hover effect for additional interactivity */
+            .speciality-box {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .speciality-box:hover {
+                transform: translateX(10px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+
+
+        <style>
+            /* Title container */
+            .project-box .content {
+                margin-top: 14px;
+                padding: 12px 0;
+                text-align: center;
+            }
+
+            /* Gradient title */
+            .project-box .title {
+                display: inline-block;
+                padding: 10px 26px;
+                font-size: 1.05rem;
+                font-weight: 600;
+                color: #ffffff;
+
+                /* DARK GRADIENT */
+                background: linear-gradient(135deg,
+                        #0b0f2a 0%,
+                        #14183f 50%,
+                        #0b0f2a 100%);
+
+                border-radius: 20px;
+                letter-spacing: 0.4px;
+
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                    0 8px 20px rgba(0, 0, 0, 0.5);
+
+                border: 1px solid rgba(255, 255, 255, 0.06);
+            }
+        </style>
+
+        <section class="project">
+            <div class="shape right"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="block-text center">
+                            <h6 class="sub-heading"><span>How We Do?</span></h6><br>
+                            <h3 class="heading wow" data-splitting>Our Process</h3>
+                        </div>
+
+                        <div class="swiper process-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="project-box">
+                                        <div class="image">
+                                            <a href="#">
+                                                <img src="assets/images/layouts/Retail.png" alt="Analyse">
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <h5 class="title">Retail</h5>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="project-box">
+                                        <div class="image">
+                                            <a href="#">
+                                                <img src="assets/images/layouts/Manufacturing.png" alt="Design">
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <a href="#" class="h5 title">Manufacturing</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="project-box">
+                                        <div class="image">
+                                            <a href="#">
+                                                <img src="assets/images/layouts/WareHouse.png" alt="Plan and Execute">
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <a href="#" class="h5 title">WareHouse</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="project-box">
+                                        <div class="image">
+                                            <a href="#">
+                                                <img src="assets/images/layouts/Corporate Offices.png" alt="Integrate">
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <a href="#" class="h5 title">Corporate Offices</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="project-box">
+                                        <div class="image">
+                                            <a href="#">
+                                                <img src="assets/images/layouts/consrtruction.png" alt="Automate">
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <a href="#" class="h5 title">Construction</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination process-pagination"></div>
+
+                            <div class="swiper-button-prev process-btn-prev">
+                                <svg width="10" height="15" viewBox="0 0 10 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.1212 7.46543L7.56346 13.8092C7.8205 14.0662 8.23613 14.0662 8.49317 13.8092L8.88144 13.4209C9.13848 13.1639 9.13848 12.7482 8.88144 12.4912L3.2869 7.00059L8.87598 1.50997C9.133 1.25293 9.133 0.837303 8.87598 0.580281L8.48769 0.191991C8.23067 -0.0650311 7.81504 -0.0650311 7.558 0.191991L1.11578 6.53574C0.864303 6.79278 0.864302 7.20841 1.1212 7.46543Z"
+                                        fill="white" />
+                                </svg>
+                            </div>
+
+                            <div class="swiper-button-next process-btn-next">
+                                <svg width="10" height="15" viewBox="0 0 10 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" style="transform: scaleX(-1);">
+                                    <path
+                                        d="M1.1212 7.46543L7.56346 13.8092C7.8205 14.0662 8.23613 14.0662 8.49317 13.8092L8.88144 13.4209C9.13848 13.1639 9.13848 12.7482 8.88144 12.4912L3.2869 7.00059L8.87598 1.50997C9.133 1.25293 9.133 0.837303 8.87598 0.580281L8.48769 0.191991C8.23067 -0.0650311 7.81504 -0.0650311 7.558 0.191991L1.11578 6.53574C0.864303 6.79278 0.864302 7.20841 1.1212 7.46543Z"
+                                        fill="white" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+        <script>
+            const processSwiper = new Swiper('.process-swiper', {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                loop: false,
+                initialSlide: 0,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.process-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                navigation: {
+                    nextEl: '.process-btn-next',
+                    prevEl: '.process-btn-prev',
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
+                on: {
+                    slideChange: function () {
+                        if (this.activeIndex === this.slides.length - 1) {
+                            this.autoplay.stop();
+                            setTimeout(() => {
+                                this.slideTo(0, 1000);
+                                setTimeout(() => {
+                                    this.autoplay.start();
+                                }, 1000);
+                            }, 3000);
+                        }
+                    }
+                }
+            });
+
+            // Navigation handling with better edge case detection
+            const processNextBtn = document.querySelector('.process-btn-next');
+            const processPrevBtn = document.querySelector('.process-btn-prev');
+
+            if (processNextBtn) {
+                processNextBtn.addEventListener('click', function () {
+                    if (processSwiper.activeIndex >= processSwiper.slides.length - 1) {
+                        processSwiper.slideTo(0);
+                    }
+                });
+            }
+
+            if (processPrevBtn) {
+                processPrevBtn.addEventListener('click', function () {
+                    if (processSwiper.activeIndex <= 0) {
+                        processSwiper.slideTo(processSwiper.slides.length - 1);
+                    }
+                });
+            }
+        </script>
+
+
+
+
+
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="center">
+                    <h6 class="sub-heading"><span>Testimonials</span></h6>
+                    <h3 class="heading">What People Say</h3>
+                </div>
+
+                <div class="swiper testimonials-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="box-testimonial center">
+                                <svg class="quote-icon" viewBox="0 0 512 512">
+                                    <path fill="#6c5ce7"
+                                        d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                                    </path>
+                                </svg>
+                                <p class="text">"STACK Applications is a game-changer. It acts as a smart extension of
+                                    our systems, delivering intelligent insights and timely notifications. Its sleek,
+                                    visually appealing interface makes data easy to navigate and act on. Innovative,
+                                    intuitive, and powerful – STACK takes our operations to the next level."</p>
+                                <div class="info">
+                                    <div class="avatar-container">
+                                        <img class="avatar" src="assets/images/layouts/testi2.png" alt="Anees PP" />
+                                    </div>
+                                    <h5 class="name">Anees PP, ABM Olayan</h5>
+                                    <p>Riyadh, Saudi Arabia</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Simple navigation buttons for demonstration -->
+
+            </div>
+        </section><br><br><br>
+
+
+
+
+
+        <style>
+            /* Base styles */
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #060b28;
+                /* Dark blue background to match site */
+                color: #fff;
+            }
+
+            /* Footer styles */
+            .footer {
+                background-color: #060b28;
+                position: relative;
+                overflow: hidden;
+                padding: 80px 0 40px;
+            }
+
+            /* Shape for visual interest */
+            .footer .shape {
+                position: absolute;
+                top: -50px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                height: 100px;
+                background-color: rgba(106, 90, 205, 0.1);
+                border-radius: 50%;
+                filter: blur(40px);
+                z-index: 0;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 15px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0 -15px;
+            }
+
+            /* Footer sections */
+            .footer-column {
+                flex: 1;
+                padding: 0 15px;
+                min-width: 250px;
+                margin-bottom: 30px;
+            }
+
+            .footer-column h4 {
+                color: #fff;
+                font-size: 18px;
+                margin-bottom: 20px;
+                position: relative;
+                padding-bottom: 10px;
+            }
+
+            .footer-column h4:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 40px;
+                height: 2px;
+                background: linear-gradient(90deg, #8065e0, #6366f1);
+            }
+
+            /* Logo styling */
+            .footer-logo {
+                margin-bottom: 20px;
+            }
+
+            .footer-logo img {
+                height: 50px;
+            }
+
+            /* Footer link lists */
+            .footer-links {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .footer-links li {
+                margin-bottom: 12px;
+            }
+
+            .footer-links a {
+                color: #b4b7c9;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                display: inline-block;
+            }
+
+            .footer-links a:hover {
+                color: #fff;
+                transform: translateX(5px);
+            }
+
+            /* Contact info */
+            .contact-info {
+                margin-bottom: 20px;
+            }
+
+            .contact-info p {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 15px;
+                color: #b4b7c9;
+            }
+
+            .contact-info i {
+                margin-right: 10px;
+                color: #6366f1;
+                width: 16px;
+                text-align: center;
+            }
+
+            /* Newsletter form */
+            .newsletter-form {
+                margin-top: 15px;
+            }
+
+            .form-group {
+                position: relative;
+                margin-bottom: 15px;
+            }
+
+            .form-control {
+                background-color: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 30px;
+                height: 46px;
+                padding: 0 20px;
+                width: 100%;
+                color: #fff;
+                transition: all 0.3s ease;
+            }
+
+            .form-control:focus {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.2);
+                outline: none;
+            }
+
+            .action-btn {
+                background: linear-gradient(90deg, #8065e0, #6366f1);
+                border: none;
+                border-radius: 30px;
+                color: #fff;
+                cursor: pointer;
+                font-weight: 600;
+                height: 46px;
+                padding: 0 30px;
+                transition: all 0.3s ease;
+            }
+
+            .action-btn:hover {
+                background: linear-gradient(90deg, #6366f1, #8065e0);
+                transform: translateY(-3px);
+                box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+            }
+
+            /* Footer bottom */
+            .footer-bottom {
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                margin-top: 30px;
+                padding-top: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .copyright {
+                color: #b4b7c9;
+                font-size: 14px;
+                margin: 10px 0;
+            }
+
+            /* Social media links */
+            .social-icons {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 10px 0;
+            }
+
+            .social-icons li {
+                margin-left: 15px;
+            }
+
+            .social-icons a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+            .social-icons a:hover {
+                background-color: rgba(99, 102, 241, 0.8);
+                transform: translateY(-3px);
+            }
+
+            .social-icons svg {
+                width: 16px;
+                height: 16px;
+                fill: #fff;
+            }
+
+            /* Quick nav for bottom */
+            .footer-quick-links {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 10px 0;
+            }
+
+            .footer-quick-links li {
+                margin-right: 20px;
+            }
+
+            .footer-quick-links a {
+                color: #b4b7c9;
+                text-decoration: none;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+
+            .footer-quick-links a:hover {
+                color: #fff;
+            }
+
+            /* Responsive design */
+            @media (max-width: 768px) {
+                .footer-column {
+                    flex: 0 0 50%;
+                }
+
+                .footer-bottom {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .social-icons,
+                .footer-quick-links {
+                    justify-content: center;
+                }
+
+                .social-icons li:first-child {
+                    margin-left: 0;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .footer-column {
+                    flex: 0 0 100%;
+                }
+            }
+        </style>
+
+        <!-- Add Font Awesome from CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <footer class="footer">
+            <div class="shape"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- Company Info Column -->
+                    <div class="footer-column">
+                        <h6 class="powered-text" style="
+    font-family: 'Anton', 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 100;
+    letter-spacing: 3px;
+    color: #ff001b;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+">
+                            Your Data. Your Move.
+                        </h6>
+
+
+                        <br>
+                        <p>STACK provides cutting-edge cloud services, monitoring solutions,
+                            and business intelligence tools to help your business thrive in today's digital
+                            landscape.</p> <br>
+                        <div class="contact-info">
+                            <p><i class="fa-solid fa-location-dot"></i> #2, Al Yassmen Building, Zaid Ibn Thabit Street,
+                                Riyadh, Saudi Arabia</p>
+                            <p><i class="fa-solid fa-phone"></i> +966 54 338 7670</p>
+                            <p><i class="fa-solid fa-envelope"></i> business@sbarabia.com</p>
+                        </div>
+                    </div>
+
+                    <!-- Services Column -->
+                    <div class="footer-column">
+                        <h4>Our Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="stack-bi.html">Stack BI</a></li>
+                            <li><a href="cloud_monitoring.html">Cloud Service Monitoring</a></li>
+                            <li><a href="visitor_management.html">Visitor Management</a></li>
+                            <!-- <li><a href="e_invoicing.html">E Invoicing</a></li> -->
+                            <li><a href="monitoring.html">Server Monitoring</a></li>
+                            <!-- <li><a href="business-process.html">Business Process Automation</a></li>
+                            <li><a href="devops.html">Devops Automation</a></li>
+                            <li><a href="erp.html">ERP Implimentation</a></li> -->
+
+
+
+                        </ul>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="about.html">Solutions</a></li>
+                            <li><a href="#">Client</a></li>
+                            <!-- <li><a href="career.html">Careers</a></li> -->
+                            <li><a href="contact.html">Contact </a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter Column -->
+                    <div class="footer-column">
+                        <h4>Newsletter</h4>
+                        <p>Subscribe to our newsletter to receive latest updates, industry insights, and exclusive
+                            offers.</p>
+
+                        <form action="#" class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                            </div>
+                            <button type="submit" class="action-btn">
+                                <span>Subscribe</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Footer Bottom Section -->
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        Copyright © 2025, Bloombiz Creatives | STACK. All rights reserved.
+                    </div>
+
+                    <ul class="footer-quick-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="security.html">Security</a></li>
+                    </ul>
+
+                    <ul class="social-icons">
+                        <li>
+                            <a href="https://x.com/home" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" fill="white" width="20"
+                                    height="20">
+                                    <path
+                                        d="M714.963 545.162L1177.28 0H1070.98L672.133 484.184L350.866 0H0L490.089 714.848L0 1227H106.295L535.063 706.747L875.072 1227H1200L714.963 545.162ZM583.349 633.397L544.436 577.205L140.977 89.3447H305.738L615.445 546.991L654.358 603.183L1069.15 1136.41H905.388L583.349 633.397Z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/sb_arabia">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="white">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="https://www.linkedin.com/in/sb-arabia-661547367/" target="_blank"
+                                rel="noopener noreferrer">
+                                <!-- LinkedIn SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="20" height="20"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8.5H5V24H.02V8.5zM7.98 8.5H13v2.58h.09c.73-1.38 2.52-2.84 5.19-2.84 5.55 0 6.57 3.65 6.57 8.39V24H19v-7.61c0-1.82-.03-4.16-2.54-4.16-2.55 0-2.94 1.99-2.94 4.04V24H7.98V8.5z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <!-- AIED Notification Box -->
+        <div id="sticky-container" class="notification-container hidden">
+            <div class="notification-box">
+                <span class="notification-short-text">AIED</span>
+                <a href="https://aied-sa.com/" class="notification-text" target="_self">Back to AIED</a>
+            </div>
+        </div>
+
+        <!-- Scroll-to-Top Button -->
+        <a id="scroll-top"><i class="fas fa-arrow-up"></i></a>
+
+        <style>
+            /* Hide by default */
+            .hidden {
+                display: none !important;
+            }
+
+            .notification-container {
+                position: fixed;
+                bottom: 80px;
+                /* Above scroll-top */
+                right: 0px;
+                z-index: 999;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .notification-box {
+                width: 70px;
+                height: 50px;
+                background: linear-gradient(90deg, #0d0f3f, #4b248c);
+                border-radius: 25px 0 0 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                cursor: pointer;
+                overflow: hidden;
+                transition: width 0.3s ease-in-out;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+            .notification-box:hover {
+                width: 300px;
+            }
+
+            .notification-short-text {
+                color: #fff;
+                font-weight: bold;
+                font-size: 20px;
+                margin-left: 10px;
+                white-space: nowrap;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .notification-box:hover .notification-short-text {
+                opacity: 0;
+            }
+
+            .notification-text {
+                position: absolute;
+                left: 70px;
+                color: #fff;
+                font-size: 18px;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+                white-space: nowrap;
+                text-decoration: none !important;
+            }
+
+            .notification-box:hover .notification-text {
+                opacity: 1;
+            }
+        </style>
+
+        <script>
+            window.addEventListener("scroll", function () {
+                const container = document.getElementById("sticky-container");
+                const banner = document.getElementById("banner");
+
+                const bannerBottom = banner.getBoundingClientRect().bottom;
+
+                if (bannerBottom < 0) {
+                    container.classList.remove("hidden");
+                } else {
+                    container.classList.add("hidden");
+                }
+            });
+        </script>
+
+
+
+
+
+        <script src="app/js/jquery.min.js"></script>
+        <script src="app/js/jquery.easing.js"></script>
+        <script src="app/js/plugins.js"></script>
+        <script src="app/js/countto.js"></script>
+
+        <script src="app/js/app.js"></script>
+        <script src="app/js/count-down.js"></script>
+
+        <script src="app/js/aos.js"></script>
+
+
+        <script src="app/js/swiper-bundle.min.js"></script>
+        <script src="app/js/swiper.js"></script>
+
+        <!-- Initialize Swiper -->
+
+
+</body>
+
+</html>
