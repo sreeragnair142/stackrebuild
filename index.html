@@ -509,166 +509,214 @@
 
 
 
-        <!-- ================= Analytics / Trends Section ================= -->
-
+        <!-- Start Trends -->
         <style>
+            .trends h2 {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 100;
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+                border-bottom: 2px solid white;
+                display: inline-block;
+            }
+
             body {
-                background: #0b0f2a;
-                color: #ffffff;
-                font-family: "Inter", "Segoe UI", sans-serif;
+                background: #0d0e26;
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .navbar {
+                background: #0b0c1e;
+            }
+
+            .navbar a {
+                color: white;
+                margin: 0 10px;
+                font-weight: 600;
             }
 
             .trends {
-                padding: 70px 40px;
+                padding: 60px 40px;
             }
 
             .trends h2 {
-                font-size: 2.4rem;
-                font-weight: 400;
-                margin-bottom: 45px;
-                letter-spacing: 0.5px;
-                color: #7fb3ff;
+                font-weight: 100;
+                text-decoration: none;
+                border-bottom: none;
             }
 
-            /* Grid spacing */
-            .trends .row {
-                row-gap: 28px;
-            }
-
-            /* Standard dashboard card */
             .trends__card {
-                background: #14183f;
+                background: #13143b;
                 border-radius: 12px;
-                padding: 26px;
-                height: 100%;
-                border: 1px solid rgba(255, 255, 255, 0.05);
-                transition: all 0.25s ease;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                padding: 20px;
+                text-align: left;
+                color: white;
             }
 
-            .trends__card:hover {
-                transform: translateY(-4px);
-                border-color: rgba(127, 179, 255, 0.35);
-                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-            }
-
-            /* Title */
             .trends__card h3 {
-                font-size: 1.4rem;
-                font-weight: 600;
-                margin-bottom: 6px;
-                color: #ffffff;
+                font-size: 2rem;
+                margin-bottom: 5px;
             }
 
-            /* ALL p text red (as requested) */
             .trends__card p {
-                margin: 6px 0;
-                font-size: 0.95rem;
-                color: #ff4d4d;
-                line-height: 1.5;
+                margin: 0;
             }
 
-            /* Location text slightly muted red */
-            .trends__card .location {
-                color: #ff8080;
-                font-size: 0.9rem;
+            .text-success {
+                color: #4cd964;
             }
 
-            /* Alert message */
-            .trends__alert {
-                margin-top: 14px;
-                font-size: 0.95rem;
-                font-weight: 500;
-                color: #ff4d4d;
+            .text-danger {
+                color: #ff3b30;
             }
 
-            /* Left alert bar */
-            .trends__card::before {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 0;
-                bottom: 0;
-                width: 4px;
-                background: #ff4d4d;
-                border-radius: 12px 0 0 12px;
+            .trends__card h4 {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
             }
 
-            .trends__card {
+            /* Rainbow Gradient Effect for Trend Numbers */
+            .trends__card h3 {
+                font-size: 2rem;
+                margin-bottom: 5px;
+                color: transparent;
+                background: linear-gradient(to right,
+                        #2841ae 0%,
+                        #986541 25%,
+                        #5795ce 50%,
+                        #54867a 75%,
+                        #8a3bff 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+
+            /* Ensure equal chart container sizes */
+            .chart-container {
                 position: relative;
+                height: 300px;
+                width: 100%;
             }
 
-            @media (max-width: 768px) {
-                .trends {
-                    padding: 50px 20px;
-                }
-            }
+            .trends__card h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.7rem;
+
+    /* Red → Orange → Yellow gradient */
+    color: transparent;
+    background: linear-gradient(
+        90deg,
+        #ff3b3b 0%,
+        #ff8c00 50%,
+        #ffd700 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
         </style>
 
+        <!-- Trends Section -->
         <section class="trends container">
-            <h2>Analytics</h2>
+    <h2 style="font-weight: 100;">Analytics</h2>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="trends__card">
-                        <h3>Business</h3>
-                        <p class="location">23R / Riyadh</p>
-                        <p class="trends__alert">
-                            Showroom 23AB Riyadh — three customers have been unattended.
-                        </p>
-                    </div>
-                </div>
+    <div class="row g-4">
 
-                <div class="col-md-4">
-                    <div class="trends__card">
-                        <h3>Server</h3>
-                        <p class="location">Olaya Data Center</p>
-                        <p class="trends__alert">
-                            CPU / Memory utilization has exceeded safe limits.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="trends__card">
-                        <h3>Access</h3>
-                        <p class="location">IT Room</p>
-                        <p class="trends__alert">
-                            Unauthorized access attempt detected in Data Center zone.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="trends__card">
-                        <h3>Attendance</h3>
-                        <p class="location">Finance – Dammam</p>
-                        <p class="trends__alert">
-                            Productivity dropped by 15% compared to the previous day.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="trends__card">
-                        <h3>Visitor Management</h3>
-                        <p class="location">Meeting Room 3 – HO</p>
-                        <p class="trends__alert">
-                            Double booking identified for meeting room reservation.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="trends__card">
-                        <h3>Surveillance</h3>
-                        <p class="location">Warehouse Sulai – Zone 2</p>
-                        <p class="trends__alert">
-                            Possible tampering detected — camera appears obstructed.
-                        </p>
-                    </div>
-                </div>
+        <div class="col-md-4">
+            <div class="trends__card">
+                <h4>Business</h4>
+                <p><strong>23R / Riyadh</strong></p>
+                <p>Showroom 23AB Riyadh</p>
+                <p class="text-danger">
+                    Three customers have been unattended.
+                </p>
             </div>
-        </section>
+        </div>
+
+        <div class="col-md-4">
+            <div class="trends__card">
+                <h4>Server</h4>
+                <p><strong>Olaya Data Center</strong></p>
+                <p class="text-danger">
+                    CPU / Memory utilization has exceeded safe limits.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="trends__card">
+                <h4>Access</h4>
+                <p><strong>IT Room</strong></p>
+                <p class="text-danger">
+                    Unauthorized access attempt detected in Data Center zone.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="trends__card">
+                <h4>Attendance</h4>
+                <p><strong>Finance – Dammam</strong></p>
+                <p class="text-danger">
+                    Productivity dropped by 15% compared to the previous day.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="trends__card">
+                <h4>Visitor Management</h4>
+                <p><strong>Meeting Room 3 – HO</strong></p>
+                <p class="text-danger">
+                    Double booking identified for meeting room reservation.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="trends__card">
+                <h4>Surveillance</h4>
+                <p><strong>Warehouse – Sulai WO Zone 2</strong></p>
+                <p class="text-danger">
+                    Possible tampering detected — external camera obstructed.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <br><br><br>
+</section>
+
+        <script>
+            // Optional: Add number counting animation
+            document.addEventListener('DOMContentLoaded', function () {
+                const numbers = document.querySelectorAll('.trends__card h3');
+
+                numbers.forEach(number => {
+                    const finalNumber = parseInt(number.textContent.replace(',', ''));
+                    let currentNumber = 0;
+                    const increment = finalNumber / 100;
+
+                    setTimeout(() => {
+                        const timer = setInterval(() => {
+                            currentNumber += increment;
+                            if (currentNumber >= finalNumber) {
+                                number.textContent = finalNumber.toLocaleString();
+                                clearInterval(timer);
+                            } else {
+                                number.textContent = Math.floor(currentNumber).toLocaleString();
+                            }
+                        }, 20);
+                    }, 800);
+                });
+            });
+        </script>
+
 
         <!-- Chart.js -->
         <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
