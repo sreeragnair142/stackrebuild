@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAPSARC - Research Center</title>
+    <title>KAUST - Research Center</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -168,15 +168,15 @@
             margin-top: 5px;
         }
 
-        /* KAPSARC Custom Styles */
-        .kapsarc-hero {
-background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
+        /* KAUST Custom Styles */
+        .kaust-hero {
+            background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             padding: 80px 0;
             position: relative;
             overflow: hidden;
         }
 
-        .kapsarc-hero::before {
+        .kaust-hero::before {
             content: '';
             position: absolute;
             top: 0;
@@ -189,7 +189,7 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             pointer-events: none;
         }
 
-        .kapsarc-container {
+        .kaust-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -197,15 +197,15 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             z-index: 1;
         }
 
-        .kapsarc-header {
+        .kaust-header {
             text-align: center;
             margin-bottom: 60px;
             animation: fadeInDown 0.8s ease-out;
         }
 
-        .kapsarc-logo {
+        .kaust-logo {
             font-size: 3.2em;
-            font-weight: 800;
+            font-weight: 200;
             background: linear-gradient(135deg, #4a9eff 0%, #a78bfa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -214,7 +214,7 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             letter-spacing: 3px;
         }
 
-        .kapsarc-full-name {
+        .kaust-full-name {
             font-size: 1.2em;
             color: #a8c5ff;
             font-weight: 400;
@@ -222,7 +222,7 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             margin-bottom: 10px;
         }
 
-        .kapsarc-confidential {
+        .kaust-confidential {
             display: inline-block;
             background: rgba(255, 87, 87, 0.2);
             border: 1px solid rgba(255, 87, 87, 0.5);
@@ -235,15 +235,16 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             margin-top: 15px;
         }
 
-        .kapsarc-content-grid {
+        .kaust-content-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 50px;
             align-items: center;
             animation: fadeInUp 0.8s ease-out 0.2s both;
+            justify-items: center;
         }
 
-        .kapsarc-text-content {
+        .kaust-text-content {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
             border-radius: 24px;
@@ -251,43 +252,17 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
         }
 
-        .kapsarc-text-content:hover {
+        .kaust-text-content:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 48px rgba(74, 158, 255, 0.2);
         }
 
-        .kapsarc-image-container {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        }
-
-        .kapsarc-image-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .kapsarc-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .kapsarc-image-container:hover img {
-            transform: scale(1.05);
-        }
-
-        .kapsarc-title {
+        .kaust-title {
             font-size: 2.2em;
             margin-bottom: 25px;
             color: #ffffff;
@@ -295,14 +270,14 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             line-height: 1.3;
         }
 
-        .kapsarc-intro {
+        .kaust-intro {
             line-height: 1.8;
             margin-bottom: 35px;
             color: #d0dfff;
             font-size: 1.1em;
         }
 
-        .kapsarc-features-title {
+        .kaust-features-title {
             font-size: 1.3em;
             margin-bottom: 25px;
             color: #4a9eff;
@@ -311,7 +286,7 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             letter-spacing: 1px;
         }
 
-        .kapsarc-feature-item {
+        .kaust-feature-item {
             padding: 18px 0;
             padding-left: 35px;
             position: relative;
@@ -321,12 +296,12 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             transition: transform 0.2s ease, color 0.2s ease;
         }
 
-        .kapsarc-feature-item:hover {
+        .kaust-feature-item:hover {
             transform: translateX(5px);
             color: #ffffff;
         }
 
-        .kapsarc-feature-item:before {
+        .kaust-feature-item:before {
             content: "✓";
             position: absolute;
             left: 0;
@@ -336,7 +311,7 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             line-height: 1.2;
         }
 
-        .kapsarc-conclusion {
+        .kaust-conclusion {
             line-height: 1.8;
             color: #d0dfff;
             font-size: 1.15em;
@@ -346,7 +321,7 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             font-weight: 500;
         }
 
-        .kapsarc-stats {
+        .kaust-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
@@ -354,7 +329,7 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             padding: 0 20px;
         }
 
-        .kapsarc-stat-card {
+        .kaust-stat-card {
             background: rgba(74, 158, 255, 0.1);
             border: 1px solid rgba(74, 158, 255, 0.3);
             border-radius: 20px;
@@ -363,19 +338,19 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             transition: all 0.3s ease;
         }
 
-        .kapsarc-stat-card:hover {
+        .kaust-stat-card:hover {
             background: rgba(74, 158, 255, 0.2);
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(74, 158, 255, 0.3);
         }
 
-        .kapsarc-stat-icon {
+        .kaust-stat-icon {
             font-size: 2.5em;
             color: #4a9eff;
             margin-bottom: 15px;
         }
 
-        .kapsarc-stat-label {
+        .kaust-stat-label {
             font-size: 1.1em;
             color: #a8c5ff;
             font-weight: 500;
@@ -413,42 +388,42 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
         }
 
         @media (max-width: 968px) {
-            .kapsarc-content-grid {
+            .kaust-content-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
-            .kapsarc-text-content {
+            .kaust-text-content {
                 padding: 35px;
             }
 
-            .kapsarc-logo {
+            .kaust-logo {
                 font-size: 2.5em;
             }
 
-            .kapsarc-stats {
+            .kaust-stats {
                 grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 640px) {
-            .kapsarc-hero {
+            .kaust-hero {
                 padding: 50px 0;
             }
 
-            .kapsarc-text-content {
+            .kaust-text-content {
                 padding: 25px;
             }
 
-            .kapsarc-logo {
+            .kaust-logo {
                 font-size: 2em;
             }
 
-            .kapsarc-title {
+            .kaust-title {
                 font-size: 1.8em;
             }
 
-            .kapsarc-full-name {
+            .kaust-full-name {
                 font-size: 1em;
             }
         }
@@ -769,82 +744,77 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             <span class="arrow-up"></span>
         </button>
 
-        <!-- KAPSARC Content Section -->
-       <section class="kapsarc-hero">
-    <div class="kapsarc-container">
-        <div class="kapsarc-header">
-            <div class="kapsarc-logo">KAUST</div>
-            <div class="kapsarc-full-name">
+        <!-- KAUST Content Section -->
+       <section class="kaust-hero">
+    <div class="kaust-container">
+        <div class="kaust-header">
+            <div class="kaust-logo">KAUST</div>
+            <div class="kaust-full-name">
                 King Abdullah University of Science and Technology
             </div>
-            <div class="kapsarc-confidential">RESTRICTED DEPLOYMENT</div>
+            <div class="kaust-confidential">RESTRICTED DEPLOYMENT</div>
         </div>
 
-        <div class="kapsarc-content-grid">
-            <div class="kapsarc-text-content">
-                <h2 class="kapsarc-title">
+        <div class="kaust-content-grid">
+            <div class="kaust-text-content">
+                <h2 class="kaust-title" style="font-weight: 200;">
                     Real-Time Headcount & Access Intelligence
                 </h2>
 
-                <p class="kapsarc-intro">
+                <p class="kaust-intro">
                     KAUST operates advanced, high-sensitivity research laboratories with continuous movement of scientists, consultants, and authorized visitors. The institution required a dependable, real-time system to ensure complete visibility of personnel inside critical lab environments at all times.
                 </p>
 
-                <div class="kapsarc-features">
-                    <p class="kapsarc-features-title">
+                <div class="kaust-features">
+                    <p class="kaust-features-title">
                         STACK High-Level Deliverables
                     </p>
 
-                    <div class="kapsarc-feature-item">
+                    <div class="kaust-feature-item">
                         Real-time headcount tracking across laboratories and critical zones
                     </div>
-                    <div class="kapsarc-feature-item">
+                    <div class="kaust-feature-item">
                         End-to-end visibility of employees, consultants, and visitors
                     </div>
-                    <div class="kapsarc-feature-item">
+                    <div class="kaust-feature-item">
                         Faster emergency response through instant roll-call intelligence
                     </div>
-                    <div class="kapsarc-feature-item">
+                    <div class="kaust-feature-item">
                         A unified, accurate source of truth for people movement
                     </div>
                 </div>
 
-                <p class="kapsarc-conclusion">
+                <p class="kaust-conclusion">
                     STACK delivers continuous situational awareness across KAUST’s most sensitive research environments, ensuring safety, compliance, and operational clarity.
                 </p>
             </div>
 
-            <div class="kapsarc-image-container">
-                <img 
-                    src="assets/images/layouts/b4.jpg" 
-                    alt="KAUST Research Laboratories">
-            </div>
         </div>
 
-        <div class="kapsarc-stats">
-            <div class="kapsarc-stat-card">
-                <div class="kapsarc-stat-icon">
+        <div class="kaust-stats">
+            <div class="kaust-stat-card">
+                <div class="kaust-stat-icon">
                     <i class="fas fa-user-clock"></i>
                 </div>
-                <div class="kapsarc-stat-label">
+                <div class="kaust-stat-label">
                     Real-Time Headcount
                 </div>
             </div>
 
-            <div class="kapsarc-stat-card">
-                <div class="kapsarc-stat-icon">
+            <div class="kaust-stat-card">
+                <div class="kaust-stat-icon">
                     <i class="fas fa-fingerprint"></i>
                 </div>
-                <div class="kapsarc-stat-label">
+                <div class="kaust-stat-label">
                     Biometric Access Intelligence
                 </div>
             </div>
 
-            <div class="kapsarc-stat-card">
-                <div class="kapsarc-stat-icon">
+            <div class="kaust-stat-card">
+                <div class="kaust-stat-icon">
                     <i class="fas fa-exclamation-triangle"></i>
                 </div>
-                <div class="kapsarc-stat-label">
+                <div class="kaust-stat-label">
                     Emergency Roll-Call Readiness
                 </div>
             </div>
