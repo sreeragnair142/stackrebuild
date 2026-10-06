@@ -5,31 +5,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBA</title>
+    <title>Case Studies & Enterprise Deployments | STACK - Saudi Arabia</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;900&family=Anton&family=Roboto:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="app/dist/aos.css">
     <link rel="stylesheet" href="app/dist/app.css">
-    <link rel="stylesheet" href="app/dist/blog.css">
-    <!-- end Styles -->
 
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/images/logo/logofav - Copy.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.png">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/logo/stackfooternew.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/stackfooternew.png">
 
     <style>
-        /* Mobile menu dropdown icon styles */
+        /* ========================================================
+           GLOBAL & RESET OVERRIDES
+           ======================================================== */
+        body {
+            background-color: #070A29 !important;
+            color: #e2e8f0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Header Matching about.html */
+        .header,
+        #header_main {
+            background-color: #070A29 !important;
+        }
+
+        .header.is-fixed {
+            background-color: #070A29 !important;
+        }
+
+        .case-studies-page-bg {
+            position: relative;
+            background-color: #070A29;
+            background-image: 
+                radial-gradient(circle at 50% 25%, rgba(37, 99, 235, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 12% 45%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 88% 65%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+            min-height: 100vh;
+        }
+
+        /* Ambient Glow Spheres */
+        .ambient-glow-top {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 350px;
+            background: radial-gradient(ellipse at top, rgba(14, 165, 233, 0.16) 0%, rgba(37, 99, 235, 0.06) 50%, transparent 75%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Mobile Menu */
         .mobile-menu-dropdown {
             position: relative;
         }
@@ -47,7 +90,6 @@
             transform: translateY(-50%) rotate(180deg);
         }
 
-        /* Mobile dropdown submenu styles */
         .mobile-submenu {
             display: none;
             padding-left: 20px;
@@ -60,7 +102,6 @@
         .mobile-submenu.active {
             display: block;
             max-height: 500px;
-            /* Adjust as needed */
         }
 
         .mobile-submenu li {
@@ -72,67 +113,584 @@
             border-bottom: none;
         }
 
-
-
+        /* ========================================================
+           HERO SECTION - REDESIGNED STYLISH ENTERPRISE SUITE
+           ======================================================== */
         .case-hero {
-            max-width: 900px;
+            position: relative;
+            max-width: 1060px;
             margin: 0 auto;
-            padding: 80px 30px;
+            padding: 65px 20px 48px;
             text-align: center;
+            z-index: 2;
         }
 
-        .case-badge {
-            display: inline-block;
-            padding: 8px 18px;
+        /* Ambient Glow Backdrop */
+        .hero-ambient-glow {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 720px;
+            max-width: 90vw;
+            height: 360px;
+            background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.18) 0%, rgba(37, 99, 235, 0.07) 50%, transparent 75%);
+            filter: blur(55px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Top Pill Badge */
+        .hero-pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 18px;
+            background: rgba(14, 165, 233, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 999px;
             margin-bottom: 20px;
-            font-size: 12px;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-            color: #0aa2ff;
-            background: rgba(106, 118, 125, 0.1);
-            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
         }
 
+        .hero-pill-indicator {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 8px;
+            height: 8px;
+        }
+
+        .hero-pill-dot {
+            width: 8px;
+            height: 8px;
+            background: #38bdf8;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #38bdf8;
+        }
+
+        .hero-pill-ping {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: rgba(56, 189, 248, 0.45);
+            border-radius: 50%;
+            animation: heroPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes heroPing {
+            0% { transform: scale(0.8); opacity: 0.9; }
+            75%, 100% { transform: scale(2.2); opacity: 0; }
+        }
+
+        .hero-pill-text {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 11.5px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.12em !important;
+            text-transform: uppercase !important;
+            color: #7dd3fc !important;
+        }
+
+        /* Main Heading */
         .case-title {
-            font-size: 38px;
-            line-height: 1.3;
-            font-weight: 400;
-            color: #c2bbbb;
+            font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif !important;
+            font-size: clamp(38px, 5.2vw, 56px) !important;
+            line-height: 1.15 !important;
+            font-weight: 200 !important;
+            letter-spacing: 0.5px !important;
+            margin: 0 0 14px 0 !important;
+            text-align: center !important;
+            background: linear-gradient(180deg, #ffffff 25%, #f1f5f9 65%, #93c5fd 100%);
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            filter: drop-shadow(0 4px 24px rgba(14, 165, 233, 0.25));
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Subtitle */
+        .case-subtitle {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif !important;
+            font-size: clamp(16.5px, 2.2vw, 21px) !important;
+            font-weight: 300 !important;
+            color: #94a3b8 !important;
+            letter-spacing: 0.5px !important;
+            text-align: center !important;
+            margin: 0 auto 26px auto !important;
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-subtitle i {
+            color: #38bdf8;
+            font-size: 16px;
+        }
+
+        /* Hi-Tech Geometric Beam Divider */
+        .case-divider-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 0 auto 38px auto;
+            max-width: 420px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .divider-beam {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.65), transparent);
+        }
+
+        .divider-center-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            color: #38bdf8;
+            font-size: 11px;
+            box-shadow: 0 0 12px rgba(14, 165, 233, 0.35);
+        }
+
+        /* Executive Briefing Container */
+        .hero-briefing-card {
+            max-width: 960px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, rgba(13, 22, 54, 0.72) 0%, rgba(7, 11, 38, 0.85) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.18);
+            border-radius: 24px;
+            padding: 34px 40px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                        0 0 35px rgba(14, 165, 233, 0.06);
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+            z-index: 1;
+        }
+
+        .hero-card-glow-edge {
+            position: absolute;
+            top: 0;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+            opacity: 0.85;
+        }
+
+        /* Overview Content */
+        .hero-overview-wrap {
+            margin-bottom: 22px;
+        }
+
+        .hero-overview-text {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 16px !important;
+            line-height: 1.85 !important;
+            color: #cbd5e1 !important;
+            margin: 0 !important;
+            font-weight: 400 !important;
+            letter-spacing: -0.005em !important;
+        }
+
+        .hero-overview-text strong {
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+
+        /* Card Internal Separator */
+        .hero-card-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+            margin: 22px 0;
+        }
+
+        /* Disclaimer Callout Box */
+        .hero-disclaimer-card {
+            background: rgba(14, 165, 233, 0.04);
+            border: 1px solid rgba(56, 189, 248, 0.18);
+            border-left: 3px solid #0284c7;
+            border-radius: 14px;
+            padding: 18px 22px;
+            position: relative;
+            background-image: radial-gradient(circle at top right, rgba(14, 165, 233, 0.06), transparent 70%);
+        }
+
+        .disclaimer-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .disclaimer-shield-icon {
+            color: #38bdf8;
+            font-size: 13px;
+        }
+
+        .disclaimer-title {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.1em !important;
+            text-transform: uppercase !important;
+            color: #38bdf8 !important;
+        }
+
+        .hero-disclaimer-text {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 14.5px !important;
+            line-height: 1.75 !important;
+            color: #94a3b8 !important;
+            margin: 0 !important;
+        }
+
+        .hero-disclaimer-text strong {
+            color: #e2e8f0 !important;
+            font-weight: 600 !important;
+        }
+
+        /* ========================================================
+           CASE STUDY CARDS GRID
+           ======================================================== */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 85px;
+        }
+
+        .case-card-col {
+            transition: all 0.3s ease;
+        }
+
+        .case-card-item {
+            background: rgba(13, 20, 44, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            overflow: hidden;
+            backdrop-filter: blur(18px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .case-card-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 3;
+        }
+
+        .case-card-item:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.45);
+            box-shadow: 0 22px 45px -10px rgba(14, 165, 233, 0.28), 0 0 0 1px rgba(56, 189, 248, 0.2);
+            color: inherit;
+        }
+
+        .case-card-item:hover::before {
+            opacity: 1;
+        }
+
+        /* Card Media Area */
+        .card-media {
+            position: relative;
+            height: 225px;
+            background: #020514;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.92) contrast(1.06);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+        }
+
+        .case-card-item:hover .card-media img {
+            transform: scale(1.06);
+            filter: brightness(1.04) contrast(1.1);
+        }
+
+        .card-media-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(3, 6, 23, 0.25) 0%, transparent 40%, rgba(3, 6, 23, 0.2) 75%, rgba(7, 10, 41, 0.5) 100%);
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .case-card-item:hover .card-media-overlay {
+            opacity: 0.6;
+        }
+
+        .card-badge-top-left {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-badge-top-right {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 2;
+            backdrop-filter: blur(8px);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-active {
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            background: rgba(6, 78, 59, 0.4);
+        }
+
+        .status-restricted {
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            background: rgba(120, 53, 15, 0.4);
+        }
+
+        .status-confidential {
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: rgba(12, 74, 110, 0.4);
+        }
+
+        /* Card Content Area */
+        .card-body-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-meta-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .card-client-tag {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .card-client-tag span {
+            background: linear-gradient(135deg, #60a5fa, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-location {
+            font-size: 12px;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-location i {
+            color: #38bdf8;
+        }
+
+        .card-title {
+            font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif;
+            font-size: 19px;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            line-height: 1.35;
+            color: #f8fafc;
+            margin-bottom: 12px;
+            transition: color 0.2s ease;
+        }
+
+        .case-card-item:hover .card-title {
+            color: #38bdf8;
+        }
+
+        .card-description {
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: #94a3b8;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .card-cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 18px;
+            border-radius: 12px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            color: #38bdf8;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .card-cta-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .case-card-item:hover .card-cta-btn {
+            background: linear-gradient(135deg, #2563eb, #0284c7);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+        }
+
+        .case-card-item:hover .card-cta-btn i {
+            transform: translateX(5px);
+        }
+
+        /* ========================================================
+           RESPONSIVE BREAKPOINTS
+           ======================================================== */
+        @media (max-width: 1100px) {
+            .case-studies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .case-hero {
+                padding: 45px 15px 30px;
+            }
+            .hero-briefing-card {
+                padding: 24px 18px;
+                border-radius: 18px;
+            }
+            .hero-overview-text {
+                font-size: 14.5px !important;
+                line-height: 1.75 !important;
+            }
+            .hero-disclaimer-card {
+                padding: 14px 16px;
+            }
+            .hero-disclaimer-text {
+                font-size: 13.5px !important;
+            }
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        /* Newsletter Form */
+        .newsletter-form {
+            margin-top: 15px;
+        }
+
+        .form-group {
+            position: relative;
             margin-bottom: 15px;
         }
 
-        .case-title span {
-            display: block;
-            font-size: 24px;
-            font-weight: 500;
-            color: #555;
-            margin-top: 8px;
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            height: 46px;
+            padding: 0 20px;
+            width: 100%;
+            color: #fff;
+            transition: all 0.3s ease;
         }
 
-        .case-divider {
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #0aa2ff, #0056ff);
-            margin: 25px auto;
-            border-radius: 5px;
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            outline: none;
         }
 
-        .case-description {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #c4bebe;
-            margin-bottom: 18px;
+        .action-btn {
+            background: linear-gradient(90deg, #8065e0, #6366f1);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            height: 46px;
+            padding: 0 30px;
+            transition: all 0.3s ease;
         }
 
-        .case-description.muted {
-            color: #bab4b4;
+        .action-btn:hover {
+            background: linear-gradient(90deg, #6366f1, #8065e0);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
         }
     </style>
 </head>
 
 <body class="home-main header-fixed">
 
-    <div class="wrapper page-details">
+    <div class="wrapper page-details case-studies-page-bg">
+
+        <div class="ambient-glow-top"></div>
 
         <div class="preloader">
             <div class="clear-loading loading-effect-2">
@@ -148,7 +706,7 @@
                         <div class="header__body">
                             <div class="header__logo">
                                 <a href="index.html">
-                                    <img id="site-logo" src="assets/images/logo/stackfooternew.png" alt="Peson"
+                                    <img id="site-logo" src="assets/images/logo/stackfooternew.png" alt="STACK Logo"
                                         width="120" height="45" data-retina="assets/images/logo/logo@2x.png"
                                         data-width="120" data-height="38">
                                 </a>
@@ -158,19 +716,6 @@
                                     <ul id="menu-primary-menu" class="menu">
                                         <li><a href="index.html">Home</a></li>
                                         <li class="menu-item"><a href="about.html">About</a></li>
-                                        <!-- <li class="menu-item menu-item-has-children">
-                                            <a href="#">Solutions</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="stack-bi.html">Stack BI</a></li>
-                                                <li class="menu-item"><a href="cloud_monitoring.html">Cloud Service
-                                                        Monitoring</a></li>
-                                                <li class="menu-item"><a href="visitor_management.html">Visitor
-                                                        Management</a></li>
-                                                <li class="menu-item"><a href="monitoring.html">Server Monitoring</a>
-                                                </li>
-                                               
-                                            </ul>
-                                        </li> -->
                                         <li><a href="vision-mission.html">Case Studies</a></li>
                                         <li class="menu-item"><a href="contact.html">Contact</a></li>
                                     </ul>
@@ -185,9 +730,7 @@
                 </div>
             </div>
         </header>
-
         <!-- end Header -->
-
 
         <!-- Floating Contact Icons -->
         <div class="floating-contact-icons">
@@ -198,312 +741,275 @@
                 <i class="fas fa-phone"></i>
             </a>
         </div>
-        <!-- Pagetitle -->
+
+        <!-- Main Content Area -->
         <main>
-            <div class="row section-row">
-                <div class="col-lg-12">
-                    <!-- Section Title Start -->
-                    <div class="col-12">
-                        <div class="case-hero">
-                            <!-- <span class="case-badge">CONFIDENTIAL CASE STUDIES</span> -->
+            <div class="container">
+                <!-- HERO SECTION -->
+                <div class="case-hero">
+                    <div class="hero-ambient-glow"></div>
 
-                            <h2 class="case-title">
-                                Unified Case Study Portfolio
-                                <span>STACK Platform Implementations Across Saudi Arabia</span>
-                            </h2>
-
-                            <div class="case-divider"></div>
-
-                            <p class="case-description">
-                                <strong>Disclaimer:</strong>
-                                Due to the confidentiality requirements of several clients and high-security
-                                sites, only partial project details are published in this document. Specific
-                                technical configurations, operational workflows, and sensitive information
-                                have been intentionally omitted.
-                            </p>
-
-                            <p class="case-description muted">
-                                The STACK Platform has been deployed across multiple high-profile institutions
-                                in Saudi Arabia, each with unique operational challenges, security requirements,
-                                and digital transformation goals. These case studies highlight how STACK
-                                delivers real-time intelligence, people mobility, and unified access governance
-                                across diverse environments — from research campuses to industrial zones and
-                                confidential high-security sites.
-                            </p>
-                        </div>
+                    <div class="hero-pill-badge" data-aos="fade-down">
+                        <span class="hero-pill-indicator">
+                            <span class="hero-pill-ping"></span>
+                            <span class="hero-pill-dot"></span>
+                        </span>
+                        <span class="hero-pill-text">Enterprise Portfolio</span>
                     </div>
 
+                    <h1 class="case-title" data-aos="fade-up">Unified Case Study Portfolio</h1>
 
-                    <!-- Section Title End -->
+                    <div class="case-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        <span>STACK Platform Implementations Across Saudi Arabia</span>
+                    </div>
 
-                    <div class="page-blog">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-6">
-                                    <!-- Post Item Start -->
-                                    <div class="post-item wow fadeInUp">
-                                        <!-- Post Featured Image Start-->
-                                        <div class="post-featured-image">
-                                            <a href="Kaefer.html" data-cursor-text="View">
-                                                <figure class="image-anime">
-                                                    <img src="assets/images/layouts/kaefernew.webp" alt="">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- Post Featured Image End -->
+                    <div class="case-divider-wrap" data-aos="zoom-in" data-aos-delay="150">
+                        <span class="divider-beam"></span>
+                        <span class="divider-center-icon"><i class="fa-solid fa-microchip"></i></span>
+                        <span class="divider-beam"></span>
+                    </div>
 
-                                        <!-- Post Item Body Start -->
-                                        <div class="post-item-body">
-                                            <!-- Post Item Content Start -->
-                                            <!-- <div class="post-item-content">
-                                                <h2><a href="#">5 AI Use Cases That Drive Real ROI for
-                                                        Enterprises</a></h2>
-                                            </div> -->
-                                            <!-- Post Item Content End -->
+                    <!-- Executive Briefing Container -->
+                    <div class="hero-briefing-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="hero-card-glow-edge"></div>
 
-                                            <!-- Post Item Readmore Button Start-->
-                                            <!-- <div class="post-item-btn">
-                                                <a href="blog-single.html" class="readmore-btn">read more</a>
-                                            </div> -->
-                                            <!-- Post Item Readmore Button End-->
-                                        </div>
-                                        <!-- Post Item Body End -->
-                                    </div>
-                                    <!-- Post Item End -->
-                                </div>
+                        <!-- Platform Overview -->
+                        <div class="hero-overview-wrap">
+                            <p class="hero-overview-text">
+                                The <strong>STACK Platform</strong> has been deployed across multiple high-profile institutions in Saudi Arabia, each with unique operational challenges, security requirements, and digital transformation goals. These case studies highlight how STACK delivers <strong>real-time intelligence</strong>, <strong>people mobility</strong>, and <strong>unified access governance</strong> across diverse environments — from research campuses to industrial zones and confidential high-security sites.
+                            </p>
+                        </div>
 
-                                <div class="col-lg-4 col-md-6">
-                                    <!-- Post Item Start -->
-                                    <div class="post-item wow fadeInUp" data-wow-delay="0.2s">
-                                        <!-- Post Featured Image Start-->
-                                        <div class="post-featured-image">
-                                            <a href="Kapsarc.html" data-cursor-text="View">
-                                                <figure class="image-anime">
-                                                    <img src="assets/images/layouts/blue5.webp" alt="">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- Post Featured Image End -->
+                        <!-- Card Divider -->
+                        <div class="hero-card-divider"></div>
 
-                                        <!-- Post Item Body Start -->
-                                        <div class="post-item-body">
-                                            <!-- Post Item Content Start -->
-                                            <!-- <div class="post-item-content">
-                                                <h2><a href="#">How Generative AI is Redefining Business
-                                                        Workflows</a></h2>
-                                            </div> -->
-                                            <!-- Post Item Content End -->
-
-                                            <!-- Post Item Readmore Button Start-->
-                                            <!-- <div class="post-item-btn">
-                                                <a href="blog-single.html" class="readmore-btn">read more</a>
-                                            </div> -->
-                                            <!-- Post Item Readmore Button End-->
-                                        </div>
-                                        <!-- Post Item Body End -->
-                                    </div>
-                                    <!-- Post Item End -->
-                                </div>
-
-                                <!-- <div class="col-lg-4 col-md-6">
-                                    <div class="post-item wow fadeInUp" data-wow-delay="0.4s">
-                                        <div class="post-featured-image">
-                                            <a href="#" data-cursor-text="View">
-                                                <figure class="image-anime">
-                                                    <img src="assets/images/layouts/blue3.webp" alt="">
-                                                </figure>
-                                            </a>
-                                        </div>
-
-                                        <div class="post-item-body">
-                                            <div class="post-item-content">
-                                              
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div> -->
-
-
-
-
-                                <div class="col-lg-4 col-md-6">
-                                    <!-- Post Item Start -->
-                                    <div class="post-item wow fadeInUp" data-wow-delay="1s">
-                                        <!-- Post Featured Image Start-->
-                                        <div class="post-featured-image">
-                                            <a href="kaust.html" data-cursor-text="View">
-                                                <figure class="image-anime">
-                                                    <img src="assets/images/layouts/blue6.webp" alt="">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- Post Featured Image End -->
-
-                                        <!-- Post Item Body Start -->
-                                        <div class="post-item-body">
-                                            <!-- Post Item Content Start -->
-                                            <div class="post-item-content">
-                                                <!-- <h2><a href="#">Machine learning Systems Seamless
-                                                        Performance</a>
-                                                </h2> -->
-                                            </div>
-                                            <!-- Post Item Content End -->
-
-                                            <!-- Post Item Readmore Button Start-->
-                                            <!-- <div class="post-item-btn">
-                                                <a href="blog-single.html" class="readmore-btn">read more</a>
-                                            </div> -->
-                                            <!-- Post Item Readmore Button End-->
-                                        </div>
-                                        <!-- Post Item Body End -->
-                                    </div>
-                                    <!-- Post Item End -->
-                                </div>
-
-
-
-                                <div class="col-lg-4 col-md-6">
-                                    <!-- Post Item Start -->
-                                    <div class="post-item wow fadeInUp" data-wow-delay="1s">
-                                        <!-- Post Featured Image Start-->
-                                        <div class="post-featured-image">
-                                            <a href="awj.html" data-cursor-text="View">
-                                                <figure class="image-anime">
-                                                    <img src="assets/images/layouts/blue4.webp" alt="">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- Post Featured Image End -->
-
-                                        <!-- Post Item Body Start -->
-                                        <div class="post-item-body">
-                                            <!-- Post Item Content Start -->
-                                            <div class="post-item-content">
-                                                <!-- <h2><a href="#">Machine learning Systems Seamless
-                                                        Performance</a>
-                                                </h2> -->
-                                            </div>
-                                            <!-- Post Item Content End -->
-
-                                            <!-- Post Item Readmore Button Start-->
-                                            <!-- <div class="post-item-btn">
-                                                <a href="blog-single.html" class="readmore-btn">read more</a>
-                                            </div> -->
-                                            <!-- Post Item Readmore Button End-->
-                                        </div>
-                                        <!-- Post Item Body End -->
-                                    </div>
-                                    <!-- Post Item End -->
-                                </div>
-
-
-
-
-
-
-
-
-                                <div class="col-lg-4 col-md-6">
-                                    <!-- Post Item Start -->
-                                    <div class="post-item wow fadeInUp" data-wow-delay="1s">
-                                        <!-- Post Featured Image Start-->
-                                        <div class="post-featured-image">
-                                            <a href="pif.html" data-cursor-text="View">
-                                                <figure class="image-anime">
-                                                    <img src="assets/images/layouts/pifffff1.png" alt="">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- Post Featured Image End -->
-
-                                        <!-- Post Item Body Start -->
-                                        <div class="post-item-body">
-                                            <!-- Post Item Content Start -->
-                                            <div class="post-item-content">
-                                                <!-- <h2><a href="#">Machine learning Systems Seamless
-                                                        Performance</a>
-                                                </h2> -->
-                                            </div>
-                                            <!-- Post Item Content End -->
-
-                                            <!-- Post Item Readmore Button Start-->
-                                            <!-- <div class="post-item-btn">
-                                                <a href="blog-single.html" class="readmore-btn">read more</a>
-                                            </div> -->
-                                            <!-- Post Item Readmore Button End-->
-                                        </div>
-                                        <!-- Post Item Body End -->
-                                    </div>
-                                    <!-- Post Item End -->
-                                </div>
-
-
-
-                                <div class="col-lg-4 col-md-6">
-                                    <!-- Post Item Start -->
-                                    <div class="post-item wow fadeInUp" data-wow-delay="1s">
-                                        <!-- Post Featured Image Start-->
-                                        <div class="post-featured-image">
-                                            <a href="gold.html" data-cursor-text="View">
-                                                <figure class="image-anime">
-                                                    <img src="assets/images/layouts/gold.png" alt="">
-                                                </figure>
-                                            </a>
-                                        </div>
-                                        <!-- Post Featured Image End -->
-
-                                        <!-- Post Item Body Start -->
-                                        <div class="post-item-body">
-                                            <!-- Post Item Content Start -->
-                                            <div class="post-item-content">
-                                                <!-- <h2><a href="#">Machine learning Systems Seamless
-                                                        Performance</a>
-                                                </h2> -->
-                                            </div>
-                                            <!-- Post Item Content End -->
-
-                                            <!-- Post Item Readmore Button Start-->
-                                            <!-- <div class="post-item-btn">
-                                                <a href="blog-single.html" class="readmore-btn">read more</a>
-                                            </div> -->
-                                            <!-- Post Item Readmore Button End-->
-                                        </div>
-                                        <!-- Post Item Body End -->
-                                    </div>
-                                    <!-- Post Item End -->
-                                </div>
-
-
-
-
-
-                                <!-- <div class="col-lg-12">
-                                    <div class="page-pagination wow fadeInUp" data-wow-delay="1.2s">
-                                        <ul class="pagination">
-                                            <li><a href="#"><i class="fa-solid fa-angle-left"></i></a></li>
-                                            <li class="active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#"><i class="fa-solid fa-angle-right"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div> -->
+                        <!-- Confidentiality Disclaimer Notice -->
+                        <div class="hero-disclaimer-card">
+                            <div class="disclaimer-header">
+                                <span class="disclaimer-shield-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                                <span class="disclaimer-title">Confidentiality Protocol</span>
                             </div>
+                            <p class="hero-disclaimer-text">
+                                <strong>Disclaimer:</strong> Due to the confidentiality requirements of several clients and high-security sites, only partial project details are published in this document. Specific technical configurations, operational workflows, and sensitive information have been intentionally omitted.
+                            </p>
                         </div>
                     </div>
-                    <!-- Page Blog End -->
+                </div>
 
-                    <section class="scroll-indicator">
-                        <div class="container">
-                            <!-- <div class="scroll-text">
-          <i class="fas fa-arrow-down"></i>
-          <span>Scroll to Explore</span>
-        </div> -->
-                        </div>
-                    </section>
+                <!-- CASE STUDIES GRID -->
+                <div class="case-studies-grid" id="caseStudiesGrid">
+                    
+                    <!-- 1. KAEFER -->
+                    <div class="case-card-col" data-category="industrial" data-aos="fade-up" data-aos-delay="100">
+                        <a href="Kaefer.html" class="case-card-item">
+                            <div class="card-media">
+                                <img src="assets/images/layouts/kaefernew.webp" alt="KAEFER Case Study">
+                                <div class="card-media-overlay"></div>
+                            </div>
+                            <div class="card-body-content">
+                                <div class="card-meta-row">
+                                    <span class="card-client-tag"><span>KAEFER</span></span>
+                                </div>
+                                <h3 class="card-title">Put every working hour in project context.</h3>
+                                <p class="card-description">
+                                    Attendance alone does not explain how manpower is distributed across projects or where overtime is building up. Project managers need a view that connects people, allocation and hours.
+                                </p>
+                                <div class="card-cta-btn">
+                                    <span>Explore Case Study</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 2. KAPSARC -->
+                    <div class="case-card-col" data-category="research" data-aos="fade-up" data-aos-delay="200">
+                        <a href="Kapsarc.html" class="case-card-item">
+                            <div class="card-media">
+                                <img src="assets/images/layouts/blue5.webp" alt="KAPSARC Case Study">
+                                <div class="card-media-overlay"></div>
+                            </div>
+                            <div class="card-body-content">
+                                <div class="card-meta-row">
+                                    <span class="card-client-tag"><span>KAPSARC</span></span>
+                                </div>
+                                <h3 class="card-title">Make workforce planning a management decision.</h3>
+                                <p class="card-description">
+                                    Shift information and enterprise records need to be read together to understand staffing coverage. Separate exports can leave managers reconciling data before they can evaluate a shift.
+                                </p>
+                                <div class="card-cta-btn">
+                                    <span>Explore Case Study</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 3. KAUST -->
+                    <div class="case-card-col" data-category="research" data-aos="fade-up" data-aos-delay="300">
+                        <a href="kaust.html" class="case-card-item">
+                            <div class="card-media">
+                                <img src="assets/images/layouts/blue6.webp" alt="KAUST Case Study">
+                                <div class="card-media-overlay"></div>
+                            </div>
+                            <div class="card-body-content">
+                                <div class="card-meta-row">
+                                    <span class="card-client-tag"><span>KAUST</span></span>
+                                </div>
+                                <h3 class="card-title">Turn headcount into operational awareness.</h3>
+                                <p class="card-description">
+                                    Facility decisions depend on understanding who is inside. STACK combines visitor management with real-time employee and visitor headcount and occupancy insights.
+                                </p>
+                                <div class="card-cta-btn">
+                                    <span>Explore Case Study</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 4. AWJ HOLDING -->
+                    <div class="case-card-col" data-category="enterprise" data-aos="fade-up" data-aos-delay="100">
+                        <a href="awj.html" class="case-card-item">
+                            <div class="card-media">
+                                <img src="assets/images/layouts/blue4.webp" alt="AWJ Case Study">
+                                <div class="card-media-overlay"></div>
+                            </div>
+                            <div class="card-body-content">
+                                <div class="card-meta-row">
+                                    <span class="card-client-tag"><span>AWJ HOLDING</span></span>
+                                </div>
+                                <h3 class="card-title">Connect enterprise data with everyday operations.</h3>
+                                <p class="card-description">
+                                    Workforce and visitor information can sit in different environments. STACK connects SAP, SSO, visitor insights and attendance reporting into a consistent view.
+                                </p>
+                                <div class="card-cta-btn">
+                                    <span>Explore Case Study</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 5. AL BUSTAN BUSINESS PARK -->
+                    <div class="case-card-col" data-category="commercial" data-aos="fade-up" data-aos-delay="200">
+                        <a href="al-bustan.html" class="case-card-item">
+                            <div class="card-media">
+                                <img src="assets/images/layouts/bustan.png" alt="Al Bustan Business Park Case Study">
+                                <div class="card-media-overlay"></div>
+                            </div>
+                            <div class="card-body-content">
+                                <div class="card-meta-row">
+                                    <span class="card-client-tag"><span>AL BUSTAN BUSINESS PARK</span></span>
+                                </div>
+                                <h3 class="card-title">Manage the property as one connected journey.</h3>
+                                <p class="card-description">
+                                    Parking, employees and visitors create different operational journeys. STACK brings parking and workforce management together with employee and visitor insights and centralized reporting.
+                                </p>
+                                <div class="card-cta-btn">
+                                    <span>Explore Case Study</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 6. GIG INSURANCE -->
+                    <div class="case-card-col" data-category="insurance" data-aos="fade-up" data-aos-delay="300">
+                        <a href="gig.html" class="case-card-item">
+                            <div class="card-media">
+                                <img src="assets/images/layouts/gig.png" alt="GIG Insurance Case Study">
+                                <div class="card-media-overlay"></div>
+                            </div>
+                            <div class="card-body-content">
+                                <div class="card-meta-row">
+                                    <span class="card-client-tag"><span>GIG INSURANCE</span></span>
+                                </div>
+                                <h3 class="card-title">See the people behind every location.</h3>
+                                <p class="card-description">
+                                    Branch and floor data need a common reporting structure to support decisions across locations. STACK combines parking allocation analytics, branch/floor headcount and attendance insights.
+                                </p>
+                                <div class="card-cta-btn">
+                                    <span>Explore Case Study</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 7. LIFERA OMICS -->
+                    <div class="case-card-col" data-category="biotech" data-aos="fade-up" data-aos-delay="100">
+                        <a href="lifera.html" class="case-card-item">
+                            <div class="card-media">
+                                <img src="assets/images/layouts/lifera.png" alt="Lifera Omics Case Study">
+                                <div class="card-media-overlay"></div>
+                            </div>
+                            <div class="card-body-content">
+                                <div class="card-meta-row">
+                                    <span class="card-client-tag"><span>LIFERA OMICS</span></span>
+                                </div>
+                                <h3 class="card-title">Give attendance one operational home.</h3>
+                                <p class="card-description">
+                                    Attendance data delivers more value when teams review it through a centralized management workflow. STACK connects Matrix attendance with workforce attendance management.
+                                </p>
+                                <div class="card-cta-btn">
+                                    <span>Explore Case Study</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 8. SANAD -->
+                    <div class="case-card-col" data-category="healthcare" data-aos="fade-up" data-aos-delay="200">
+                        <a href="sanad.html" class="case-card-item">
+                            <div class="card-media">
+                                <img src="assets/images/layouts/sanad.png" alt="SANAD Case Study">
+                                <div class="card-media-overlay"></div>
+                            </div>
+                            <div class="card-body-content">
+                                <div class="card-meta-row">
+                                    <span class="card-client-tag"><span>SANAD</span></span>
+                                </div>
+                                <h3 class="card-title">Manage workforce complexity by exception.</h3>
+                                <p class="card-description">
+                                    Rotating shifts and workforce rules can make timesheet review demanding. STACK connects Matrix attendance, scheduled shift rotation, exception reporting and payroll integration.
+                                </p>
+                                <div class="card-cta-btn">
+                                    <span>Explore Case Study</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 9. SPC -->
+                    <div class="case-card-col" data-category="industrial" data-aos="fade-up" data-aos-delay="300">
+                        <a href="spc.html" class="case-card-item">
+                            <div class="card-media">
+                                <img src="assets/images/layouts/spc.png" alt="SPC Case Study">
+                                <div class="card-media-overlay"></div>
+                            </div>
+                            <div class="card-body-content">
+                                <div class="card-meta-row">
+                                    <span class="card-client-tag"><span>SPC</span></span>
+                                </div>
+                                <h3 class="card-title">Make attendance flow into payroll.</h3>
+                                <p class="card-description">
+                                    Payroll preparation can involve extracting attendance and collecting approvals. STACK connects Matrix attendance and SAP with timesheet validation, approval and payroll integration.
+                                </p>
+                                <div class="card-cta-btn">
+                                    <span>Explore Case Study</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
         </main>
-
 
         <!-- Footer -->
         <footer class="footer">
@@ -513,14 +1019,14 @@
                     <!-- Company Info Column -->
                     <div class="footer-column">
                         <h6 class="powered-text" style="
-    font-family: 'Anton', 'Orbitron', sans-serif;
-    font-size: 28px;
-    font-weight: 100;
-    letter-spacing: 3px;
-    color: #ff001b;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-">
+                            font-family: 'Anton', 'Orbitron', sans-serif;
+                            font-size: 28px;
+                            font-weight: 100;
+                            letter-spacing: 3px;
+                            color: #ff001b;
+                            text-transform: uppercase;
+                            margin-bottom: 10px;
+                        ">
                             Your Data. Your Move.
                         </h6>
 
@@ -550,10 +1056,10 @@
                         <h4>Quick Links</h4>
                         <ul class="footer-links">
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="#">About</a></li>
+                            <li><a href="about.html">About</a></li>
                             <li><a href="about.html">Solutions</a></li>
-                            <li><a href="#">Client</a></li>
-                            <li><a href="contact.html">Contact </a></li>
+                            <li><a href="vision-mission.html">Clients</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
                     <!-- Newsletter Column -->
@@ -628,41 +1134,25 @@
     <script src="app/js/swiper-bundle.min.js"></script>
     <script src="app/js/swiper.js"></script>
 
-    <!-- AIED Notification Box and Scroll-to-Top Script -->
+    <!-- Scripts & Animations -->
     <script>
-        window.addEventListener("scroll", function () {
-            const container = document.getElementById("sticky-container");
-            const pageTitle = document.getElementById("page-title");
-
-            const pageTitleBottom = pageTitle.getBoundingClientRect().bottom;
-
-            if (pageTitleBottom < 0) {
-                container.classList.remove("hidden");
-            } else {
-                container.classList.add("hidden");
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize AOS if available
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 50
+                });
             }
-        });
 
-        $(document).ready(function () {
-            // Show or hide the scroll top button
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 300) {
-                    $('#scroll-top').addClass('show');
-                } else {
-                    $('#scroll-top').removeClass('show');
-                }
-            });
-
-            // Scroll to top when button is clicked
-            $('#scroll-top').click(function () {
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 800);
-                return false;
+            // Mobile dropdown toggle handling
+            $('.mobile-button').on('click', function () {
+                $(this).toggleClass('active');
+                $('#main-nav').toggleClass('active');
             });
         });
     </script>
-    </div>
 </body>
 
 </html>

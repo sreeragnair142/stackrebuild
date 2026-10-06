@@ -10,9 +10,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.5/swiper-bundle.min.css">
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="app/dist/app.css">
 
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Favicon and Touch Icons -->
     <link rel="shortcut icon" href="assets/images/logo/stackfooternew.png">
@@ -168,280 +169,766 @@
             margin-top: 5px;
         }
 
-        /* KAEFER Custom Styles */
-        .kaefer-hero {
-background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
-           padding: 80px 0;
+        /* ========================================================
+           GLOBAL RESETS & NAVBAR CONSISTENCY
+           ======================================================== */
+        body {
+            background-color: #070A29 !important;
+            color: #e2e8f0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .header,
+        #header_main,
+        .header.is-fixed {
+            background-color: #070A29 !important;
+        }
+
+        /* Ambient Background Wrapper */
+        .kaefer-page-wrapper {
             position: relative;
-            overflow: hidden;
+            background-color: #070A29;
+            background-image: 
+                radial-gradient(circle at 50% 12%, rgba(14, 165, 233, 0.16) 0%, transparent 60%),
+                radial-gradient(circle at 12% 40%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 88% 65%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+            min-height: 100vh;
         }
 
-        .kaefer-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(74, 158, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .kaefer-container {
-            max-width: 1200px;
+        /* Container helper - Extended Widescreen Enterprise Layout */
+        .story-container {
+            max-width: 1380px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 36px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
-        .kaefer-header {
+        /* ========================================================
+           1. HERO SECTION (STACK AT WORK / KAEFER)
+           ======================================================== */
+        .story-hero-section {
+            padding: 46px 0 26px;
             text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .kaefer-logo {
-            font-size: 3.5em;
-            font-weight: 300;
-            background: linear-gradient(135deg, #4a9eff 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-            letter-spacing: 3px;
-        }
-
-        .kaefer-subtitle {
-            font-size: 1.4em;
-            color: #a8c5ff;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .kaefer-location {
-            font-size: 1.1em;
-            color: #d0dfff;
-            margin-top: 10px;
-        }
-
-        .kaefer-content-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 50px;
-            align-items: center;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .kaefer-text-content {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 50px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .kaefer-text-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 48px rgba(74, 158, 255, 0.2);
-        }
-
-        .kaefer-image-container {
             position: relative;
-            border-radius: 24px;
             overflow: hidden;
         }
 
-        .kaefer-image-container::before {
-            content: '';
+        .hero-glow-sphere {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 540px;
+            max-width: 85vw;
+            height: 220px;
+            background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.16) 0%, rgba(37, 99, 235, 0.05) 50%, transparent 72%);
+            filter: blur(50px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-eyebrow-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 15px;
+            background: rgba(14, 165, 233, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            border-radius: 999px;
+            margin-bottom: 14px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow-dot {
+            width: 6px;
+            height: 6px;
+            background: #38bdf8;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #38bdf8;
+        }
+
+        .eyebrow-text {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.14em !important;
+            text-transform: uppercase !important;
+            color: #7dd3fc !important;
+        }
+
+        .story-hero-title {
+            font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif !important;
+            font-size: clamp(34px, 4.2vw, 48px) !important;
+            line-height: 1.15 !important;
+            font-weight: 200 !important;
+            letter-spacing: 2px !important;
+            margin: 0 auto 12px auto !important;
+            background: linear-gradient(135deg, #FFFFFF 30%, #E0F2FE 75%, #93C5FD 100%);
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            filter: drop-shadow(0 2px 14px rgba(14, 165, 233, 0.22));
+            position: relative;
+            z-index: 2;
+        }
+
+        .story-hero-subtitle {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 16.5px !important;
+            line-height: 1.55 !important;
+            color: #94a3b8 !important;
+            font-weight: 300 !important;
+            max-width: 620px;
+            margin: 0 auto !important;
+            letter-spacing: 0.2px !important;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ========================================================
+           2. OPERATIONAL CONTEXT SECTION
+           ======================================================== */
+        .story-context-section {
+            padding: 30px 0 70px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .story-context-header {
+            margin-bottom: 42px;
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.14em !important;
+            text-transform: uppercase !important;
+            color: #38bdf8 !important;
+            margin-bottom: 14px;
+        }
+
+        .context-main-title {
+            font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif !important;
+            font-size: clamp(32px, 3.8vw, 46px) !important;
+            line-height: 1.25 !important;
+            font-weight: 200 !important;
+            letter-spacing: 0.5px !important;
+            color: #ffffff !important;
+            margin: 0 0 18px 0 !important;
+            max-width: 1040px;
+        }
+
+        .context-lead-text {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: clamp(16px, 1.8vw, 19px) !important;
+            line-height: 1.65 !important;
+            color: #94a3b8 !important;
+            max-width: 920px;
+            margin: 0 0 26px 0 !important;
+        }
+
+        .story-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .story-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 18px;
+            background: rgba(14, 165, 233, 0.06);
+            border: 1px solid rgba(56, 189, 248, 0.24);
+            border-radius: 999px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #cbd5e1;
+            backdrop-filter: blur(10px);
+            transition: all 0.25s ease;
+        }
+
+        .story-tag i {
+            color: #38bdf8;
+            font-size: 12.5px;
+        }
+
+        .story-tag:hover {
+            border-color: rgba(56, 189, 248, 0.55);
+            background: rgba(14, 165, 233, 0.14);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* 4-Card Connected Grid */
+        .story-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            margin-top: 48px;
+        }
+
+        .story-card {
+            background: linear-gradient(145deg, rgba(14, 23, 62, 0.75) 0%, rgba(7, 11, 38, 0.88) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.16);
+            border-radius: 26px;
+            padding: 42px 38px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.48);
+            box-shadow: 0 30px 65px -12px rgba(14, 165, 233, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        }
+
+        .story-card-top-accent {
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            /* background: linear-gradient(135deg, rgba(74, 158, 255, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%); */
-            z-index: 1;
-            pointer-events: none;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #38bdf8, #818cf8, transparent);
+            opacity: 0.85;
         }
 
-        .kaefer-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .kaefer-image-container:hover img {
-            transform: scale(1.05);
-        }
-
-        .kaefer-title {
-            font-size: 2.2em;
-            margin-bottom: 25px;
-            color: #ffffff;
-            font-weight: 200;
-            line-height: 1.3;
-        }
-
-        .kaefer-intro {
-            line-height: 1.8;
-            margin-bottom: 35px;
-            color: #d0dfff;
-            font-size: 1.1em;
-        }
-
-        .kaefer-features-title {
-            font-size: 1.3em;
-            margin-bottom: 25px;
-            color: #4a9eff;
-            font-weight: 400;
+        .card-num-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(14, 165, 233, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #38bdf8;
+            margin-bottom: 24px;
+            width: fit-content;
         }
 
-        .kaefer-feature-item {
-            padding: 18px 0;
-            padding-left: 35px;
-            position: relative;
+        .card-num-tag i {
+            color: #38bdf8;
+            font-size: 11px;
+        }
+
+        .story-card-title {
+            font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 24px !important;
+            line-height: 1.3 !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.3px !important;
+            color: #ffffff !important;
+            margin: 0 0 16px 0 !important;
+        }
+
+        .story-card-desc {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 16px !important;
+            line-height: 1.8 !important;
+            color: #94a3b8 !important;
+            margin: 0 !important;
+            flex-grow: 1;
+        }
+
+        /* Note Disclaimer Ribbon */
+        .story-note-panel {
+            margin-top: 40px;
+            padding: 22px 28px;
+            background: linear-gradient(90deg, rgba(14, 165, 233, 0.06) 0%, rgba(13, 22, 58, 0.45) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-left: 4px solid #0ea5e9;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .note-shield-badge {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: rgba(14, 165, 233, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #38bdf8;
+            font-size: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 0 12px rgba(14, 165, 233, 0.3);
+        }
+
+        .note-text-body {
+            font-size: 14px;
             line-height: 1.7;
-            color: #e0e7ff;
-            font-size: 1.05em;
-            transition: transform 0.2s ease, color 0.2s ease;
+            color: #94a3b8;
         }
 
-        .kaefer-feature-item:hover {
-            transform: translateX(5px);
-            color: #ffffff;
+        .note-text-body strong {
+            color: #e2e8f0;
+            font-weight: 600;
         }
 
-        .kaefer-feature-item:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4a9eff;
-            font-size: 1.5em;
-            font-weight: bold;
-            line-height: 1.2;
+        /* Actions Row */
+        .story-actions-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 40px;
         }
 
-        .kaefer-conclusion {
-            line-height: 1.8;
-            color: #d0dfff;
-            font-size: 1.15em;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 2px solid rgba(74, 158, 255, 0.3);
-            font-weight: 500;
-        }
-
-        .kaefer-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 60px;
-            padding: 0 20px;
-        }
-
-        .kaefer-stat-card {
-            background: rgba(74, 158, 255, 0.1);
-            border: 1px solid rgba(74, 158, 255, 0.3);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 999px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none !important;
             transition: all 0.3s ease;
         }
 
-        .kaefer-stat-card:hover {
-            background: rgba(74, 158, 255, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.3);
+        .btn-action.primary {
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            color: #ffffff !important;
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            box-shadow: 0 6px 25px rgba(14, 165, 233, 0.4);
         }
 
-        .kaefer-stat-icon {
-            font-size: 2.5em;
-            color: #4a9eff;
-            margin-bottom: 15px;
+        .btn-action.primary:hover {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px rgba(14, 165, 233, 0.55);
         }
 
-        .kaefer-stat-label {
-            font-size: 1.1em;
-            color: #a8c5ff;
-            font-weight: 500;
+        .btn-action.outline {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff !important;
+            backdrop-filter: blur(10px);
         }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
+        .btn-action.outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            color: #ffffff !important;
+        }
+
+        .btn-action.ghost {
+            background: rgba(14, 165, 233, 0.05);
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            color: #38bdf8 !important;
+        }
+
+        .btn-action.ghost:hover {
+            border-color: rgba(56, 189, 248, 0.6);
+            background: rgba(14, 165, 233, 0.12);
+            transform: translateY(-2px);
+        }
+
+        /* ========================================================
+           3. DEPLOYMENT BENEFITS & METRICS SECTION
+           ======================================================== */
+        .story-benefits-section {
+            padding: 55px 0 75px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefits-glass-container {
+            background: linear-gradient(180deg, rgba(13, 22, 54, 0.7) 0%, rgba(7, 11, 36, 0.85) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 32px;
+            padding: 56px 54px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.75);
+            position: relative;
+        }
+
+        .benefits-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11.5px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #38bdf8;
+            margin-bottom: 14px;
+        }
+
+        .benefits-title {
+            font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif !important;
+            font-size: clamp(28px, 3.4vw, 40px) !important;
+            line-height: 1.22 !important;
+            font-weight: 200 !important;
+            letter-spacing: 0.5px !important;
+            color: #ffffff !important;
+            margin-bottom: 18px !important;
+        }
+
+        .benefits-intro {
+            font-size: 16px;
+            line-height: 1.75;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        /* Upgraded Capability Strips */
+        .benefits-feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .benefit-card-strip {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(14, 165, 233, 0.04);
+            border: 1px solid rgba(56, 189, 248, 0.16);
+            border-radius: 16px;
+            padding: 16px 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.28s ease;
+        }
+
+        .benefit-card-strip:hover {
+            background: rgba(14, 165, 233, 0.1);
+            border-color: rgba(56, 189, 248, 0.45);
+            transform: translateX(8px);
+            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.18);
+        }
+
+        .benefit-icon-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.16);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #38bdf8;
+            font-size: 13px;
+            flex-shrink: 0;
+            box-shadow: 0 0 12px rgba(14, 165, 233, 0.35);
+        }
+
+        .benefit-strip-text {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 15px !important;
+            font-weight: 500 !important;
+            color: #e2e8f0 !important;
+            line-height: 1.5;
+        }
+
+        /* Media Side with Ambient Glow */
+        .benefits-media-side {
+            position: relative;
+        }
+
+        .media-ambient-glow {
+            position: absolute;
+            inset: -25px;
+            background: radial-gradient(circle at center, rgba(14, 165, 233, 0.25) 0%, rgba(37, 99, 235, 0.1) 45%, transparent 70%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .media-frame {
+            position: relative;
+            z-index: 1;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            background: #060b28;
+        }
+
+        .media-status-pill {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 3;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(7, 10, 41, 0.85);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 999px;
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #38bdf8;
+            backdrop-filter: blur(10px);
+        }
+
+        .media-pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #38bdf8;
+            box-shadow: 0 0 8px #38bdf8;
+        }
+
+        .benefits-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .media-frame:hover .benefits-img {
+            transform: scale(1.03);
+        }
+
+        /* Stats 3-Col Futuristic Grid */
+        .benefits-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .b-stat-card {
+            background: linear-gradient(180deg, rgba(14, 23, 62, 0.55) 0%, rgba(7, 11, 35, 0.75) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.16);
+            border-radius: 22px;
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s ease;
+        }
+
+        .b-stat-card:hover {
+            transform: translateY(-6px);
+            background: linear-gradient(180deg, rgba(14, 23, 62, 0.8) 0%, rgba(7, 11, 35, 0.95) 100%);
+            border-color: rgba(56, 189, 248, 0.45);
+            box-shadow: 0 20px 45px -10px rgba(14, 165, 233, 0.25);
+        }
+
+        .b-stat-glow-bar {
+            position: absolute;
+            top: 0;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+            opacity: 0.8;
+        }
+
+        .b-stat-icon-wrap {
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(37, 99, 235, 0.25) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px auto;
+            color: #38bdf8;
+            font-size: 22px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        .b-stat-card h4 {
+            font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 19px !important;
+            font-weight: 300 !important;
+            color: #ffffff !important;
+            margin: 0 0 8px 0 !important;
+            letter-spacing: 0.3px !important;
+        }
+
+        .b-stat-card p {
+            font-size: 14px;
+            color: #94a3b8;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ========================================================
+           4. BOTTOM BUSINESS CASE BAND (CTA)
+           ======================================================== */
+        .story-band-section {
+            padding: 65px 0 100px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .band-inner {
+            background: linear-gradient(135deg, rgba(6, 10, 32, 0.95) 0%, rgba(11, 22, 62, 0.9) 50%, rgba(6, 9, 30, 0.95) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 32px;
+            padding: 56px 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            box-shadow: 0 25px 65px -10px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .band-inner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #38bdf8, #818cf8, transparent);
+        }
+
+        .band-kicker {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+
+        .band-title {
+            font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif !important;
+            font-size: clamp(30px, 4vw, 44px) !important;
+            line-height: 1.2 !important;
+            font-weight: 200 !important;
+            letter-spacing: 0.5px !important;
+            color: #ffffff !important;
+            margin: 0 0 12px 0 !important;
+        }
+
+        .band-lead {
+            font-size: 16px;
+            line-height: 1.65;
+            color: #94a3b8;
+            margin: 0;
+            max-width: 650px;
+        }
+
+        .band-cta {
+            flex-shrink: 0;
+        }
+
+        .btn-band-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            color: #ffffff !important;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 15.5px;
+            font-weight: 700;
+            border-radius: 999px;
+            text-decoration: none !important;
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            box-shadow: 0 6px 24px rgba(14, 165, 233, 0.4);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-band-action:hover {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 32px rgba(14, 165, 233, 0.55);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .story-container {
+                padding: 0 24px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .benefits-glass-container {
+                padding: 40px 32px;
+            }
+            .band-inner {
+                padding: 45px 40px;
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @media (max-width: 968px) {
-            .kaefer-content-grid {
+        @media (max-width: 991px) {
+            .story-cards-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
             }
-
-            .kaefer-text-content {
-                padding: 35px;
+            .benefits-media-side {
+                margin-top: 36px;
             }
-
-            .kaefer-logo {
-                font-size: 2.8em;
-            }
-
-            .kaefer-stats {
+            .benefits-stats-grid {
                 grid-template-columns: 1fr;
+            }
+            .band-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 40px 30px;
             }
         }
 
-        @media (max-width: 640px) {
-            .kaefer-hero {
-                padding: 50px 0;
+        @media (max-width: 768px) {
+            .story-container {
+                padding: 0 18px;
             }
-
-            .kaefer-text-content {
-                padding: 25px;
+            .story-hero-section {
+                padding: 36px 0 20px;
             }
-
-            .kaefer-logo {
-                font-size: 2.2em;
+            .story-card {
+                padding: 28px 22px;
             }
-
-            .kaefer-title {
-                font-size: 1.8em;
+            .benefits-glass-container {
+                padding: 26px 18px;
             }
-
-            .kaefer-subtitle {
-                font-size: 1.2em;
+            .story-actions-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn-action {
+                text-align: center;
+            }
+            .band-inner {
+                padding: 30px 20px;
+            }
+            .btn-band-action {
+                width: 100%;
+                justify-content: center;
             }
         }
 
@@ -690,7 +1177,7 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
 </head>
 
 <body class="home-main header-fixed">
-    <div class="wrapper page-details">
+    <div class="wrapper page-details kaefer-page-wrapper">
         <div class="preloader">
             <div class="clear-loading loading-effect-2">
                 <span></span>
@@ -761,49 +1248,207 @@ background: linear-gradient(135deg, #051021 0%, #010612 50%, #0d1b3d 100%);
             <span class="arrow-up"></span>
         </button>
 
-        <!-- KAEFER Content Section -->
-        <section class="kaefer-hero">
-            <div class="kaefer-container">
-                <div class="kaefer-header">
-                    <div class="kaefer-logo">KAEFER</div>
-                    <!-- <div class="kaefer-subtitle">Industrial Manufacturing Excellence</div> -->
-                    <div class="kaefer-location">Jubail, Saudi Arabia</div>
+        <!-- 1. HERO SECTION (STACK AT WORK / KAEFER) -->
+        <section class="story-hero-section">
+            <div class="hero-glow-sphere"></div>
+            <div class="story-container">
+                <div class="hero-eyebrow-pill" data-aos="fade-down">
+                    <span class="eyebrow-dot"></span>
+                    <span class="eyebrow-text">STACK at work</span>
+                </div>
+                <h1 class="story-hero-title" data-aos="zoom-in" data-aos-delay="100">KAEFER</h1>
+                <p class="story-hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Put every working hour in project context.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. OPERATIONAL CONTEXT SECTION -->
+        <section class="story-context-section">
+            <div class="story-container">
+                
+                <div class="story-context-header" data-aos="fade-up">
+                    <div class="section-kicker">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Operational context</span>
+                    </div>
+                    <h2 class="context-main-title">Put every working hour in project context.</h2>
+                    <p class="context-lead-text">
+                        Attendance alone does not explain how manpower is distributed across projects or where overtime is building up. Project managers need a view that connects people, allocation and hours.
+                    </p>
+
+                    <div class="story-tags-row">
+                        <span class="story-tag"><i class="fa-solid fa-users-gear"></i> Project/manpower allocation</span>
+                        <span class="story-tag"><i class="fa-solid fa-chart-pie"></i> Project-wise workforce reporting</span>
+                        <span class="story-tag"><i class="fa-solid fa-clock-rotate-left"></i> Working hours and overtime analytics</span>
+                    </div>
                 </div>
 
-                <div class="kaefer-content-grid">
-                    <div class="kaefer-text-content">
-                        <h2 class="kaefer-title">Multi-Site Workforce Productivity Analytics</h2>
-                        
-                        <p class="kaefer-intro">
-                            KAEFER operates across multiple industrial sites in Jubail, each with large teams and complex workflows. Leadership required visibility over workforce performance across all operations.
-                        </p>
-
-                        <div class="kaefer-features">
-                            <p class="kaefer-features-title">STACK Deployment Benefits</p>
-                            <div class="kaefer-feature-item">Real-time productivity analytics across all sites</div>
-                            <div class="kaefer-feature-item">A unified dashboard consolidating distributed workforce data</div>
-                            <div class="kaefer-feature-item">Insights into attendance, contractor performance, and site efficiency</div>
-                            <div class="kaefer-feature-item">Elimination of manual reporting and improved resource allocation</div>
+                <!-- 4-Card Connected Grid -->
+                <div class="story-cards-grid">
+                    
+                    <!-- Card 1 -->
+                    <div class="story-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="story-card-top-accent"></div>
+                        <div class="card-num-tag">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <span>CONNECTED WORKFLOW</span>
                         </div>
-
-                        <p class="kaefer-conclusion">
-                            STACK empowered KAEFER with data-driven decision-making and multi-site operational transparency.
+                        <h3 class="story-card-title">How STACK supports the process</h3>
+                        <p class="story-card-desc">
+                            STACK brings project/manpower allocation, project-wise workforce reporting and hours analysis together so managers can review resource use in context.
                         </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="story-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="story-card-top-accent"></div>
+                        <div class="card-num-tag">
+                            <i class="fa-solid fa-crosshairs"></i>
+                            <span>MANAGEMENT VISIBILITY</span>
+                        </div>
+                        <h3 class="story-card-title">Decisions it can support</h3>
+                        <p class="story-card-desc">
+                            Which projects need resources? Where should overtime be investigated? Does allocation reflect current project demand?
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="story-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="story-card-top-accent"></div>
+                        <div class="card-num-tag">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                            <span>PRODUCTIVITY OPPORTUNITY</span>
+                        </div>
+                        <h3 class="story-card-title">More time for the work that matters</h3>
+                        <p class="story-card-desc">
+                            Less time consolidating project reports can create more time for resource planning. Hours and overtime visibility supports focused discussions rather than broad assumptions.
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="story-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="story-card-top-accent"></div>
+                        <div class="card-num-tag">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>MEASURE THE CHANGE</span>
+                        </div>
+                        <h3 class="story-card-title">Build the business case</h3>
+                        <p class="story-card-desc">
+                            Track report turnaround, time spent consolidating project data and overtime review frequency.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Note / Disclaimer -->
+                <div class="story-note-panel" data-aos="fade-up">
+                    <div class="note-shield-badge">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="note-text-body">
+                        <strong>Application Scope:</strong> Application summary based on the supplied project scope. Productivity benefits are potential outcomes; no measured customer savings or implementation status is asserted here.
                     </div>
                 </div>
 
-                <div class="kaefer-stats">
-                    <div class="kaefer-stat-card">
-                        <div class="kaefer-stat-icon"><i class="fas fa-chart-line"></i></div>
-                        <div class="kaefer-stat-label">Real-Time Analytics</div>
+                <!-- Actions Row -->
+                <div class="story-actions-row" data-aos="fade-up">
+                    <a href="contact.html" class="btn-action primary">
+                        <span>Estimate your reporting cost</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="contact.html" class="btn-action outline">
+                        <span>Discuss a similar workflow</span>
+                    </a>
+                    <a href="vision-mission.html" class="btn-action ghost">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>All customer stories</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. DEPLOYMENT IMPACT & METRICS SECTION -->
+        <section class="story-benefits-section" data-aos="fade-up" style="padding-bottom: 90px;">
+            <div class="story-container">
+                <div class="benefits-glass-container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="benefits-content-side">
+                                <span class="benefits-badge"><i class="fa-solid fa-bolt"></i> DEPLOYMENT IMPACT</span>
+                                <h3 class="benefits-title">Multi-Site Workforce Productivity Analytics</h3>
+                                <p class="benefits-intro">
+                                    Operating across multiple high-throughput industrial sites in Jubail, KAEFER deployed STACK to gain complete visibility over multi-team workforce performance and cross-facility operational productivity.
+                                </p>
+                                <div class="benefits-feature-list">
+                                    <div class="benefit-card-strip">
+                                        <div class="benefit-icon-badge">
+                                            <i class="fa-solid fa-check"></i>
+                                        </div>
+                                        <span class="benefit-strip-text">Real-time productivity analytics across all industrial sites</span>
+                                    </div>
+                                    <div class="benefit-card-strip">
+                                        <div class="benefit-icon-badge">
+                                            <i class="fa-solid fa-check"></i>
+                                        </div>
+                                        <span class="benefit-strip-text">Unified executive dashboard consolidating distributed workforce data</span>
+                                    </div>
+                                    <div class="benefit-card-strip">
+                                        <div class="benefit-icon-badge">
+                                            <i class="fa-solid fa-check"></i>
+                                        </div>
+                                        <span class="benefit-strip-text">Insights into attendance, contractor performance, and site efficiency</span>
+                                    </div>
+                                    <div class="benefit-card-strip">
+                                        <div class="benefit-icon-badge">
+                                            <i class="fa-solid fa-check"></i>
+                                        </div>
+                                        <span class="benefit-strip-text">Elimination of manual reporting and streamlined resource allocation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="benefits-media-side">
+                                <div class="media-ambient-glow"></div>
+                                <div class="media-frame">
+                                    <div class="media-status-pill">
+                                        <span class="media-pulse-dot"></span>
+                                        <span>VERIFIED INDUSTRIAL DEPLOYMENT</span>
+                                    </div>
+                                    <img src="assets/images/layouts/kaefernew.webp" alt="KAEFER Workforce Analytics" class="benefits-img">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="kaefer-stat-card">
-                        <div class="kaefer-stat-icon"><i class="fas fa-building"></i></div>
-                        <div class="kaefer-stat-label">Multi-Site Coverage</div>
-                    </div>
-                    <div class="kaefer-stat-card">
-                        <div class="kaefer-stat-icon"><i class="fas fa-users"></i></div>
-                        <div class="kaefer-stat-label">Workforce Optimization</div>
+
+                    <!-- Stats Row -->
+                    <div class="benefits-stats-grid">
+                        <div class="b-stat-card">
+                            <div class="b-stat-glow-bar"></div>
+                            <div class="b-stat-icon-wrap">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4>Real-Time Analytics</h4>
+                            <p>Live workforce intelligence across Jubail industrial complexes</p>
+                        </div>
+                        <div class="b-stat-card">
+                            <div class="b-stat-glow-bar"></div>
+                            <div class="b-stat-icon-wrap">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h4>Multi-Site Coverage</h4>
+                            <p>Centralized oversight across multiple operational facilities</p>
+                        </div>
+                        <div class="b-stat-card">
+                            <div class="b-stat-glow-bar"></div>
+                            <div class="b-stat-icon-wrap">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>Workforce Optimization</h4>
+                            <p>Granular allocation tracking and overtime containment</p>
+                        </div>
                     </div>
                 </div>
             </div>

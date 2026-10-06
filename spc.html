@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAUST · Jeddah | STACK Case Study</title>
+    <title>SPC | STACK Case Study</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
         }
 
         /* Ambient Background Wrapper */
-        .kaust-page-wrapper {
+        .spc-page-wrapper {
             position: relative;
             background-color: #070A29;
             background-image: 
@@ -64,7 +64,7 @@
         }
 
         /* ========================================================
-           1. HERO SECTION (STACK AT WORK / KAUST)
+           1. HERO SECTION (STACK AT WORK / SPC)
            ======================================================== */
         .story-hero-section {
             padding: 46px 0 26px;
@@ -414,7 +414,7 @@
            3. DEPLOYMENT BENEFITS & METRICS SECTION
            ======================================================== */
         .story-benefits-section {
-            padding: 55px 0 75px;
+            padding: 55px 0 90px;
             position: relative;
             z-index: 2;
         }
@@ -449,7 +449,7 @@
             font-weight: 200 !important;
             letter-spacing: 0.5px !important;
             color: #ffffff !important;
-            margin-bottom: 18px !important;
+            margin-bottom: 18px;
         }
 
         .benefits-intro {
@@ -459,37 +459,34 @@
             margin-bottom: 30px;
         }
 
-        /* Upgraded Capability Strips */
         .benefits-feature-list {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 16px;
         }
 
         .benefit-card-strip {
             display: flex;
             align-items: center;
             gap: 16px;
+            padding: 16px 20px;
             background: rgba(14, 165, 233, 0.04);
             border: 1px solid rgba(56, 189, 248, 0.16);
             border-radius: 16px;
-            padding: 16px 20px;
-            backdrop-filter: blur(10px);
-            transition: all 0.28s ease;
+            transition: all 0.3s ease;
         }
 
         .benefit-card-strip:hover {
             background: rgba(14, 165, 233, 0.1);
-            border-color: rgba(56, 189, 248, 0.45);
-            transform: translateX(8px);
-            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.18);
+            border-color: rgba(56, 189, 248, 0.38);
+            transform: translateX(4px);
         }
 
         .benefit-icon-badge {
-            width: 34px;
-            height: 34px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background: rgba(14, 165, 233, 0.16);
+            background: rgba(14, 165, 233, 0.18);
             border: 1px solid rgba(56, 189, 248, 0.4);
             display: flex;
             align-items: center;
@@ -529,7 +526,11 @@
             overflow: hidden;
             border: 1px solid rgba(56, 189, 248, 0.28);
             box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-            background: #060b28;
+            background: #010a26;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 340px;
         }
 
         .media-status-pill {
@@ -561,7 +562,9 @@
 
         .benefits-img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            min-height: 340px;
+            max-height: 380px;
             display: block;
             object-fit: cover;
             transition: transform 0.6s ease;
@@ -593,10 +596,9 @@
         }
 
         .b-stat-card:hover {
-            transform: translateY(-6px);
-            background: linear-gradient(180deg, rgba(14, 23, 62, 0.8) 0%, rgba(7, 11, 35, 0.95) 100%);
-            border-color: rgba(56, 189, 248, 0.45);
-            box-shadow: 0 20px 45px -10px rgba(14, 165, 233, 0.25);
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.2);
         }
 
         .b-stat-glow-bar {
@@ -610,134 +612,43 @@
         }
 
         .b-stat-icon-wrap {
-            width: 58px;
-            height: 58px;
-            border-radius: 18px;
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(37, 99, 235, 0.25) 100%);
-            border: 1px solid rgba(56, 189, 248, 0.35);
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: rgba(14, 165, 233, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.28);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 18px auto;
             color: #38bdf8;
             font-size: 22px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 16px rgba(14, 165, 233, 0.25);
         }
 
         .b-stat-card h4 {
             font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif !important;
-            font-size: 19px !important;
+            font-size: 20px !important;
             font-weight: 300 !important;
-            color: #ffffff !important;
-            margin: 0 0 8px 0 !important;
             letter-spacing: 0.3px !important;
+            color: #ffffff !important;
+            margin-bottom: 8px;
         }
 
         .b-stat-card p {
-            font-size: 14px;
-            color: #94a3b8;
-            margin: 0;
+            font-size: 13.5px;
             line-height: 1.6;
-        }
-
-        /* ========================================================
-           4. BOTTOM BUSINESS CASE BAND (CTA)
-           ======================================================== */
-        .story-band-section {
-            padding: 65px 0 100px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .band-inner {
-            background: linear-gradient(135deg, rgba(6, 10, 32, 0.95) 0%, rgba(11, 22, 62, 0.9) 50%, rgba(6, 9, 30, 0.95) 100%);
-            border: 1px solid rgba(56, 189, 248, 0.25);
-            border-radius: 32px;
-            padding: 56px 68px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            box-shadow: 0 25px 65px -10px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .band-inner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 15%;
-            right: 15%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #38bdf8, #818cf8, transparent);
-        }
-
-        .band-kicker {
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: #38bdf8;
-            margin-bottom: 12px;
-        }
-
-        .band-title {
-            font-family: 'Roboto', 'Plus Jakarta Sans', sans-serif !important;
-            font-size: clamp(30px, 4vw, 44px) !important;
-            line-height: 1.2 !important;
-            font-weight: 200 !important;
-            letter-spacing: 0.5px !important;
-            color: #ffffff !important;
-            margin: 0 0 12px 0 !important;
-        }
-
-        .band-lead {
-            font-size: 16px;
-            line-height: 1.65;
             color: #94a3b8;
             margin: 0;
-            max-width: 650px;
         }
 
-        .band-cta {
-            flex-shrink: 0;
-        }
-
-        .btn-band-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 36px;
-            background: linear-gradient(135deg, #0284c7, #0369a1);
-            color: #ffffff !important;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 15.5px;
-            font-weight: 700;
-            border-radius: 999px;
-            text-decoration: none !important;
-            border: 1px solid rgba(56, 189, 248, 0.45);
-            box-shadow: 0 6px 24px rgba(14, 165, 233, 0.4);
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .btn-band-action:hover {
-            background: linear-gradient(135deg, #0ea5e9, #0284c7);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 32px rgba(14, 165, 233, 0.55);
-        }
-
-        /* Responsive Breakpoints */
+        /* Responsive overrides */
         @media (max-width: 1200px) {
             .story-container {
                 padding: 0 24px;
             }
             .benefits-glass-container {
                 padding: 40px 32px;
-            }
-            .band-inner {
-                padding: 45px 40px;
             }
         }
 
@@ -750,11 +661,6 @@
             }
             .benefits-stats-grid {
                 grid-template-columns: 1fr;
-            }
-            .band-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 40px 30px;
             }
         }
 
@@ -777,13 +683,6 @@
             }
             .btn-action {
                 text-align: center;
-            }
-            .band-inner {
-                padding: 30px 20px;
-            }
-            .btn-band-action {
-                width: 100%;
-                justify-content: center;
             }
         }
 
@@ -825,8 +724,8 @@
         .footer-column {
             flex: 1;
             padding: 0 15px;
-            min-width: 250px;
             margin-bottom: 30px;
+            min-width: 250px;
         }
 
         .footer-column h4 {
@@ -834,17 +733,24 @@
             font-size: 18px;
             margin-bottom: 20px;
             position: relative;
-            padding-bottom: 10px;
         }
 
-        .footer-column h4:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, #8065e0, #6366f1);
+        .footer-column p {
+            color: #b4b7c9;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #8065e0;
         }
 
         .footer-links {
@@ -854,64 +760,38 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
             color: #b4b7c9;
             text-decoration: none;
+            font-size: 14px;
             transition: all 0.3s ease;
-            display: inline-block;
         }
 
         .footer-links a:hover {
             color: #fff;
-            transform: translateX(5px);
+            padding-left: 5px;
         }
 
-        .contact-info {
-            margin-bottom: 20px;
-        }
-
-        .contact-info p {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            color: #b4b7c9;
-            font-size: 15px;
-        }
-
-        .contact-info i {
-            margin-right: 10px;
-            color: #6366f1;
-            width: 16px;
-            text-align: center;
-        }
-
-        .newsletter-form {
-            margin-top: 15px;
-        }
-
-        .form-group {
-            position: relative;
+        .newsletter-form .form-group {
             margin-bottom: 15px;
         }
 
-        .form-control {
+        .newsletter-form .form-control {
+            width: 100%;
+            padding: 12px 15px;
             background-color: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 30px;
-            height: 46px;
-            padding: 0 20px;
-            width: 100%;
             color: #fff;
-            transition: all 0.3s ease;
+            font-size: 14px;
         }
 
-        .form-control:focus {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
+        .newsletter-form .form-control:focus {
             outline: none;
+            border-color: #8065e0;
         }
 
         .action-btn {
@@ -920,9 +800,11 @@
             border-radius: 30px;
             color: #fff;
             cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
             font-weight: 600;
-            height: 46px;
-            padding: 0 30px;
+            padding: 12px 30px;
+            text-align: center;
             transition: all 0.3s ease;
         }
 
@@ -933,9 +815,9 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 30px;
+            margin-top: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -945,14 +827,13 @@
         .copyright {
             color: #b4b7c9;
             font-size: 14px;
-            margin: 10px 0;
         }
 
         .social-icons {
             display: flex;
             list-style: none;
             padding: 0;
-            margin: 10px 0;
+            margin: 0;
         }
 
         .social-icons li {
@@ -965,13 +846,15 @@
             justify-content: center;
             width: 36px;
             height: 36px;
-            background-color: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #b4b7c9;
             transition: all 0.3s ease;
         }
 
         .social-icons a:hover {
-            background-color: rgba(99, 102, 241, 0.8);
+            background-color: #8065e0;
+            color: #fff;
             transform: translateY(-3px);
         }
 
@@ -1133,7 +1016,7 @@
 </head>
 
 <body class="home-main header-fixed">
-    <div class="wrapper page-details kaust-page-wrapper">
+    <div class="wrapper page-details spc-page-wrapper">
         <div class="preloader">
             <div class="clear-loading loading-effect-2">
                 <span></span>
@@ -1148,7 +1031,7 @@
                         <div class="header__body">
                             <div class="header__logo">
                                 <a href="index.html">
-                                    <img id="site-logo" src="assets/images/logo/stackfooternew.png" alt="Peson" width="120"
+                                    <img id="site-logo" src="assets/images/logo/stackfooternew.png" alt="STACK" width="120"
                                         height="45" data-retina="assets/images/logo/logo@2x.png" data-width="120"
                                         data-height="38">
                                 </a>
@@ -1195,7 +1078,7 @@
             <span class="arrow-up"></span>
         </button>
 
-        <!-- 1. HERO SECTION (STACK AT WORK / KAUST) -->
+        <!-- 1. HERO SECTION (STACK AT WORK / SPC) -->
         <section class="story-hero-section">
             <div class="hero-glow-sphere"></div>
             <div class="story-container">
@@ -1203,9 +1086,9 @@
                     <span class="eyebrow-dot"></span>
                     <span class="eyebrow-text">STACK at work</span>
                 </div>
-                <h1 class="story-hero-title" data-aos="zoom-in" data-aos-delay="100">KAUST · Jeddah</h1>
+                <h1 class="story-hero-title" data-aos="zoom-in" data-aos-delay="100">SPC</h1>
                 <p class="story-hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-                    Turn headcount into operational awareness.
+                    Make attendance flow into payroll.
                 </p>
             </div>
         </section>
@@ -1219,15 +1102,15 @@
                         <i class="fa-solid fa-layer-group"></i>
                         <span>Operational context</span>
                     </div>
-                    <h2 class="context-main-title">Turn headcount into operational awareness.</h2>
+                    <h2 class="context-main-title">Make attendance flow into payroll.</h2>
                     <p class="context-lead-text">
-                        Facility decisions depend on understanding who is inside. Static reports may not provide the current operational picture needed for occupancy planning.
+                        Payroll preparation can involve extracting attendance, checking timesheets, collecting approvals and transferring validated information. Every handoff adds administrative effort.
                     </p>
 
                     <div class="story-tags-row">
-                        <span class="story-tag"><i class="fa-solid fa-id-card-clip"></i> Visitor management</span>
-                        <span class="story-tag"><i class="fa-solid fa-users-viewfinder"></i> Real-time employee/visitor headcount</span>
-                        <span class="story-tag"><i class="fa-solid fa-chart-pie"></i> Occupancy insights</span>
+                        <span class="story-tag"><i class="fas fa-network-wired"></i> SAP/Matrix integration</span>
+                        <span class="story-tag"><i class="fa-solid fa-calendar-check"></i> Timesheet validation and approval</span>
+                        <span class="story-tag"><i class="fa-solid fa-file-invoice-dollar"></i> Payroll integration</span>
                     </div>
                 </div>
 
@@ -1243,7 +1126,7 @@
                         </div>
                         <h3 class="story-card-title">How STACK supports the process</h3>
                         <p class="story-card-desc">
-                            STACK combines visitor management with real-time employee and visitor headcount and occupancy insights, subject to connected source data and its update timing.
+                            STACK connects Matrix attendance and SAP with timesheet validation, approval and payroll integration, supporting a more connected preparation workflow.
                         </p>
                     </div>
 
@@ -1256,7 +1139,7 @@
                         </div>
                         <h3 class="story-card-title">Decisions it can support</h3>
                         <p class="story-card-desc">
-                            What is the current occupancy picture? Where does facility demand need attention?
+                            Which timesheets are pending approval? Which records need validation before payroll processing?
                         </p>
                     </div>
 
@@ -1269,7 +1152,7 @@
                         </div>
                         <h3 class="story-card-title">More time for the work that matters</h3>
                         <p class="story-card-desc">
-                            Bringing headcount together can reduce repeated queries across separate systems and help teams respond with shared information.
+                            Connected validation and approval can reduce repetitive transfer and make outstanding work easier to identify. Payroll accuracy still depends on agreed rules and source data.
                         </p>
                     </div>
 
@@ -1282,7 +1165,7 @@
                         </div>
                         <h3 class="story-card-title">Build the business case</h3>
                         <p class="story-card-desc">
-                            Measure time to obtain a consolidated headcount and the freshness and completeness of source data.
+                            Track preparation hours, approval turnaround and the number of records requiring manual correction.
                         </p>
                     </div>
 
@@ -1317,41 +1200,41 @@
         </section>
 
         <!-- 3. DEPLOYMENT IMPACT & METRICS SECTION -->
-        <section class="story-benefits-section" data-aos="fade-up" style="padding-bottom: 90px;">
+        <section class="story-benefits-section" data-aos="fade-up">
             <div class="story-container">
                 <div class="benefits-glass-container">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="benefits-content-side">
                                 <span class="benefits-badge"><i class="fa-solid fa-bolt"></i> DEPLOYMENT IMPACT</span>
-                                <h3 class="benefits-title">Research Campus Headcount & Lab Access Intelligence</h3>
+                                <h3 class="benefits-title">Industrial Enterprise Workforce & Payroll Automation</h3>
                                 <p class="benefits-intro">
-                                    At King Abdullah University of Science and Technology (KAUST), STACK delivers continuous situational awareness and lab occupancy intelligence across advanced, sensitive research environments.
+                                    At SPC, STACK bridges Matrix attendance biometric hardware with enterprise SAP, streamlining timesheet reviews and automating the delivery of validated workforce records into payroll cycles.
                                 </p>
                                 <div class="benefits-feature-list">
                                     <div class="benefit-card-strip">
                                         <div class="benefit-icon-badge">
                                             <i class="fa-solid fa-check"></i>
                                         </div>
-                                        <span class="benefit-strip-text">Real-time headcount tracking across laboratories and critical zones</span>
+                                        <span class="benefit-strip-text">Automated Matrix attendance synchronization with enterprise SAP</span>
                                     </div>
                                     <div class="benefit-card-strip">
                                         <div class="benefit-icon-badge">
                                             <i class="fa-solid fa-check"></i>
                                         </div>
-                                        <span class="benefit-strip-text">End-to-end visibility of employees, consultants, and authorized visitors</span>
+                                        <span class="benefit-strip-text">Streamlined timesheet validation eliminating manual administrative handoffs</span>
                                     </div>
                                     <div class="benefit-card-strip">
                                         <div class="benefit-icon-badge">
                                             <i class="fa-solid fa-check"></i>
                                         </div>
-                                        <span class="benefit-strip-text">Faster emergency response through instant roll-call & muster intelligence</span>
+                                        <span class="benefit-strip-text">Accelerated multi-tier manager approval workflows with transparent tracking</span>
                                     </div>
                                     <div class="benefit-card-strip">
                                         <div class="benefit-icon-badge">
                                             <i class="fa-solid fa-check"></i>
                                         </div>
-                                        <span class="benefit-strip-text">A unified, accurate source of truth for campus-wide people movement</span>
+                                        <span class="benefit-strip-text">Direct payroll handoff reducing error-prone data re-entry and cycle delays</span>
                                     </div>
                                 </div>
                             </div>
@@ -1362,9 +1245,9 @@
                                 <div class="media-frame">
                                     <div class="media-status-pill">
                                         <span class="media-pulse-dot"></span>
-                                        <span>CONFIDENTIAL RESEARCH LABS</span>
+                                        <span>INDUSTRIAL PAYROLL DEPLOYMENT</span>
                                     </div>
-                                    <img src="assets/images/layouts/blue6.webp" alt="KAUST Research Lab Intelligence" class="benefits-img">
+                                    <img src="assets/images/layouts/spc.png" alt="SPC Enterprise Payroll Deployment" class="benefits-img">
                                 </div>
                             </div>
                         </div>
@@ -1375,26 +1258,26 @@
                         <div class="b-stat-card">
                             <div class="b-stat-glow-bar"></div>
                             <div class="b-stat-icon-wrap">
-                                <i class="fa-solid fa-user-clock"></i>
+                                <i class="fas fa-network-wired"></i>
                             </div>
-                            <h4>Real-Time Headcount</h4>
-                            <p>Continuous occupancy & personnel tracking across high-containment labs</p>
+                            <h4>SAP & Matrix Sync</h4>
+                            <p>Unified pipeline syncing biometric access records directly into enterprise SAP without manual export cycles</p>
                         </div>
                         <div class="b-stat-card">
                             <div class="b-stat-glow-bar"></div>
                             <div class="b-stat-icon-wrap">
-                                <i class="fa-solid fa-fingerprint"></i>
+                                <i class="fa-solid fa-clipboard-check"></i>
                             </div>
-                            <h4>Biometric Access Intelligence</h4>
-                            <p>Frictionless credential verification across secure campus zones</p>
+                            <h4>Timesheet Governance</h4>
+                            <p>Automated validation checks highlight pending approvals and eliminate administrative backlog</p>
                         </div>
                         <div class="b-stat-card">
                             <div class="b-stat-glow-bar"></div>
                             <div class="b-stat-icon-wrap">
-                                <i class="fas fa-shield-alt"></i>
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
                             </div>
-                            <h4>Emergency Roll-Call Readiness</h4>
-                            <p>Instant muster list generation for rapid evacuation protocols</p>
+                            <h4>Payroll Automation</h4>
+                            <p>Direct handoff of verified records into payroll processing, preventing manual entry bottlenecks</p>
                         </div>
                     </div>
                 </div>
